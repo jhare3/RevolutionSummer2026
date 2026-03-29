@@ -1,0 +1,111 @@
+[
+  {
+    "week": 1,
+    "date": "Sunday, March 29",
+    "location": "Edmunds Middle School",
+    "games": [
+      { "time": "8:00 AM", "matchup": "TAN vs YELLOW" },
+      { "time": "9:00 AM", "matchup": "PURPLE vs BLUE" },
+      { "time": "10:00 AM", "matchup": "GRAY vs WHITE" },
+      { "time": "11:00 AM", "matchup": "BLACK vs PINK" },
+      { "time": "12:00 PM", "matchup": "GREEN vs RED" }
+    ],
+    "bye": "ORANGE"
+  },
+  {
+    "week": 2,
+    "date": "Sunday, April 5",
+    "location": "Edmunds Middle School",
+    "games": [
+      { "time": "8:00 AM", "matchup": "GREEN vs BLUE" },
+      { "time": "9:00 AM", "matchup": "WHITE vs BLACK" },
+      { "time": "10:00 AM", "matchup": "ORANGE vs PINK" },
+      { "time": "11:00 AM", "matchup": "YELLOW vs PURPLE" },
+      { "time": "12:00 PM", "matchup": "RED vs TAN" }
+    ],
+    "bye": "GRAY"
+  },
+  {
+    "week": 3,
+    "date": "Sunday, April 19",
+    "location": "Edmunds Middle School",
+    "games": [
+      { "time": "8:00 AM", "matchup": "ORANGE vs BLACK" },
+      { "time": "9:00 AM", "matchup": "PINK vs WHITE" },
+      { "time": "10:00 AM", "matchup": "BLUE vs GRAY" },
+      { "time": "11:00 AM", "matchup": "RED vs YELLOW" },
+      { "time": "12:00 PM", "matchup": "TAN vs GREEN" }
+    ],
+    "bye": "PURPLE"
+  },
+  {
+    "week": 4,
+    "date": "Sunday, April 26",
+    "location": "Edmunds Middle School",
+    "games": [
+      { "time": "8:00 AM", "matchup": "WHITE vs TAN" },
+      { "time": "9:00 AM", "matchup": "GRAY vs ORANGE" },
+      { "time": "10:00 AM", "matchup": "RED vs PINK" },
+      { "time": "11:00 AM", "matchup": "PURPLE vs BLUE" },
+      { "time": "12:00 PM", "matchup": "YELLOW vs BLACK" }
+    ],
+    "bye": "GREEN"
+  },
+  {
+    "week": 5,
+    "date": "Sunday, May 3",
+    "location": "Edmunds Middle School",
+    "games": [
+      { "time": "8:00 AM", "matchup": "PURPLE vs WHITE" },
+      { "time": "9:00 AM", "matchup": "GREEN vs PINK" },
+      { "time": "10:00 AM", "matchup": "YELLOW vs PURPLE" },
+      { "time": "11:00 AM", "matchup": "RED vs WHITE" },
+      { "time": "12:00 PM", "matchup": "GREEN vs GRAY" },
+      { "time": "1:00 PM", "matchup": "YELLOW vs ORANGE" },
+      { "time": "2:00 PM", "matchup": "BLACK vs RED" },
+      { "time": "3:00 PM", "matchup": "BLUE vs ORANGE" },
+      { "time": "4:00 PM", "matchup": "TAN vs GRAY" },
+      { "time": "5:00 PM", "matchup": "BLACK vs BLUE" }
+    ],
+    "bye": "PINK, TAN (One game)"
+  },
+  {
+    "week": 6,
+    "date": "Sunday, May 10",
+    "location": "Edmunds Middle School",
+    "games": [
+      { "time": "8:00 AM", "matchup": "TAN vs BLACK" },
+      { "time": "9:00 AM", "matchup": "ORANGE vs GREEN" },
+      { "time": "10:00 AM", "matchup": "YELLOW vs WHITE" },
+      { "time": "11:00 AM", "matchup": "PINK vs BLUE" },
+      { "time": "12:00 PM", "matchup": "GRAY vs RED" }
+    ],
+    "bye": "PURPLE"
+  },
+  {
+    "week": 7,
+    "date": "Sunday, May 17",
+    "location": "Edmunds Middle School",
+    "games": [
+      { "time": "8:00 AM", "matchup": "ORANGE vs YELLOW" },
+      { "time": "9:00 AM", "matchup": "PINK vs TAN" },
+      { "time": "10:00 AM", "matchup": "PURPLE vs GRAY" },
+      { "time": "11:00 AM", "matchup": "BLUE vs RED" },
+      { "time": "12:00 PM", "matchup": "GREEN vs BLACK" }
+    ],
+    "bye": "WHITE"
+  },
+  {
+    "week": 8,
+    "date": "Sunday, May 31",
+    "location": "Edmunds Middle School",
+    "games": [
+      { "time": "8:00 AM", "matchup": "GRAY vs PINK" },
+      { "time": "9:00 AM", "matchup": "WHITE vs GREEN" },
+      { "time": "10:00 AM", "matchup": "RED vs PURPLE" },
+      { "time": "11:00 AM", "matchup": "BLUE vs YELLOW" },
+      { "time": "12:00 PM", "matchup": "BLACK vs ORANGE" }
+    ],
+    "bye": "TAN"
+  }
+]

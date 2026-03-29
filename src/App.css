@@ -1,0 +1,66 @@
+:root {
+  --rev-dark: #121212;
+  --rev-blue: #007bff;
+  --rev-gray: #1e1e1e;
+  --rev-text: #e0e0e0;
+}
+
+body {
+  background-color: var(--rev-dark);
+  color: var(--rev-text);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Original Navbar Styling */
+.navbar {
+  background-color: #000 !important;
+  border-bottom: 2px solid var(--rev-blue);
+}
+
+/* Page Headers */
+.page-header {
+  color: var(--rev-blue);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Custom Card Styling - Matching the original 'Card' look */
+.rev-card {
+  background-color: var(--rev-gray) !important;
+  border: 1px solid #333 !important;
+  color: white !important;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rev-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Team Border Colors (Source: Original App) */
+.team-header-green { border-top: 5px solid #28a745 !important; }
+.team-header-red { border-top: 5px solid #dc3545 !important; }
+.team-header-blue { border-top: 5px solid #007bff !important; }
+.team-header-yellow { border-top: 5px solid #ffc107 !important; }
+.team-header-tan { border-top: 5px solid #d2b48c !important; }
+.team-header-pink { border-top: 5px solid #e83e8c !important; }
+.team-header-black { border-top: 5px solid #000 !important; }
+.team-header-gray { border-top: 5px solid #6c757d !important; }
+.team-header-orange { border-top: 5px solid #fd7e14 !important; }
+.team-header-purple { border-top: 5px solid #6f42c1 !important; }
+
+/* Box Score/Schedule Table Styles */
+.table {
+  color: var(--rev-text) !important;
+}
+
+.table-dark {
+  background-color: var(--rev-gray) !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.1) !important;
+  cursor: pointer;
+}
