@@ -13,24 +13,25 @@
   --rev-hover-shadow: 0 20px 40px rgba(220, 53, 69, 0.12);
 }
 
-body {
+html, body {
   background-color: var(--rev-bg);
   color: var(--rev-text);
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
-/* Ensure no Bootstrap container caps the width at the app root level */
 #root,
-.App {
+.app-shell {
   width: 100%;
   max-width: 100%;
+  overflow-x: hidden;
 }
 
-/* ─── Page Headers ─── */
+/* â”€â”€â”€ Page Headers â”€â”€â”€ */
 .page-header {
   font-size: 1.75rem;
   font-weight: 900;
@@ -44,7 +45,7 @@ body {
   text-shadow: none;
 }
 
-/* ─── Cards ─── */
+/* â”€â”€â”€ Cards â”€â”€â”€ */
 .rev-card {
   background-color: var(--rev-white) !important;
   border: 1px solid var(--rev-border) !important;
@@ -78,7 +79,7 @@ body {
   margin: 0;
 }
 
-/* ─── Team Border Colors ─── */
+/* â”€â”€â”€ Team Border Colors â”€â”€â”€ */
 .team-header-green  { border-top: 5px solid #28a745 !important; }
 .team-header-red    { border-top: 5px solid var(--rev-red) !important; }
 .team-header-blue   { border-top: 5px solid #007bff !important; }
@@ -90,7 +91,7 @@ body {
 .team-header-orange { border-top: 5px solid #fd7e14 !important; }
 .team-header-purple { border-top: 5px solid #6f42c1 !important; }
 
-/* ─── Tables ─── */
+/* â”€â”€â”€ Tables â”€â”€â”€ */
 .table {
   color: var(--rev-text) !important;
 }
@@ -131,7 +132,7 @@ body {
   border-color: var(--rev-border) !important;
 }
 
-/* ─── Badges ─── */
+/* â”€â”€â”€ Badges â”€â”€â”€ */
 .week-badge {
   background: var(--rev-red) !important;
   color: white !important;
@@ -142,7 +143,7 @@ body {
   border-radius: 100px;
 }
 
-/* ─── Buttons ─── */
+/* â”€â”€â”€ Buttons â”€â”€â”€ */
 .btn-primary {
   background-color: var(--rev-dark) !important;
   border-color: var(--rev-dark) !important;
@@ -181,7 +182,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* ─── Schedule specific ─── */
+/* â”€â”€â”€ Schedule specific â”€â”€â”€ */
 .custom-schedule-table td,
 .custom-schedule-table th {
   color: var(--rev-text) !important;
@@ -198,7 +199,7 @@ body {
   color: var(--rev-red) !important;
 }
 
-/* ─── Form controls ─── */
+/* â”€â”€â”€ Form controls â”€â”€â”€ */
 .form-select,
 .form-control {
   border-radius: 8px;
