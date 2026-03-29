@@ -1,63 +1,115 @@
-import React, { useMemo } from 'react';
-import { Container, Table } from 'react-bootstrap';
-import teamsData from '../data/teams.json';
-// import boxscoresData from '../data/boxscores.json';
+import React, { useMemo, useState } from 'react';
+import rosterData from '../data/players.json';
+import { calculateStandings } from '../utils/standingsEngine';
+
+const gameFiles = import.meta.glob('../data/boxscores/*.json', { eager: true });
 
 const Standings = () => {
-  const boxscoresData = []; // Placeholder
+  // 1. New state for interactive sorting
+  const [sortConfig, setSortConfig] = useState({ key: 'W', direction: 'desc' });
 
-  const standings = useMemo(() => {
-    // Flatten the teams from conferences into one list
-    const allTeams = [...teamsData.EASTERN, ...teamsData.WESTERN];
+  const standingsData = useMemo(() => {
+    const rawStandings = calculateStandings(gameFiles, rosterData);
     
-    const stats = allTeams.reduce((acc, team) => {
-      acc[team] = {
-        teamName: team,
-        wins: 0, losses: 0, gp: 0,
-        pts: 0, reb: 0, ast: 0,
-        pa: 0 // Points Against
+    let items = rawStandings.map(t => {
+      const gp = t.W + t.L;
+      return {
+        ...t,
+        PCT: gp > 0 ? (t.W / gp).toFixed(3) : ".000",
+        DIFF: t.PF - t.PA
       };
-      return acc;
-    }, {});
+    });
 
-    // Logic to process boxscoresData goes here (same as before)
+    // 2. Interactive Sort Logic
+    items.sort((a, b) => {
+      let aVal = a[sortConfig.key];
+      let bVal = b[sortConfig.key];
 
-    return Object.values(stats).map(s => ({
-      ...s,
-      winPct: s.gp > 0 ? (s.wins / s.gp).toFixed(3) : ".000",
-      avgScore: s.gp > 0 ? (s.pts / s.gp).toFixed(1) : "0.0",
-      diff: s.pts - s.pa
-    })).sort((a, b) => b.winPct - a.winPct || b.diff - a.diff);
-  }, [boxscoresData]);
+      // Handle PCT as a float for proper sorting
+      if (sortConfig.key === 'PCT') {
+        aVal = parseFloat(aVal);
+        bVal = parseFloat(bVal);
+      }
+
+      if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
+      if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
+      
+      // Secondary sort: always fall back to DIFF if the primary key is tied
+      return b.DIFF - a.DIFF;
+    });
+
+    return items;
+  }, [sortConfig]);
+
+  // 3. Click Handler
+  const requestSort = (key) => {
+    let direction = 'desc';
+    if (sortConfig.key === key && sortConfig.direction === 'desc') {
+      direction = 'asc';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const renderTable = (title, teams) => (
+    <div className="mb-5">
+      <h3 style={confHeaderStyle}>{title} CONFERENCE</h3>
+      <div style={tableWrapper}>
+        <table className="table table-hover mb-0" style={{ fontSize: '15px' }}>
+          <thead style={{ backgroundColor: '#111', color: '#fff' }}>
+            <tr>
+              <th style={thStyleLeft}>TEAM</th>
+              {/* Added onClick and dynamic arrows to headers */}
+              {['W', 'L', 'PCT', 'PF', 'PA', 'DIFF'].map((col) => (
+                <th 
+                  key={col}
+                  onClick={() => requestSort(col)} 
+                  style={{ ...thStyle, cursor: 'pointer', color: sortConfig.key === col ? '#ff4d4d' : '#fff' }}
+                >
+                  {col} {sortConfig.key === col ? (sortConfig.direction === 'desc' ? '▼' : '▲') : ''}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {teams.map((t, idx) => (
+              <tr key={t.name} style={{ backgroundColor: idx % 2 === 0 ? '#fff' : '#fcfcfc' }}>
+                <td style={teamNameStyle}>{t.name}</td>
+                <td style={tdStyle}>{t.W}</td>
+                <td style={tdStyle}>{t.L}</td>
+                <td style={pctStyle}>{t.PCT}</td>
+                <td style={tdStyle}>{t.PF}</td>
+                <td style={tdStyle}>{t.PA}</td>
+                <td style={{ 
+                  ...tdStyle, 
+                  fontWeight: '900', 
+                  color: t.DIFF > 0 ? '#28a745' : t.DIFF < 0 ? '#dc3545' : '#222' 
+                }}>
+                  {t.DIFF > 0 ? `+${t.DIFF}` : t.DIFF}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 
   return (
-    <Container className="mt-5 pt-4">
-      <h1 className="text-center mb-4 fw-bold">LEAGUE STANDINGS</h1>
-      <Table responsive hover variant="dark" className="text-center shadow">
-        <thead>
-          <tr style={{ borderBottom: '3px solid #ed1c24' }}>
-            <th className="text-start">TEAM</th>
-            <th>W</th><th>L</th><th>%</th><th>GP</th><th>PPG</th><th>+/-</th>
-          </tr>
-        </thead>
-        <tbody>
-          {standings.map((row, idx) => (
-            <tr key={idx}>
-              <td className="text-start fw-bold" style={{ color: '#ed1c24' }}>{row.teamName}</td>
-              <td>{row.wins}</td>
-              <td>{row.losses}</td>
-              <td>{row.winPct}</td>
-              <td>{row.gp}</td>
-              <td>{row.avgScore}</td>
-              <td style={{ color: row.diff > 0 ? '#00ff00' : row.diff < 0 ? '#ff4444' : 'white' }}>
-                {row.diff > 0 ? `+${row.diff}` : row.diff}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </Container>
+    <div className="container py-5" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <h1 className="text-center fw-black mb-5" style={{ letterSpacing: '-2px', fontSize: '3rem' }}>STANDINGS</h1>
+      {renderTable('EASTERN', standingsData.filter(t => t.conference === 'EASTERN'))}
+      {renderTable('WESTERN', standingsData.filter(t => t.conference === 'WESTERN'))}
+    </div>
   );
 };
+
+// --- STYLES ---
+const confHeaderStyle = { fontWeight: '900', color: '#ff4d4d', borderBottom: '4px solid #111', paddingBottom: '8px', marginBottom: '20px' };
+const tableWrapper = { borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', border: '1px solid #eee' };
+const thStyle = { padding: '15px', textAlign: 'center', fontSize: '12px', fontWeight: '800' };
+const thStyleLeft = { ...thStyle, textAlign: 'left', paddingLeft: '25px' };
+const tdStyle = { padding: '15px', textAlign: 'center', verticalAlign: 'middle' };
+const teamNameStyle = { ...tdStyle, textAlign: 'left', paddingLeft: '25px', fontWeight: '900' };
+const pctStyle = { ...tdStyle, color: '#666' };
 
 export default Standings;
