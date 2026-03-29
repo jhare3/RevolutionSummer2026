@@ -1,66 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&display=swap');
+
 :root {
-  --rev-dark: #121212;
-  --rev-blue: #007bff;
-  --rev-gray: #1e1e1e;
-  --rev-text: #e0e0e0;
+  --rev-red: #ff4d4d;
+  --rev-red-dark: #dc3545;
+  --rev-dark: #1a1a1a;
+  --rev-white: #ffffff;
+  --rev-bg: #ffffff;
+  --rev-text: #1a1a1a;
+  --rev-muted: #6c757d;
+  --rev-border: #eeeeee;
+  --rev-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --rev-hover-shadow: 0 20px 40px rgba(220, 53, 69, 0.12);
 }
 
 body {
-  background-color: var(--rev-dark);
+  background-color: var(--rev-bg);
   color: var(--rev-text);
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* Original Navbar Styling */
-.navbar {
-  background-color: #000 !important;
-  border-bottom: 2px solid var(--rev-blue);
+/* Ensure no Bootstrap container caps the width at the app root level */
+#root,
+.App {
+  width: 100%;
+  max-width: 100%;
 }
 
-/* Page Headers */
+/* ─── Page Headers ─── */
 .page-header {
-  color: var(--rev-blue);
+  font-size: 1.75rem;
+  font-weight: 900;
   text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  font-style: italic;
+  color: var(--rev-dark);
+  margin-bottom: 2rem;
+  border-bottom: 4px solid var(--rev-red);
+  display: inline-block;
+  padding-bottom: 5px;
+  text-shadow: none;
 }
 
-/* Custom Card Styling - Matching the original 'Card' look */
+/* ─── Cards ─── */
 .rev-card {
-  background-color: var(--rev-gray) !important;
-  border: 1px solid #333 !important;
-  color: white !important;
-  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: var(--rev-white) !important;
+  border: 1px solid var(--rev-border) !important;
+  border-radius: 1.75rem !important;
+  color: var(--rev-text) !important;
+  box-shadow: var(--rev-card-shadow);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border 0.3s ease;
+  overflow: hidden;
 }
 
 .rev-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+  transform: translateY(-8px);
+  box-shadow: var(--rev-hover-shadow);
+  border: 1px solid rgba(220, 53, 69, 0.15) !important;
 }
 
-/* Team Border Colors (Source: Original App) */
-.team-header-green { border-top: 5px solid #28a745 !important; }
-.team-header-red { border-top: 5px solid #dc3545 !important; }
-.team-header-blue { border-top: 5px solid #007bff !important; }
+/* Card Headers (Week headers in Schedule, etc.) */
+.rev-card .card-header {
+  background: var(--rev-dark) !important;
+  border-bottom: 2px solid var(--rev-red) !important;
+  color: var(--rev-white) !important;
+  padding: 1rem 1.5rem;
+}
+
+.rev-card .card-header h3 {
+  color: var(--rev-red) !important;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* ─── Team Border Colors ─── */
+.team-header-green  { border-top: 5px solid #28a745 !important; }
+.team-header-red    { border-top: 5px solid var(--rev-red) !important; }
+.team-header-blue   { border-top: 5px solid #007bff !important; }
 .team-header-yellow { border-top: 5px solid #ffc107 !important; }
-.team-header-tan { border-top: 5px solid #d2b48c !important; }
-.team-header-pink { border-top: 5px solid #e83e8c !important; }
-.team-header-black { border-top: 5px solid #000 !important; }
-.team-header-gray { border-top: 5px solid #6c757d !important; }
+.team-header-tan    { border-top: 5px solid #d2b48c !important; }
+.team-header-pink   { border-top: 5px solid #e83e8c !important; }
+.team-header-black  { border-top: 5px solid var(--rev-dark) !important; }
+.team-header-gray   { border-top: 5px solid #6c757d !important; }
 .team-header-orange { border-top: 5px solid #fd7e14 !important; }
 .team-header-purple { border-top: 5px solid #6f42c1 !important; }
 
-/* Box Score/Schedule Table Styles */
+/* ─── Tables ─── */
 .table {
   color: var(--rev-text) !important;
 }
 
-.table-dark {
-  background-color: var(--rev-gray) !important;
+.table thead th {
+  background: #f8f9fa !important;
+  color: var(--rev-dark) !important;
+  font-weight: 800;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid #dee2e6 !important;
+  white-space: nowrap;
 }
 
 .table-hover tbody tr:hover {
-  background-color: rgba(0, 123, 255, 0.1) !important;
+  background-color: #fff5f5 !important;
   cursor: pointer;
+}
+
+/* Override dark table variant used in Schedule */
+.table-dark,
+.table[data-bs-theme="dark"] {
+  --bs-table-bg: var(--rev-white) !important;
+  --bs-table-color: var(--rev-text) !important;
+  --bs-table-border-color: var(--rev-border) !important;
+  --bs-table-hover-bg: #fff5f5 !important;
+  background-color: var(--rev-white) !important;
+  color: var(--rev-text) !important;
+}
+
+.table-dark thead th {
+  background: #f8f9fa !important;
+  color: var(--rev-dark) !important;
+}
+
+.table-dark tbody td {
+  color: var(--rev-text) !important;
+  border-color: var(--rev-border) !important;
+}
+
+/* ─── Badges ─── */
+.week-badge {
+  background: var(--rev-red) !important;
+  color: white !important;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  padding: 0.4em 0.75em;
+  border-radius: 100px;
+}
+
+/* ─── Buttons ─── */
+.btn-primary {
+  background-color: var(--rev-dark) !important;
+  border-color: var(--rev-dark) !important;
+  color: white !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 100px !important;
+  padding: 0.75rem 1.75rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--rev-red) !important;
+  border-color: var(--rev-red) !important;
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  border-color: var(--rev-dark) !important;
+  color: var(--rev-dark) !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 100px !important;
+  padding: 0.75rem 1.75rem;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--rev-dark) !important;
+  border-color: var(--rev-dark) !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* ─── Schedule specific ─── */
+.custom-schedule-table td,
+.custom-schedule-table th {
+  color: var(--rev-text) !important;
+  border-color: var(--rev-border) !important;
+  vertical-align: middle;
+  font-size: 0.88rem;
+}
+
+.matchup-row:hover {
+  background-color: #fff5f5 !important;
+}
+
+.text-info {
+  color: var(--rev-red) !important;
+}
+
+/* ─── Form controls ─── */
+.form-select,
+.form-control {
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border: 1px solid #ddd;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 0.4rem;
 }
