@@ -1,0 +1,94 @@
+{
+  "EASTERN": [
+    {
+      "name": "TAN",
+      "W": 1,
+      "L": 0,
+      "PF": 87,
+      "PA": 84,
+      "conference": "EASTERN"
+    },
+    {
+      "name": "BLACK",
+      "W": 1,
+      "L": 0,
+      "PF": 78,
+      "PA": 61,
+      "conference": "EASTERN"
+    },
+    {
+      "name": "GREEN",
+      "W": 1,
+      "L": 0,
+      "PF": 75,
+      "PA": 55,
+      "conference": "EASTERN"
+    },
+    {
+      "name": "YELLOW",
+      "W": 0,
+      "L": 1,
+      "PF": 84,
+      "PA": 87,
+      "conference": "EASTERN"
+    },
+    {
+      "name": "PINK",
+      "W": 0,
+      "L": 1,
+      "PF": 61,
+      "PA": 78,
+      "conference": "EASTERN"
+    },
+    {
+      "name": "RED",
+      "W": 0,
+      "L": 1,
+      "PF": 55,
+      "PA": 75,
+      "conference": "EASTERN"
+    }
+  ],
+  "WESTERN": [
+    {
+      "name": "WHITE",
+      "W": 1,
+      "L": 0,
+      "PF": 74,
+      "PA": 66,
+      "conference": "WESTERN"
+    },
+    {
+      "name": "PURPLE",
+      "W": 1,
+      "L": 0,
+      "PF": 63,
+      "PA": 62,
+      "conference": "WESTERN"
+    },
+    {
+      "name": "GRAY",
+      "W": 0,
+      "L": 1,
+      "PF": 66,
+      "PA": 74,
+      "conference": "WESTERN"
+    },
+    {
+      "name": "BLUE",
+      "W": 0,
+      "L": 1,
+      "PF": 62,
+      "PA": 63,
+      "conference": "WESTERN"
+    },
+    {
+      "name": "ORANGE",
+      "W": 0,
+      "L": 0,
+      "PF": 0,
+      "PA": 0,
+      "conference": "WESTERN"
+    }
+  ]
+}
