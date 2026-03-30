@@ -87,13 +87,13 @@ const Home = () => {
 
       {/* Quick Navigation Cards */}
       <div className="container py-5">
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           <div className="col">
             <div className="card liquid-glass-card h-100 p-3 p-md-4 border-0">
               <div className="card-body text-center d-flex flex-column justify-content-between p-0">
                 <div>
                   <h6 className="fw-bold mb-2 text-dark small">ROSTERS</h6>
-                  <p className="card-text text-muted x-small">View official team rosters and player details.</p>
+                  <p className="card-text text-muted x-small">View official team rosters</p>
                 </div>
                 <Link to="/rosters" className="card-btn mt-3">VIEW ROSTERS</Link>
               </div>
@@ -105,7 +105,7 @@ const Home = () => {
               <div className="card-body text-center d-flex flex-column justify-content-between p-0">
                 <div>
                   <h6 className="fw-bold mb-2 text-dark small">STANDINGS</h6>
-                  <p className="card-text text-muted x-small">Real-time team rankings and seasonal records.</p>
+                  <p className="card-text text-muted x-small">Standings and Team Stats</p>
                 </div>
                 <Link to="/standings" className="card-btn mt-3">VIEW STANDINGS</Link>
               </div>
@@ -117,7 +117,7 @@ const Home = () => {
               <div className="card-body text-center d-flex flex-column justify-content-between p-0">
                 <div>
                   <h6 className="fw-bold mb-2 text-dark small">STATS</h6>
-                  <p className="card-text text-muted x-small">Player performance metrics and league leaders.</p>
+                  <p className="card-text text-muted x-small">Player Stats and league leaders.</p>
                 </div>
                 <Link to="/stats" className="card-btn mt-3">VIEW STATS</Link>
               </div>

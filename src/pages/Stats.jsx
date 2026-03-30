@@ -5,160 +5,170 @@ import { getAllPlayerStats } from '../data/dataLoader';
 import { aggregateStats } from '../utils/statsEngine';
 
 const Stats = () => {
+  // --- STATE ---
   const [statFilter, setStatFilter] = useState('Points'); 
   const [sortDirection, setSortDirection] = useState('desc');
   const [searchTerm, setSearchTerm] = useState('');
 
+  // 1. Load raw data from all JSON boxscores
   const allGameRows = useMemo(() => getAllPlayerStats(), []);
 
+  // 2. FEATURE: DYNAMIC COLUMN REORDERING (from PlayerStats.js)
+  // Moves the currently sorted column to the front of the list
   const dynamicColumns = useMemo(() => {
     const otherStats = statsHeaders.filter(h => h !== statFilter);
     return [statFilter, ...otherStats];
   }, [statFilter]);
 
+  // 3. AGGREGATE DATA
   const processedPlayers = useMemo(() => {
     return (rosterData.players || []).map(player => {
       const fullName = `${player.first_name} ${player.last_name}`.trim();
-      const playerGames = allGameRows.filter(row => row['Player Name']?.trim() === fullName);
+      const playerGames = allGameRows.filter(row => 
+        row['Player Name']?.trim().toUpperCase() === fullName.toUpperCase()
+      );
+      
       const calculatedStats = aggregateStats(playerGames);
-      return { ...player, fullName, stats: calculatedStats || {}, gp: playerGames.length };
+
+      return {
+        ...player,
+        fullName,
+        stats: calculatedStats || {},
+        gp: playerGames.length
+      };
     });
   }, [allGameRows]);
 
+  // 4. FEATURE: ADVANCED SORTING & FILTERING (from PlayerStats.js)
   const sortedPlayers = useMemo(() => {
     let items = [...processedPlayers];
+
     if (searchTerm) {
-      items = items.filter(p => p.fullName.toLowerCase().includes(searchTerm.toLowerCase()));
+      const term = searchTerm.toLowerCase();
+      items = items.filter(p => 
+        p.fullName.toLowerCase().includes(term) || p.team.toLowerCase().includes(term)
+      );
     }
+
     items.sort((a, b) => {
+      let aVal, bVal;
+      // Map combined UI columns to underlying numeric keys for sorting
       const sortMap = { "2PT": "2FGM", "3PT": "3FGM", "FG": "FGM", "FT": "FTM", "REB": "REB" };
-      const key = sortMap[statFilter] || statFilter;
+      const activeKey = sortMap[statFilter] || statFilter;
+
       const clean = (v) => parseFloat(String(v || 0).replace('%', ''));
-      const aVal = clean(a.stats[key]);
-      const bVal = clean(b.stats[key]);
-      return sortDirection === 'asc' ? aVal - bVal : bVal - aVal;
+      aVal = clean(a.stats[activeKey]);
+      bVal = clean(b.stats[activeKey]);
+
+      if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
+      if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
+      return 0;
     });
+
     return items;
   }, [processedPlayers, statFilter, sortDirection, searchTerm]);
 
-  // --- IMPROVED RENDER HELPERS ---
-
-  const renderShootingCell = (player, makeKey, attKey, pctKey) => (
-    <div style={combinedCellStack}>
-      <span style={primaryStatText}>{player.stats[makeKey] || 0}/{player.stats[attKey] || 0}</span>
-      <span style={badgeStyle}>{player.stats[pctKey] || '0%'}</span>
-    </div>
-  );
-
-  const renderRebCell = (player) => (
-    <div style={combinedCellStack}>
-      {/* Total is the star of the show */}
-      <span style={primaryStatText}>{player.stats["REB"] || 0}</span>
-      {/* Sub-label is clearly labeled and smaller */}
-      <span style={subLabelStyle}>
-        <span style={{ color: '#888' }}>O:</span>{player.stats["Off Reb"] || 0} 
-        <span style={{ color: '#888', marginLeft: '4px' }}>D:</span>{player.stats["Def Reb"] || 0}
-      </span>
-    </div>
-  );
-
-  const renderCellContent = (player, header) => {
-    switch(header) {
-      case "2PT": return renderShootingCell(player, "2FGM", "2FGA", "2FG%");
-      case "3PT": return renderShootingCell(player, "3FGM", "3FGA", "3FG%");
-      case "FG":  return renderShootingCell(player, "FGM", "FGA", "FG%");
-      case "FT":  return renderShootingCell(player, "FTM", "FTA", "FT%");
-      case "REB": return renderRebCell(player);
-      default:    return <span style={primaryStatText}>{player.stats[header] || 0}</span>;
+  // --- HANDLERS ---
+  const handleSortRequest = (key) => {
+    if (statFilter === key) {
+      setSortDirection(sortDirection === 'desc' ? 'asc' : 'desc');
+    } else {
+      setStatFilter(key);
+      setSortDirection('desc');
     }
   };
 
+  // --- RENDER HELPERS (Stacked Layout) ---
+  const renderCellContent = (player, header) => {
+    const s = player.stats;
+    switch(header) {
+      case "2PT": return renderStacked(s["2FGM"], s["2FGA"], s["2FG%"]);
+      case "3PT": return renderStacked(s["3FGM"], s["3FGA"], s["3FG%"]);
+      case "FG":  return renderStacked(s["FGM"], s["FGA"], s["FG%"]);
+      case "FT":  return renderStacked(s["FTM"], s["FTA"], s["FT%"]);
+      case "REB": return (
+        <div style={cellStack}>
+          <span style={primaryText}>{s["REB"] || 0}</span>
+          <span style={subText}><span style={label}>O:</span>{s["Off Reb"] || 0} <span style={label}>D:</span>{s["Def Reb"] || 0}</span>
+        </div>
+      );
+      default: return <span style={primaryText}>{s[header] || 0}</span>;
+    }
+  };
+
+  const renderStacked = (m, a, p) => (
+    <div style={cellStack}>
+      <span style={primaryText}>{m || 0}/{a || 0}</span>
+      <span style={pctBadge}>{p || '0%'}</span>
+    </div>
+  );
+
   return (
-    <div style={{ padding: '30px', backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
-      <div style={headerControlArea}>
-        <h2 style={{ margin: 0, fontWeight: '800', letterSpacing: '-0.5px' }}>LEAGUE LEADERS</h2>
+    <div style={pageContainer}>
+      <div style={headerArea}>
+        <h1 style={titleStyle}>LEAGUE LEADERS</h1>
         <input 
-          placeholder="Search players..."
-          style={searchInputStyle}
+          placeholder="Search Players..." 
+          style={searchBar}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
 
-      <div style={tableContainer}>
-        <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: 0 }}>
-  <thead>
-    <tr>
-      <th style={stickyHeaderStyle}>PLAYER</th>
-      {/* GP Header has been removed from here */}
-      {dynamicColumns.map(header => (
-        <th 
-          key={header} 
-          onClick={() => handleSortRequest(header)}
-          style={{ 
-            ...staticHeaderStyle, 
-            backgroundColor: statFilter === header ? '#007bff' : '#111',
-            color: '#fff'
-          }}
-        >
-          {header} {statFilter === header ? (sortDirection === 'desc' ? ' ▼' : ' ▲') : ''}
-        </th>
-      ))}
-    </tr>
-  </thead>
-  <tbody>
-    {sortedPlayers.map((player) => (
-      <tr key={player.id} style={rowStyle}>
-        <td style={stickyNameStyle}>
-          <div style={{ fontWeight: 'bold' }}>{player.fullName}</div>
-          <div style={{ fontSize: '10px', color: '#666', textTransform: 'uppercase' }}>{player.team}</div>
-        </td>
-        {/* GP Data cell has been removed from here */}
-        {dynamicColumns.map(header => (
-          <td 
-            key={header} 
-            style={{ 
-              ...baseDataCell, 
-              backgroundColor: statFilter === header ? '#eef6ff' : 'transparent',
-              borderLeft: statFilter === header ? '1px solid #cce5ff' : 'none',
-              borderRight: statFilter === header ? '1px solid #cce5ff' : 'none'
-            }}
-          >
-            {renderCellContent(player, header)}
-          </td>
-        ))}
-      </tr>
-    ))}
-  </tbody>
-</table>
+      <div style={tableWrapper}>
+        <table style={tableMain}>
+          <thead>
+            <tr style={theadRow}>
+              <th style={stickyHeader}>PLAYER</th>
+              {/* Note: GP is hidden from UI per your request but available in data */}
+              {dynamicColumns.map(h => (
+                <th 
+                  key={h} 
+                  onClick={() => handleSortRequest(h)}
+                  style={{ ...thStyle, backgroundColor: statFilter === h ? '#ff4d4d' : '#111' }}
+                >
+                  {h} {statFilter === h ? (sortDirection === 'desc' ? '▼' : '▲') : ''}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sortedPlayers.map(p => (
+              <tr key={p.fullName} style={rowStyle}>
+                <td style={stickyNameCell}>
+                  <div style={{ fontWeight: '900' }}>{p.fullName}</div>
+                  <div style={{ fontSize: '10px', color: '#ff4d4d', textTransform: 'uppercase' }}>{p.team}</div>
+                </td>
+                {dynamicColumns.map(h => (
+                  <td key={h} style={{ ...tdStyle, backgroundColor: statFilter === h ? '#fff5f5' : 'transparent' }}>
+                    {renderCellContent(p, h)}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
 };
 
-// --- STYLING OBJECTS ---
-
-const headerControlArea = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' };
-
-const searchInputStyle = { padding: '10px 15px', width: '300px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '14px' };
-
-const tableContainer = { overflowX: 'auto', backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #eee' };
-
-const staticHeaderStyle = { padding: '16px 12px', fontSize: '11px', fontWeight: 'bold', textAlign: 'center', cursor: 'pointer', borderBottom: '2px solid #333' };
-
-const stickyHeaderStyle = { ...staticHeaderStyle, position: 'sticky', left: 0, zIndex: 10, textAlign: 'left', backgroundColor: '#111', color: '#fff' };
-
-const baseDataCell = { padding: '12px 10px', textAlign: 'center', borderBottom: '1px solid #f2f2f2' };
-
-const stickyNameStyle = { ...baseDataCell, position: 'sticky', left: 0, zIndex: 5, backgroundColor: '#fff', textAlign: 'left', borderRight: '2px solid #eee' };
-
-const combinedCellStack = { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' };
-
-const primaryStatText = { fontSize: '14px', fontWeight: '700', color: '#222' };
-
-const subLabelStyle = { fontSize: '10px', fontWeight: 'bold', color: '#444' };
-
-const badgeStyle = { fontSize: '10px', backgroundColor: '#eef6ff', color: '#007bff', padding: '2px 6px', borderRadius: '4px', fontWeight: 'bold' };
-
-const rowStyle = { transition: 'background-color 0.2s' };
+// --- STYLES ---
+const pageContainer = { padding: '40px 20px', backgroundColor: '#fff' };
+const headerArea = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' };
+const titleStyle = { fontWeight: '900', letterSpacing: '-2px', fontSize: '2.5rem' };
+const searchBar = { padding: '12px', width: '300px', borderRadius: '8px', border: '2px solid #111', fontWeight: 'bold' };
+const tableWrapper = { overflowX: 'auto', border: '2px solid #111', borderRadius: '4px' };
+const tableMain = { width: '100%', borderCollapse: 'collapse', fontSize: '14px' };
+const theadRow = { backgroundColor: '#111', color: '#fff' };
+const thStyle = { padding: '15px 10px', textAlign: 'center', cursor: 'pointer', fontSize: '11px', fontWeight: '900', borderRight: '1px solid #333' };
+const stickyHeader = { ...thStyle, position: 'sticky', left: 0, zIndex: 10, backgroundColor: '#111', textAlign: 'left', paddingLeft: '20px' };
+const tdStyle = { padding: '12px 10px', textAlign: 'center', borderRight: '1px solid #eee', borderBottom: '1px solid #eee' };
+const stickyNameCell = { ...tdStyle, position: 'sticky', left: 0, zIndex: 5, backgroundColor: '#fff', textAlign: 'left', paddingLeft: '20px', borderRight: '3px solid #111' };
+const cellStack = { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' };
+const primaryText = { fontWeight: '800', color: '#111' };
+const subText = { fontSize: '10px', fontWeight: 'bold' };
+const label = { color: '#888', marginRight: '2px' };
+const pctBadge = { fontSize: '10px', backgroundColor: '#111', color: '#fff', padding: '1px 5px', borderRadius: '3px', fontWeight: '900' };
+const rowStyle = { transition: 'background 0.2s' };
 
 export default Stats;
