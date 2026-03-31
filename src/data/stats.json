@@ -1,6 +1,8 @@
 [
   
-  "Points", "Assists", "REB", "Steals", "Blocks", 
+  "PPG", "APG", "RPG", 
   "2PT", "3PT", "FG", "FT", 
-  "Deflections", "Fouls", "Charge Taken", "Airball"
+  "Points", "Assists", "REB", "Steals", "Blocks", 
+  "Deflections", "Fouls", "Charge Taken", "Airball",
+  "Games Played"
 ]
