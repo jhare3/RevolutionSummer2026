@@ -1,134 +1,116 @@
 import React from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  // Navigation cards arranged in the requested order
+  const navCards = [
+    { title: 'Standings', path: '/standings', icon: '🏆' },
+    { title: 'Schedule', path: '/schedule', icon: '📅' },
+    { title: 'Rosters', path: '/rosters', icon: '🏀' },
+  ];
+
   return (
-    <div className="min-vh-100" style={{ backgroundColor: '#ffffff' }}>
-      <style>{`
-        .hero-section {
-          /* Updated to use revolutionHero.png */
-          background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/revolutionHero.png");
-          background-size: cover;
-          background-position: center;
-          padding: clamp(2.5rem, 8vw, 5rem) 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .glass-hero-capsule {
-          background: #1a1a1a;
-          border: 2px solid #ff4d4d;
-          padding: clamp(1.25rem, 5vw, 2.25rem);
-          border-radius: 12px;
-          display: inline-block;
-          box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
-          width: 92%;
-          max-width: 650px;
-        }
-
-        .hero-title-pop {
-          font-size: clamp(1.5rem, 8vw, 3rem);
-          font-weight: 900;
-          letter-spacing: -1px;
-          color: #ffffff;
-          text-shadow: 3px 3px 0px #ff4d4d;
-          margin: 0;
-          line-height: 1.1;
-          text-transform: uppercase;
-        }
-
-        .liquid-glass-card {
-          background: rgba(255, 255, 255, 0.8);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border: 1px solid rgba(0, 0, 0, 0.05);
-          border-radius: 16px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .liquid-glass-card:hover {
-          transform: translateY(-8px);
-          background: rgba(255, 255, 255, 1);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .card-btn {
-          background: #1a1a1a;
-          color: #fff;
-          border: none;
-          padding: 10px 0;
-          border-radius: 8px;
-          font-weight: 800;
-          font-size: 0.75rem;
-          letter-spacing: 1px;
-          text-decoration: none;
-          transition: all 0.2s ease;
-        }
-
-        .card-btn:hover {
-          background: #ff4d4d;
-          color: #fff;
-        }
-
-        .x-small { font-size: 0.7rem; line-height: 1.4; }
-      `}</style>
-
-      {/* Hero Section */}
-      <div className="hero-section text-center">
-        <div className="glass-hero-capsule">
-        
-          <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-            <Link to="/stats" className="btn btn-danger fw-black px-4 py-2" style={{ borderRadius: '4px', fontSize: '0.85rem' }}>LEAGUE STATS</Link>
-            <Link to="/schedule" className="btn btn-outline-light fw-black px-4 py-2" style={{ borderRadius: '4px', fontSize: '0.85rem' }}>SCHEDULE</Link>
+    <div style={pageWrapper}>
+      {/* Hero Section with updated primary actions */}
+      <div style={heroSection}>
+        <div style={heroOverlay}>
+          <div className="d-flex gap-3 justify-content-center mt-4">
+            <Button as={Link} to="/recaps" variant="danger" size="lg" className="fw-black shadow">
+              GAME RECAPS
+            </Button>
+            <Button as={Link} to="/stats" variant="outline-light" size="lg" className="fw-black shadow">
+              LEAGUE STATS
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* Quick Navigation Cards */}
-      <div className="container py-5">
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <div className="col">
-            <div className="card liquid-glass-card h-100 p-3 p-md-4 border-0">
-              <div className="card-body text-center d-flex flex-column justify-content-between p-0">
-                <div>
-                  <h6 className="fw-bold mb-2 text-dark small">ROSTERS</h6>
-                  <p className="card-text text-muted x-small">View official team rosters</p>
-                </div>
-                <Link to="/rosters" className="card-btn mt-3">VIEW ROSTERS</Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="col">
-            <div className="card liquid-glass-card h-100 p-3 p-md-4 border-0">
-              <div className="card-body text-center d-flex flex-column justify-content-between p-0">
-                <div>
-                  <h6 className="fw-bold mb-2 text-dark small">STANDINGS</h6>
-                  <p className="card-text text-muted x-small">Standings and Team Stats</p>
-                </div>
-                <Link to="/standings" className="card-btn mt-3">VIEW STANDINGS</Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="col">
-            <div className="card liquid-glass-card h-100 p-3 p-md-4 border-0">
-              <div className="card-body text-center d-flex flex-column justify-content-between p-0">
-                <div>
-                  <h6 className="fw-bold mb-2 text-dark small">STATS</h6>
-                  <p className="card-text text-muted x-small">Player Stats and league leaders.</p>
-                </div>
-                <Link to="/stats" className="card-btn mt-3">VIEW STATS</Link>
-              </div>
-            </div>
-          </div>
-
-         
-        </div>
-      </div>
+      {/* Main Navigation Section */}
+      <Container className="py-5">
+        <Row className="g-4 justify-content-center">
+          {navCards.map((card, idx) => (
+            <Col key={idx} xs={12} md={4}>
+              <Card 
+                as={Link} 
+                to={card.path} 
+                style={cardStyle} 
+                className="h-100 text-decoration-none"
+              >
+                <Card.Body className="d-flex flex-column align-items-center justify-content-center py-5">
+                  <div style={{ fontSize: '3rem' }} className="mb-3">{card.icon}</div>
+                  <Card.Title style={cardTitle}>{card.title.toUpperCase()}</Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
+};
+
+// Styling Objects
+const pageWrapper = {
+  backgroundColor: '#f8f9fa',
+  minHeight: '100vh',
+};
+
+const heroSection = {
+  height: '60vh',
+  backgroundImage: 'url("/revolutionHero.png")',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  position: 'relative',
+};
+
+const heroOverlay = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  color: 'white',
+  textAlign: 'center',
+  padding: '0 20px',
+};
+
+const heroTitle = {
+  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+  fontWeight: '900',
+  fontStyle: 'italic',
+  letterSpacing: '-2px',
+  textShadow: '2px 2px 10px rgba(0,0,0,0.5)',
+};
+
+const heroSubtitle = {
+  fontSize: '1.25rem',
+  fontWeight: '700',
+  opacity: 0.9,
+  textTransform: 'uppercase',
+  letterSpacing: '2px',
+};
+
+const cardStyle = {
+  background: 'rgba(255, 255, 255, 0.9)',
+  backdropFilter: 'blur(10px)',
+  border: 'none',
+  borderRadius: '15px',
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+  cursor: 'pointer',
+};
+
+const cardTitle = {
+  fontSize: '1.5rem',
+  fontWeight: '900',
+  color: '#111',
+  letterSpacing: '1px',
 };
 
 export default Home;
