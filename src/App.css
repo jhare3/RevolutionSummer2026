@@ -263,3 +263,9 @@ html, body {
     width: 100%; /* Search bar takes full width on mobile */
   }
 }
+
+@media (max-width: 768px) {
+  .hero-mobile-adjust {
+    height: 25vh !important; /* Adjust this value to your preference */
+  }
+}

@@ -3,7 +3,6 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  // Navigation cards arranged in the requested order
   const navCards = [
     { title: 'Standings', path: '/standings', icon: '🏆' },
     { title: 'Schedule', path: '/schedule', icon: '📅' },
@@ -12,9 +11,10 @@ const Home = () => {
 
   return (
     <div style={pageWrapper}>
-      {/* Hero Section with updated primary actions */}
-      <div style={heroSection}>
+      {/* Added hero-mobile-adjust class for CSS overrides */}
+      <div style={heroSection} className="hero-mobile-adjust">
         <div style={heroOverlay}>
+
           <div className="d-flex gap-3 justify-content-center mt-4">
             <Button as={Link} to="/recaps" variant="danger" size="lg" className="fw-black shadow">
               GAME RECAPS
@@ -26,7 +26,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Main Navigation Section */}
       <Container className="py-5">
         <Row className="g-4 justify-content-center">
           {navCards.map((card, idx) => (
@@ -57,10 +56,10 @@ const pageWrapper = {
 };
 
 const heroSection = {
-  height: '60vh',
+  height: '40vh', // Desktop height reverted
   backgroundImage: 'url("/revolutionHero.png")',
   backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  backgroundPosition: 'top', // Orientation focused on the hoop
   position: 'relative',
 };
 
