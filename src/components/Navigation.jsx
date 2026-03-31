@@ -12,8 +12,8 @@ const Navigation = () => {
     { name: "Rosters", path: "/rosters" },
     { name: "Schedule", path: "/schedule" },
     { name: "Standings", path: "/standings" },
-
     { name: "Stats", path: "/stats" },
+    { name: "Recaps", path: "/recaps" },
   ];
 
   return (
@@ -144,7 +144,7 @@ const Navigation = () => {
           <div className="container-fluid p-0">
             <Link className="navbar-brand d-flex align-items-center" to="/">
               <img src="/revolutionLogo.jpg" alt="Logo" className="custom-logo" />
-              <span>REVOLUTION 2026</span>
+              <span>REVOLUTION SPRING 2026</span>
             </Link>
 
             <button

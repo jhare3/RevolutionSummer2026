@@ -5,6 +5,7 @@ import Rosters from './pages/Rosters';
 import Schedule from './pages/Schedule';
 import Standings from './pages/Standings';
 import Stats from './pages/Stats';
+import Recaps from './pages/Recaps';
 import './App.css';
 
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/standings" element={<Standings />} /> 
             <Route path="/stats" element={<Stats />} /> 
+            <Route path="/recaps" element={<Recaps />} />
             {/* Other routes... */}
           </Routes>
         </main>
