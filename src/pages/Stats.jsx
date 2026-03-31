@@ -5,11 +5,12 @@ import { getAllPlayerStats } from '../data/dataLoader';
 import { calculateSeasonStats } from '../utils/statCalculations';
 
 const Stats = () => {
-  // 1. Set default statFilter to 'Points' (which maps to PPG)
+  // Default statFilter set to 'PPG' for the league leaders view
   const [statFilter, setStatFilter] = useState('PPG'); 
   const [sortDirection, setSortDirection] = useState('desc');
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Dynamically loads stats from all weekly subfolders via the recursive dataLoader
   const allGameRows = useMemo(() => getAllPlayerStats(), []);
 
   const dynamicColumns = useMemo(() => {
@@ -20,7 +21,6 @@ const Stats = () => {
   const processedPlayers = useMemo(() => {
     return (rosterData.players || []).map(player => {
       const fullName = `${player.first_name} ${player.last_name}`.trim();
-      
       const playerGames = allGameRows.filter(row => 
         row['Player Name']?.trim().toUpperCase() === fullName.toUpperCase()
       );
@@ -47,8 +47,8 @@ const Stats = () => {
     }
 
     items.sort((a, b) => {
-      // 2. Ensure 'Points' correctly maps to 'PPG' for sorting
       const sortMap = { 
+        "PPG": "PPG",
         "Points": "PPG",
         "Assists": "APG",
         "REB": "RPG",
@@ -66,7 +66,6 @@ const Stats = () => {
       };
       
       const activeKey = sortMap[statFilter] || statFilter;
-      
       const clean = (v) => {
         if (!v) return 0;
         return parseFloat(String(v).replace('%', ''));
@@ -94,14 +93,14 @@ const Stats = () => {
 
   const renderCellContent = (player, header) => {
     const s = player.stats;
-    // Standardizing output to use the keys returned by calculateSeasonStats
     switch(header) {
       case "2PT": return renderStacked(s.fgm, s.fga, s["FG%"]);
       case "3PT": return renderStacked(s.threePM, s.threePA, s["3FG%"]);
       case "FG":  return renderStacked(s.fgm, s.fga, s["FG%"]);
       case "FT":  return renderStacked(s.ftm, s.fta, s["FT%"]);
       case "REB": return <span style={primaryText}>{s.RPG || 0}</span>;
-      case "Points": return <span style={primaryText}>{s.PPG || 0}</span>;
+      case "Points":
+      case "PPG": return <span style={primaryText}>{s.PPG || 0}</span>;
       case "Assists": return <span style={primaryText}>{s.APG || 0}</span>;
       case "Steals": return <span style={primaryText}>{s.steals || 0}</span>;
       case "Blocks": return <span style={primaryText}>{s.blocks || 0}</span>;
@@ -123,11 +122,12 @@ const Stats = () => {
 
   return (
     <div style={pageContainer}>
-      <div style={headerArea}>
+      {/* Mobile-optimized header using classes from App.css */}
+      <div className="stats-header-container">
         <h1 style={titleStyle}>LEAGUE LEADERS</h1>
         <input 
           placeholder="Search Players..." 
-          style={searchBar}
+          className="stats-search-input"
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
@@ -171,9 +171,7 @@ const Stats = () => {
 
 // Styles
 const pageContainer = { padding: '40px 20px', backgroundColor: '#fff' };
-const headerArea = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' };
 const titleStyle = { fontWeight: '900', letterSpacing: '-2px', fontSize: '2.5rem' };
-const searchBar = { padding: '12px', width: '300px', borderRadius: '8px', border: '2px solid #111', fontWeight: 'bold' };
 const tableWrapper = { overflowX: 'auto', border: '2px solid #111', borderRadius: '4px' };
 const tableMain = { width: '100%', borderCollapse: 'collapse', fontSize: '14px' };
 const theadRow = { backgroundColor: '#111', color: '#fff' };

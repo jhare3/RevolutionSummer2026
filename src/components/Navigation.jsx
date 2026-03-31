@@ -144,7 +144,7 @@ const Navigation = () => {
           <div className="container-fluid p-0">
             <Link className="navbar-brand d-flex align-items-center" to="/">
               <img src="/revolutionLogo.jpg" alt="Logo" className="custom-logo" />
-              <span>REVOLUTION SPRING 2026</span>
+              <span>REVOLUTION 2026</span>
             </Link>
 
             <button
