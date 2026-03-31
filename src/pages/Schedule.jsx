@@ -1,8 +1,67 @@
-import React from 'react';
-import { Table, Badge } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table, Badge, Spinner } from 'react-bootstrap';
+import Papa from 'papaparse';
 import scheduleData from '../data/schedule.json';
+import BoxscoreModal from '../components/BoxscoreModal';
+import { slugifyMatchup, parseScoreFromCSV } from '../utils/boxscoreEngine';
+
+// Mirror the same glob patterns used in Recaps.jsx
+const csvFiles = import.meta.glob('../data/boxscores/**/*.csv', { query: '?raw', import: 'default' });
+const jsonFiles = import.meta.glob('../data/boxscores/**/*.json', { eager: true });
 
 const Schedule = () => {
+  const [loading, setLoading] = useState(true);
+  const [gameDataMap, setGameDataMap] = useState({});
+  const [showBoxscore, setShowBoxscore] = useState(false);
+  const [selectedGame, setSelectedGame] = useState(null);
+
+  // Identical data-loading logic to Recaps.jsx
+  useEffect(() => {
+    const loadData = async () => {
+      const combinedMap = {};
+
+      // 1. Process JSON boxscores from all weekly folders
+      for (const path in jsonFiles) {
+        const data = jsonFiles[path].default || jsonFiles[path];
+        if (data.game) {
+          const key = slugifyMatchup(data.game);
+          combinedMap[key] = { ...data };
+        }
+      }
+
+      // 2. Merge CSV score metadata from all weekly folders
+      for (const path in csvFiles) {
+        const rawContent = await csvFiles[path]();
+        const results = Papa.parse(rawContent, { skipEmptyLines: true });
+        const rows = results.data;
+
+        const matchupLine = rows.find(r => r[0]?.includes('vs.'))?.[0] || '';
+        const key = slugifyMatchup(matchupLine);
+
+        if (combinedMap[key]) {
+          combinedMap[key].scores = parseScoreFromCSV(rows);
+        }
+      }
+
+      setGameDataMap(combinedMap);
+      setLoading(false);
+    };
+
+    loadData();
+  }, []);
+
+  const handleOpenBoxscore = (matchup) => {
+    const key = slugifyMatchup(matchup);
+    if (gameDataMap[key]) {
+      setSelectedGame(gameDataMap[key]);
+      setShowBoxscore(true);
+    }
+  };
+
+  const hasBoxscore = (matchup) => {
+    return !!gameDataMap[slugifyMatchup(matchup)];
+  };
+
   return (
     <div className="px-3 px-md-5 py-5">
       <style>{`
@@ -113,6 +172,10 @@ const Schedule = () => {
           background-color: #fff5f5 !important;
         }
 
+        .matchup-row.has-boxscore {
+          cursor: pointer;
+        }
+
         .game-time {
           color: #ff4d4d !important;
           font-weight: 800;
@@ -133,6 +196,25 @@ const Schedule = () => {
           letter-spacing: 0.5px;
           padding: 0.35em 0.75em;
           border-radius: 100px;
+        }
+
+        .boxscore-badge {
+          background: #ff4d4d !important;
+          border: 1px solid #ff4d4d !important;
+          color: white !important;
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          padding: 0.35em 0.75em;
+          border-radius: 100px;
+          cursor: pointer;
+          transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .boxscore-badge:hover {
+          background: #cc0000 !important;
+          border-color: #cc0000 !important;
+          transform: scale(1.05);
         }
 
         .bye-bar {
@@ -156,43 +238,66 @@ const Schedule = () => {
         <span className="schedule-subtext">Spring 2026 — Regular Season</span>
       </div>
 
-      {scheduleData.map((week) => (
-        <div key={week.week} className="week-card">
-          <div className="week-card-header">
-            <h3 className="week-label">Week {week.week}</h3>
-            <Badge className="week-date-badge">{week.date}</Badge>
-          </div>
-
-          <div className="location-bar">📍 {week.location}</div>
-
-          <Table responsive hover className="schedule-table mb-0">
-            <thead>
-              <tr>
-                <th style={{ width: '140px' }}>Time</th>
-                <th>Matchup</th>
-                <th className="text-center">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {week.games.map((game, idx) => (
-                <tr key={idx} className="matchup-row">
-                  <td className="game-time">{game.time}</td>
-                  <td className="matchup-name">{game.matchup}</td>
-                  <td className="text-center">
-                    <Badge className="status-badge">UPCOMING</Badge>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-
-          {week.bye && (
-            <div className="bye-bar">
-              <strong>Bye:</strong> {week.bye}
-            </div>
-          )}
+      {loading ? (
+        <div className="text-center py-5">
+          <Spinner animation="border" variant="danger" />
         </div>
-      ))}
+      ) : (
+        scheduleData.map((week) => (
+          <div key={week.week} className="week-card">
+            <div className="week-card-header">
+              <h3 className="week-label">Week {week.week}</h3>
+              <Badge className="week-date-badge">{week.date}</Badge>
+            </div>
+
+            <div className="location-bar">📍 {week.location}</div>
+
+            <Table responsive hover className="schedule-table mb-0">
+              <thead>
+                <tr>
+                  <th style={{ width: '140px' }}>Time</th>
+                  <th>Matchup</th>
+                  <th className="text-center">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {week.games.map((game, idx) => {
+                  const available = hasBoxscore(game.matchup);
+                  return (
+                    <tr
+                      key={idx}
+                      className={`matchup-row${available ? ' has-boxscore' : ''}`}
+                      onClick={() => available && handleOpenBoxscore(game.matchup)}
+                    >
+                      <td className="game-time">{game.time}</td>
+                      <td className="matchup-name">{game.matchup}</td>
+                      <td className="text-center">
+                        {available ? (
+                          <Badge className="boxscore-badge">BOXSCORE ▸</Badge>
+                        ) : (
+                          <Badge className="status-badge">UPCOMING</Badge>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+
+            {week.bye && (
+              <div className="bye-bar">
+                <strong>Bye:</strong> {week.bye}
+              </div>
+            )}
+          </div>
+        ))
+      )}
+
+      <BoxscoreModal
+        show={showBoxscore}
+        onHide={() => setShowBoxscore(false)}
+        gameData={selectedGame}
+      />
     </div>
   );
 };

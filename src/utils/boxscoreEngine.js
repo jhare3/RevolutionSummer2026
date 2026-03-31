@@ -1,5 +1,6 @@
 /**
- * Utility to standardize keys for matching between different data sources.
+ * Standardizes matchup strings (e.g., "Black vs. Pink" -> "BLACKVSPINK") 
+ * to ensure keys match across JSON, CSV, and Schedule data.
  */
 export const slugifyMatchup = (str) => {
   if (!str) return "";
@@ -7,10 +8,10 @@ export const slugifyMatchup = (str) => {
 };
 
 /**
- * Extracts team scores and period data from the parsed CSV rows.
+ * Extracts scores from the CSV structure.
  */
 export const parseScoreFromCSV = (csvRows) => {
-  // Locate the score table (typically begins after the "Regular Season" marker)
+  // Finds the summary table (usually rows with "1", "2", "Total")
   const scoreStartIndex = csvRows.findIndex(r => r[1] === '1' && r[2] === '2');
   if (scoreStartIndex === -1) return null;
 

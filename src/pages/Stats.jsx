@@ -5,7 +5,8 @@ import { getAllPlayerStats } from '../data/dataLoader';
 import { calculateSeasonStats } from '../utils/statCalculations';
 
 const Stats = () => {
-  const [statFilter, setStatFilter] = useState('Points'); 
+  // 1. Set default statFilter to 'Points' (which maps to PPG)
+  const [statFilter, setStatFilter] = useState('PPG'); 
   const [sortDirection, setSortDirection] = useState('desc');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -19,6 +20,7 @@ const Stats = () => {
   const processedPlayers = useMemo(() => {
     return (rosterData.players || []).map(player => {
       const fullName = `${player.first_name} ${player.last_name}`.trim();
+      
       const playerGames = allGameRows.filter(row => 
         row['Player Name']?.trim().toUpperCase() === fullName.toUpperCase()
       );
@@ -45,14 +47,15 @@ const Stats = () => {
     }
 
     items.sort((a, b) => {
+      // 2. Ensure 'Points' correctly maps to 'PPG' for sorting
       const sortMap = { 
+        "Points": "PPG",
+        "Assists": "APG",
+        "REB": "RPG",
         "2PT": "fgm", 
         "3PT": "threePM", 
         "FG": "fgm", 
         "FT": "ftm", 
-        "REB": "rebounds",
-        "Points": "points",
-        "Assists": "assists",
         "Steals": "steals",
         "Blocks": "blocks",
         "Deflections": "deflections",
@@ -63,7 +66,11 @@ const Stats = () => {
       };
       
       const activeKey = sortMap[statFilter] || statFilter;
-      const clean = (v) => parseFloat(String(v || 0).replace('%', ''));
+      
+      const clean = (v) => {
+        if (!v) return 0;
+        return parseFloat(String(v).replace('%', ''));
+      };
       
       const aVal = clean(a.stats[activeKey]);
       const bVal = clean(b.stats[activeKey]);
@@ -87,14 +94,15 @@ const Stats = () => {
 
   const renderCellContent = (player, header) => {
     const s = player.stats;
+    // Standardizing output to use the keys returned by calculateSeasonStats
     switch(header) {
       case "2PT": return renderStacked(s.fgm, s.fga, s["FG%"]);
       case "3PT": return renderStacked(s.threePM, s.threePA, s["3FG%"]);
       case "FG":  return renderStacked(s.fgm, s.fga, s["FG%"]);
       case "FT":  return renderStacked(s.ftm, s.fta, s["FT%"]);
-      case "REB": return <span style={primaryText}>{s.rebounds || 0}</span>;
-      case "Points": return <span style={primaryText}>{s.points || 0}</span>;
-      case "Assists": return <span style={primaryText}>{s.assists || 0}</span>;
+      case "REB": return <span style={primaryText}>{s.RPG || 0}</span>;
+      case "Points": return <span style={primaryText}>{s.PPG || 0}</span>;
+      case "Assists": return <span style={primaryText}>{s.APG || 0}</span>;
       case "Steals": return <span style={primaryText}>{s.steals || 0}</span>;
       case "Blocks": return <span style={primaryText}>{s.blocks || 0}</span>;
       case "Deflections": return <span style={primaryText}>{s.deflections || 0}</span>;
