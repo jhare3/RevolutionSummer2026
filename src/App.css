@@ -215,3 +215,21 @@ html, body {
   color: #666;
   margin-bottom: 0.4rem;
 }
+
+.boxscore-btn {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px; /* Ensures all buttons have the same height */
+}
+
+.boxscore-btn:hover {
+  transform: translateY(-2px);
+  background-color: #000;
+  color: #fff;
+  border-color: #ff4d4d; /* Matches your brand red */
+}

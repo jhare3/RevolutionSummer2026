@@ -32,6 +32,7 @@
     { "id": 22, "first_name": "Dylan", "last_name": "Mackie", "team": "YELLOW" },
     { "id": 23, "first_name": "Graden", "last_name": "Conger", "team": "YELLOW" },
     { "id": 24, "first_name": "Braden", "last_name": "Elnicki", "team": "YELLOW" },
+    { "id": 90, "first_name": "Kam", "last_name": "Strickland", "team": "YELLOW" },
 
     { "id": 25, "first_name": "Brody", "last_name": "Snow", "team": "TAN", "captain": true },
     { "id": 26, "first_name": "Hakeem", "last_name": "Faud", "team": "TAN" },
@@ -62,7 +63,7 @@
 
     { "id": 49, "first_name": "Dylan", "last_name": "Pratico", "team": "GRAY", "captain": true },
     { "id": 50, "first_name": "Kevin", "last_name": "Garrison", "team": "GRAY" },
-    { "id": 51, "first_name": "Kyle", "last_name": "DeCoaster", "team": "GRAY" },
+    { "id": 51, "first_name": "Kyle", "last_name": "DeCoster", "team": "GRAY" },
     { "id": 52, "first_name": "Brando", "last_name": "Pratico", "team": "GRAY" },
     { "id": 53, "first_name": "Manny", "last_name": "Robertson", "team": "GRAY" },
     { "id": 54, "first_name": "Myles", "last_name": "Robertson", "team": "GRAY" },
@@ -103,6 +104,7 @@
     { "id": 85, "first_name": "Brock", "last_name": "Carpenter", "team": "PURPLE" },
     { "id": 86, "first_name": "Kaleb", "last_name": "Swetty", "team": "PURPLE" },
     { "id": 87, "first_name": "Brandon", "last_name": "Huestis", "team": "PURPLE" },
-    { "id": 88, "first_name": "Mark", "last_name": "Nigolian", "team": "PURPLE" }
+    { "id": 88, "first_name": "Mark", "last_name": "Nigolian", "team": "PURPLE" },
+    { "id": 89, "first_name": "Peter", "last_name": "SUB", "team": "PURPLE" }
   ]
 }
