@@ -1,39 +1,60 @@
 // src/utils/statCalculations.js
 
+/**
+ * Normalizes raw JSON stats into calculated averages and totals.
+ */
 export const calculateSeasonStats = (playerGames) => {
-  let gamesPlayed = 0; // Initialize at 0 instead of playerGames.length
+  let gamesPlayed = 0;
 
   const totals = {
-    points: 0, assists: 0, rebounds: 0, steals: 0, blocks: 0,
-    deflections: 0, fouls: 0, charges: 0, airballs: 0,
-    fgm: 0, fga: 0, threePM: 0, threePA: 0, ftm: 0, fta: 0
+    points: 0,
+    assists: 0,
+    rebounds: 0,
+    steals: 0,
+    blocks: 0,
+    deflections: 0,
+    fouls: 0,
+    charges: 0,
+    airballs: 0,
+    fgm: 0,
+    fga: 0,
+    threePM: 0,
+    threePA: 0,
+    ftm: 0,
+    fta: 0
   };
 
   playerGames.forEach(game => {
-    // 1. GATEKEEPER: Check if they actually participated
-    // A player "played" if they recorded minutes OR at least one counting stat
+    // GATEKEEPER: Check if they actually participated
     const hasStats = 
       Number(game.FGA || 0) > 0 || 
       Number(game.FTA || 0) > 0 || 
       Number(game.Assists || 0) > 0 || 
-      Number(game.REB || 0) > 0 ||
+      (Number(game["Off Reb"] || 0) + Number(game["Def Reb"] || 0)) > 0 ||
       Number(game.Steals || 0) > 0 ||
       Number(game.Blocks || 0) > 0 ||
-      (game.MIN && game.MIN !== "0" && game.MIN !== "DNP"); // If your JSON has a MIN field
+      Number(game.Fouls || 0) > 0;
 
     if (hasStats) {
       gamesPlayed += 1;
       
-      // 2. ONLY add stats if they actually played
+      // Totals
       totals.points += Number(game.Points || 0);
       totals.assists += Number(game.Assists || 0);
-      totals.rebounds += Number(game.REB || 0);
+      
+      // Aggregate Offensive and Defensive Rebounds into a single total
+      const offensive = Number(game["Off Reb"] || 0);
+      const defensive = Number(game["Def Reb"] || 0);
+      totals.rebounds += (offensive + defensive);
+
       totals.steals += Number(game.Steals || 0);
       totals.blocks += Number(game.Blocks || 0);
       totals.deflections += Number(game.Deflections || 0);
       totals.fouls += Number(game.Fouls || 0);
       totals.charges += Number(game["Charge Taken"] || 0);
       totals.airballs += Number(game.Airball || 0);
+      
+      // Shooting stats
       totals.fgm += Number(game.FGM || 0);
       totals.fga += Number(game.FGA || 0);
       totals.threePM += Number(game["3FGM"] || 0);
@@ -43,6 +64,7 @@ export const calculateSeasonStats = (playerGames) => {
     }
   });
 
+  // Calculate Averages
   const ppg = gamesPlayed > 0 ? (totals.points / gamesPlayed).toFixed(1) : "0.0";
   const apg = gamesPlayed > 0 ? (totals.assists / gamesPlayed).toFixed(1) : "0.0";
   const rpg = gamesPlayed > 0 ? (totals.rebounds / gamesPlayed).toFixed(1) : "0.0";

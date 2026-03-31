@@ -29,7 +29,7 @@ const Stats = () => {
         ...player,
         fullName,
         stats: calculatedStats || {},
-        gp: playerGames.length
+        gp: calculatedStats["Games Played"]
       };
     });
   }, [allGameRows]);
@@ -45,7 +45,6 @@ const Stats = () => {
     }
 
     items.sort((a, b) => {
-      // Map the exact strings from stats.json to the keys in your calculation object
       const sortMap = { 
         "2PT": "fgm", 
         "3PT": "threePM", 
@@ -86,12 +85,8 @@ const Stats = () => {
     }
   };
 
-  // --- REVISED RENDER LOGIC ---
   const renderCellContent = (player, header) => {
     const s = player.stats;
-    
-    // This switch handles complex/stacked displays
-    // The default case handles all the simple total and average numbers
     switch(header) {
       case "2PT": return renderStacked(s.fgm, s.fga, s["FG%"]);
       case "3PT": return renderStacked(s.threePM, s.threePA, s["3FG%"]);
@@ -107,7 +102,6 @@ const Stats = () => {
       case "Charge Taken": return <span style={primaryText}>{s.charges || 0}</span>;
       case "Airball": return <span style={primaryText}>{s.airballs || 0}</span>;
       default: 
-        // Handles PPG, APG, RPG, and Games Played directly
         return <span style={primaryText}>{s[header] || 0}</span>;
     }
   };
@@ -167,7 +161,7 @@ const Stats = () => {
   );
 };
 
-// --- STYLES (Kept from original) ---
+// Styles
 const pageContainer = { padding: '40px 20px', backgroundColor: '#fff' };
 const headerArea = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' };
 const titleStyle = { fontWeight: '900', letterSpacing: '-2px', fontSize: '2.5rem' };
