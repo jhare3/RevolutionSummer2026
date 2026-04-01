@@ -5,12 +5,10 @@ import { getAllPlayerStats } from '../data/dataLoader';
 import { calculateSeasonStats } from '../utils/statCalculations';
 
 const Stats = () => {
-  // Default statFilter set to 'PPG' for the league leaders view
   const [statFilter, setStatFilter] = useState('PPG'); 
   const [sortDirection, setSortDirection] = useState('desc');
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Dynamically loads stats from all weekly subfolders via the recursive dataLoader
   const allGameRows = useMemo(() => getAllPlayerStats(), []);
 
   const dynamicColumns = useMemo(() => {
@@ -48,20 +46,20 @@ const Stats = () => {
 
     items.sort((a, b) => {
       const sortMap = { 
-        "PPG": "PPG",
-        "Points": "PPG",
-        "Assists": "APG",
-        "REB": "RPG",
-        "2PT": "fgm", 
-        "3PT": "threePM", 
-        "FG": "fgm", 
-        "FT": "ftm", 
-        "Steals": "steals",
-        "Blocks": "blocks",
-        "Deflections": "deflections",
-        "Fouls": "fouls",
+        "PPG":          "PPG",
+        "Points":       "PPG",
+        "Assists":      "APG",
+        "REB":          "RPG",
+        "2PT":          "twoM",     // Sort by 2PT makes only
+        "3PT":          "threePM",
+        "FG":           "fgm",      // Sort by combined FG makes
+        "FT":           "ftm",
+        "Steals":       "steals",
+        "Blocks":       "blocks",
+        "Deflections":  "deflections",
+        "Fouls":        "fouls",
         "Charge Taken": "charges",
-        "Airball": "airballs",
+        "Airball":      "airballs",
         "Games Played": "Games Played"
       };
       
@@ -94,9 +92,9 @@ const Stats = () => {
   const renderCellContent = (player, header) => {
     const s = player.stats;
     switch(header) {
-      case "2PT": return renderStacked(s.fgm, s.fga, s["FG%"]);
+      case "2PT": return renderStacked(s.twoM, s.twoA, s["2FG%"]);       // 2PT only
       case "3PT": return renderStacked(s.threePM, s.threePA, s["3FG%"]);
-      case "FG":  return renderStacked(s.fgm, s.fga, s["FG%"]);
+      case "FG":  return renderStacked(s.fgm, s.fga, s["FG%"]);          // Combined 2PT + 3PT
       case "FT":  return renderStacked(s.ftm, s.fta, s["FT%"]);
       case "REB": return <span style={primaryText}>{s.RPG || 0}</span>;
       case "Points":
@@ -122,7 +120,6 @@ const Stats = () => {
 
   return (
     <div style={pageContainer}>
-      {/* Mobile-optimized header using classes from App.css */}
       <div className="stats-header-container">
         <h1 style={titleStyle}>LEAGUE LEADERS</h1>
         <input 

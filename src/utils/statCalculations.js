@@ -16,8 +16,10 @@ export const calculateSeasonStats = (playerGames) => {
     fouls: 0,
     charges: 0,
     airballs: 0,
-    fgm: 0,
-    fga: 0,
+    fgm: 0,        // Total Field Goals Made (2PT + 3PT)
+    fga: 0,        // Total Field Goals Attempted (2PT + 3PT)
+    twoM: 0,       // 2PT Makes only
+    twoA: 0,       // 2PT Attempts only
     threePM: 0,
     threePA: 0,
     ftm: 0,
@@ -42,7 +44,6 @@ export const calculateSeasonStats = (playerGames) => {
       totals.points += Number(game.Points || 0);
       totals.assists += Number(game.Assists || 0);
       
-      // Aggregate Offensive and Defensive Rebounds into a single total
       const offensive = Number(game["Off Reb"] || 0);
       const defensive = Number(game["Def Reb"] || 0);
       totals.rebounds += (offensive + defensive);
@@ -54,11 +55,17 @@ export const calculateSeasonStats = (playerGames) => {
       totals.charges += Number(game["Charge Taken"] || 0);
       totals.airballs += Number(game.Airball || 0);
       
-      // Shooting stats
-      totals.fgm += Number(game.FGM || 0);
-      totals.fga += Number(game.FGA || 0);
-      totals.threePM += Number(game["3FGM"] || 0);
-      totals.threePA += Number(game["3FGA"] || 0);
+      const twoM = Number(game["2FGM"] || 0);
+      const twoA = Number(game["2FGA"] || 0);
+      const threeM = Number(game["3FGM"] || 0);
+      const threeA = Number(game["3FGA"] || 0);
+
+      totals.twoM += twoM;
+      totals.twoA += twoA;
+      totals.fgm += (twoM + threeM);   // Combined 2PT + 3PT
+      totals.fga += (twoA + threeA);
+      totals.threePM += threeM;
+      totals.threePA += threeA;
       totals.ftm += Number(game.FTM || 0);
       totals.fta += Number(game.FTA || 0);
     }
@@ -75,8 +82,9 @@ export const calculateSeasonStats = (playerGames) => {
     "APG": apg,
     "RPG": rpg,
     "Games Played": gamesPlayed,
-    "FG%": totals.fga > 0 ? Math.round((totals.fgm / totals.fga) * 100) + "%" : "0%",
+    "FG%":  totals.fga > 0    ? Math.round((totals.fgm    / totals.fga)    * 100) + "%" : "0%",
+    "2FG%": totals.twoA > 0   ? Math.round((totals.twoM   / totals.twoA)   * 100) + "%" : "0%",
     "3FG%": totals.threePA > 0 ? Math.round((totals.threePM / totals.threePA) * 100) + "%" : "0%",
-    "FT%": totals.fta > 0 ? Math.round((totals.ftm / totals.fta) * 100) + "%" : "0%"
+    "FT%":  totals.fta > 0    ? Math.round((totals.ftm    / totals.fta)    * 100) + "%" : "0%"
   };
 };
