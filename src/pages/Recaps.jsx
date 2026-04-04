@@ -62,7 +62,7 @@ const PerformerLine = ({ line }) => {
   return (
     <div style={{
       display: 'flex',
-      flexDirection: 'column', // Stack stats below name
+      flexDirection: 'column',
       gap: '8px',
       padding: '12px 0',
       borderBottom: '1px solid #f0f0f0',
@@ -71,7 +71,7 @@ const PerformerLine = ({ line }) => {
       <span style={{
         fontFamily: "'Montserrat', sans-serif",
         fontWeight: 800,
-        fontSize: '0.82rem', // Slightly larger for the header name
+        fontSize: '0.82rem',
         color: '#1a1a1a',
         lineHeight: 1.2,
       }}>
@@ -81,7 +81,7 @@ const PerformerLine = ({ line }) => {
         display: 'flex', 
         flexWrap: 'wrap', 
         gap: '6px',
-        justifyContent: 'flex-start' // Align stats to the left under the name
+        justifyContent: 'flex-start'
       }}>
         {statParts.map((s, i) => (
           <span key={i} style={{
@@ -92,7 +92,7 @@ const PerformerLine = ({ line }) => {
             fontWeight: 700,
             letterSpacing: '0.02em',
             padding: '3px 10px',
-            borderRadius: '4px', // Squared off slightly for a modern "tag" look
+            borderRadius: '4px',
             whiteSpace: 'nowrap'
           }}>{s}</span>
         ))}
@@ -308,6 +308,47 @@ const SponsorBlock = ({ sponsors, closing }) => {
               lineHeight: 1.7,
               margin: 0,
             }}>{s.message}</p>
+            {s.quote && (
+              <blockquote style={{
+                margin: '12px 0 8px',
+                padding: '10px 16px',
+                borderLeft: '3px solid #ff4d4d',
+                background: '#fff',
+                borderRadius: '0 6px 6px 0',
+              }}>
+                <p style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontStyle: 'italic',
+                  fontWeight: 600,
+                  fontSize: '0.82rem',
+                  color: '#333',
+                  margin: 0,
+                  lineHeight: 1.7,
+                }}>"{s.quote}"</p>
+              </blockquote>
+            )}
+            {s.url && (
+              <p style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: '0.75rem',
+                color: '#888',
+                margin: '6px 0 0',
+              }}>
+                Learn more at{' '}
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: '#ff4d4d',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
+                  onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
+                >{s.urlLabel || s.url}</a>.
+              </p>
+            )}
           </div>
         ))}
         {closing && (
