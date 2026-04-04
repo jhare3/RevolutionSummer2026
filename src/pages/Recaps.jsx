@@ -8,7 +8,6 @@ const csvFiles = import.meta.glob('../data/boxscores/**/*.csv', { query: '?raw',
 const jsonFiles = import.meta.glob('../data/boxscores/**/*.json', { eager: true });
 const recapFiles = import.meta.glob('../data/recaps/*.json', { eager: true });
 
-// ─── Team color map (matches App.css team-header-* colors) ────────────────────
 const TEAM_COLORS = {
   TAN:    '#d2b48c',
   YELLOW: '#ffc107',
@@ -34,8 +33,6 @@ const isLightTeam = (name) => {
   const key = name?.toUpperCase().trim().split(' ')[0];
   return LIGHT_TEAMS.has(key);
 };
-
-// ─── Sub-components ───────────────────────────────────────────────────────────
 
 const TeamPill = ({ name }) => (
   <span style={{
@@ -70,6 +67,7 @@ const PerformerLine = ({ line }) => {
       gap: '6px',
       padding: '7px 0',
       borderBottom: '1px solid #f0f0f0',
+      textAlign: 'left' // Ensure stat lines are left-aligned
     }}>
       <span style={{
         fontFamily: "'Montserrat', sans-serif",
@@ -115,6 +113,7 @@ const PerformersPanel = ({ performers }) => {
               borderTop: `4px solid ${getTeamColor(team)}`,
               borderRadius: '10px',
               padding: '14px 16px',
+              textAlign: 'left' // Local override for performer box
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                 <TeamPill name={team} />
@@ -159,7 +158,6 @@ const GameCard = ({ game, onOpenBoxscore, gameDataMap }) => {
         transform: hovered && !expanded ? 'translateY(-2px)' : 'none',
       }}
     >
-      {/* Clickable header row */}
       <div
         onClick={() => setExpanded(e => !e)}
         style={{
@@ -220,15 +218,16 @@ const GameCard = ({ game, onOpenBoxscore, gameDataMap }) => {
         </div>
       </div>
 
-      {/* Expanded body */}
       {expanded && (
-        <div style={{ padding: '20px 18px 22px' }}>
+        <div style={{ padding: '20px 18px 22px', textAlign: 'left' }}> {/* Aligns the content inside GameCard */}
           <p style={{
             fontFamily: "'Montserrat', sans-serif",
-            fontSize: '0.84rem',
-            lineHeight: 1.85,
-            color: '#555',
+            fontSize: '0.92rem', // Increased for readability
+            lineHeight: 1.75, // Better column spacing
+            color: '#333', // Darker text for sports article feel
             margin: 0,
+            textAlign: 'left', // Force left alignment
+            letterSpacing: '-0.01em'
           }}>{game.text}</p>
 
           <PerformersPanel performers={game.performers} />
@@ -250,8 +249,6 @@ const GameCard = ({ game, onOpenBoxscore, gameDataMap }) => {
   );
 };
 
-// ─── Sponsor Block ────────────────────────────────────────────────────────────
-
 const SponsorBlock = ({ sponsors, closing }) => {
   if (!sponsors?.length && !closing) return null;
 
@@ -263,8 +260,8 @@ const SponsorBlock = ({ sponsors, closing }) => {
       borderRadius: '0.75rem',
       overflow: 'hidden',
       background: '#fafafa',
+      textAlign: 'left' // Ensure sponsor messages are left aligned
     }}>
-      {/* Header */}
       <div style={{
         background: '#1a1a1a',
         padding: '10px 20px',
@@ -342,7 +339,7 @@ const SponsorBlock = ({ sponsors, closing }) => {
                 color: '#888',
                 margin: '6px 0 0',
               }}>
-                Learn more and begin your mindfulness journey at{' '}
+                Learn more at{' '}
                 <a
                   href={s.url}
                   target="_blank"
@@ -352,8 +349,6 @@ const SponsorBlock = ({ sponsors, closing }) => {
                     fontWeight: 700,
                     textDecoration: 'none',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
-                  onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
                 >{s.urlLabel || s.url}</a>.
               </p>
             )}
@@ -377,13 +372,11 @@ const SponsorBlock = ({ sponsors, closing }) => {
   );
 };
 
-// ─── Week Section ─────────────────────────────────────────────────────────────
-
 const WeekSection = ({ recap, gameDataMap, onOpenBoxscore, defaultOpen }) => {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div style={{ marginBottom: '52px' }}>
+    <div style={{ marginBottom: '52px', textAlign: 'left' }}> {/* Align WeekSection container */}
       <div
         onClick={() => setOpen(o => !o)}
         style={{
@@ -439,10 +432,11 @@ const WeekSection = ({ recap, gameDataMap, onOpenBoxscore, defaultOpen }) => {
             <p style={{
               fontFamily: "'Montserrat', sans-serif",
               fontStyle: 'italic',
-              fontWeight: 600,
-              fontSize: '0.88rem',
-              lineHeight: 1.85,
-              color: '#666',
+              fontWeight: 500,
+              fontSize: '0.95rem', // Slightly larger for intro recap
+              lineHeight: 1.7,
+              color: '#444',
+              textAlign: 'left', // Ensure left alignment
               marginBottom: '24px',
               paddingBottom: '20px',
               borderBottom: '1px solid #eeeeee',
@@ -466,8 +460,6 @@ const WeekSection = ({ recap, gameDataMap, onOpenBoxscore, defaultOpen }) => {
     </div>
   );
 };
-
-// ─── Main Page ────────────────────────────────────────────────────────────────
 
 const Recaps = () => {
   const [loading, setLoading] = useState(true);
@@ -525,9 +517,9 @@ const Recaps = () => {
   );
 
   return (
-    <div className="px-3 px-md-5 py-5">
-      <div className="text-center mb-5">
-        <h1 className="rosters-heading">Game Recaps</h1>
+    <div className="px-3 px-md-5 py-5" style={{ textAlign: 'left' }}> {/* Align main page content left */}
+      <div className="mb-5" style={{ textAlign: 'left' }}>
+        <h1 className="rosters-heading" style={{ textAlign: 'left' }}>Game Recaps</h1>
       </div>
 
       <div style={{ maxWidth: '860px', margin: '0 auto' }}>
