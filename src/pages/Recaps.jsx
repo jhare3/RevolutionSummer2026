@@ -62,34 +62,38 @@ const PerformerLine = ({ line }) => {
   return (
     <div style={{
       display: 'flex',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-      gap: '6px',
-      padding: '7px 0',
+      flexDirection: 'column', // Stack stats below name
+      gap: '8px',
+      padding: '12px 0',
       borderBottom: '1px solid #f0f0f0',
-      textAlign: 'left' // Ensure stat lines are left-aligned
+      textAlign: 'left'
     }}>
       <span style={{
         fontFamily: "'Montserrat', sans-serif",
         fontWeight: 800,
-        fontSize: '0.78rem',
+        fontSize: '0.82rem', // Slightly larger for the header name
         color: '#1a1a1a',
-        minWidth: '145px',
-        flexShrink: 0,
+        lineHeight: 1.2,
       }}>
         {name.trim()}
       </span>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+      <div style={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: '6px',
+        justifyContent: 'flex-start' // Align stats to the left under the name
+      }}>
         {statParts.map((s, i) => (
           <span key={i} style={{
-            background: i === 0 ? '#1a1a1a' : '#f0f0f0',
-            color: i === 0 ? '#fff' : '#555',
-            fontSize: '0.62rem',
+            background: i === 0 ? '#1a1a1a' : '#f4f4f4',
+            color: i === 0 ? '#fff' : '#444',
+            fontSize: '0.65rem',
             fontFamily: "'Montserrat', sans-serif",
             fontWeight: 700,
-            letterSpacing: '0.04em',
-            padding: '2px 8px',
-            borderRadius: '100px',
+            letterSpacing: '0.02em',
+            padding: '3px 10px',
+            borderRadius: '4px', // Squared off slightly for a modern "tag" look
+            whiteSpace: 'nowrap'
           }}>{s}</span>
         ))}
       </div>
@@ -112,17 +116,17 @@ const PerformersPanel = ({ performers }) => {
               border: '1px solid #eeeeee',
               borderTop: `4px solid ${getTeamColor(team)}`,
               borderRadius: '10px',
-              padding: '14px 16px',
-              textAlign: 'left' // Local override for performer box
+              padding: '16px',
+              textAlign: 'left'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                 <TeamPill name={team} />
                 <span style={{
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 700,
-                  fontSize: '0.58rem',
-                  letterSpacing: '0.14em',
-                  color: '#999',
+                  fontSize: '0.6rem',
+                  letterSpacing: '0.12em',
+                  color: '#888',
                   textTransform: 'uppercase',
                 }}>Top Performers</span>
               </div>
@@ -153,7 +157,7 @@ const GameCard = ({ game, onOpenBoxscore, gameDataMap }) => {
         border: expanded ? '2px solid #1a1a1a' : hovered ? '2px solid #ff4d4d' : '2px solid #e0e0e0',
         overflow: 'hidden',
         background: '#fff',
-        transition: 'border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease',
+        transition: 'all 0.2s ease',
         boxShadow: hovered && !expanded ? '0 6px 20px rgba(255,77,77,0.12)' : expanded ? '0 4px 16px rgba(0,0,0,0.08)' : '0 1px 4px rgba(0,0,0,0.05)',
         transform: hovered && !expanded ? 'translateY(-2px)' : 'none',
       }}
@@ -168,7 +172,6 @@ const GameCard = ({ game, onOpenBoxscore, gameDataMap }) => {
           cursor: 'pointer',
           background: expanded ? '#f8f9fa' : hovered ? '#fff9f9' : '#fff',
           borderBottom: expanded ? '2px solid #eeeeee' : 'none',
-          transition: 'background 0.15s',
           userSelect: 'none',
         }}
       >
@@ -206,38 +209,39 @@ const GameCard = ({ game, onOpenBoxscore, gameDataMap }) => {
             letterSpacing: '0.08em',
             color: expanded ? '#1a1a1a' : '#aaa',
             textTransform: 'uppercase',
-            transition: 'color 0.15s',
           }}>{expanded ? 'Close' : 'Read Recap'}</span>
           <span style={{
             color: expanded ? '#1a1a1a' : '#bbb',
             fontSize: '0.75rem',
-            transition: 'transform 0.2s, color 0.15s',
             transform: expanded ? 'rotate(180deg)' : 'none',
             display: 'inline-block',
+            transition: 'transform 0.2s'
           }}>▾</span>
         </div>
       </div>
 
       {expanded && (
-        <div style={{ padding: '20px 18px 22px', textAlign: 'left' }}> {/* Aligns the content inside GameCard */}
+        <div style={{ padding: '20px 18px 22px', textAlign: 'left' }}>
           <p style={{
             fontFamily: "'Montserrat', sans-serif",
-            fontSize: '0.92rem', // Increased for readability
-            lineHeight: 1.75, // Better column spacing
-            color: '#333', // Darker text for sports article feel
-            margin: 0,
-            textAlign: 'left', // Force left alignment
-            letterSpacing: '-0.01em'
+            fontSize: '0.92rem',
+            lineHeight: 1.75,
+            color: '#333',
+            margin: '0 0 20px 0',
+            textAlign: 'left'
           }}>{game.text}</p>
 
           <PerformersPanel performers={game.performers} />
 
           {hasBoxscore && (
-            <div style={{ marginTop: '18px' }}>
+            <div style={{ marginTop: '22px' }}>
               <button
-                onClick={() => onOpenBoxscore(matchupClean)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpenBoxscore(matchupClean);
+                }}
                 className="btn btn-primary"
-                style={{ fontSize: '0.72rem', padding: '8px 20px' }}
+                style={{ fontSize: '0.72rem', padding: '8px 24px' }}
               >
                 Full Boxscore →
               </button>
@@ -254,30 +258,22 @@ const SponsorBlock = ({ sponsors, closing }) => {
 
   return (
     <div style={{
-      marginTop: '28px',
+      marginTop: '32px',
       border: '1px solid #eeeeee',
       borderTop: '4px solid #1a1a1a',
       borderRadius: '0.75rem',
       overflow: 'hidden',
       background: '#fafafa',
-      textAlign: 'left' // Ensure sponsor messages are left aligned
+      textAlign: 'left'
     }}>
       <div style={{
         background: '#1a1a1a',
-        padding: '10px 20px',
+        padding: '12px 20px',
         display: 'flex',
         alignItems: 'center',
         gap: '10px',
       }}>
-        <span style={{
-          fontFamily: "'Montserrat', sans-serif",
-          fontWeight: 900,
-          fontStyle: 'italic',
-          fontSize: '0.65rem',
-          letterSpacing: '0.18em',
-          textTransform: 'uppercase',
-          color: '#ff4d4d',
-        }}>★</span>
+        <span style={{ color: '#ff4d4d', fontWeight: 900 }}>★</span>
         <span style={{
           fontFamily: "'Montserrat', sans-serif",
           fontWeight: 900,
@@ -289,82 +285,39 @@ const SponsorBlock = ({ sponsors, closing }) => {
         }}>A Word From Our Sponsors</span>
       </div>
 
-      <div style={{ padding: '20px 20px 6px' }}>
+      <div style={{ padding: '20px 20px 8px' }}>
         {sponsors?.map((s, i) => (
           <div key={i} style={{
-            marginBottom: '18px',
-            paddingBottom: '18px',
+            marginBottom: '20px',
+            paddingBottom: '20px',
             borderBottom: i < sponsors.length - 1 ? '1px solid #eeeeee' : 'none',
           }}>
             <div style={{
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 900,
               fontStyle: 'italic',
-              fontSize: '0.82rem',
+              fontSize: '0.85rem',
               color: '#1a1a1a',
-              marginBottom: '4px',
+              marginBottom: '6px',
               textTransform: 'uppercase',
-              letterSpacing: '-0.2px',
             }}>{s.name}</div>
             <p style={{
               fontFamily: "'Montserrat', sans-serif",
-              fontSize: '0.8rem',
+              fontSize: '0.82rem',
               color: '#555',
-              lineHeight: 1.75,
+              lineHeight: 1.7,
               margin: 0,
             }}>{s.message}</p>
-            {s.quote && (
-              <blockquote style={{
-                margin: '12px 0 8px',
-                padding: '10px 16px',
-                borderLeft: '3px solid #ff4d4d',
-                background: '#fff',
-                borderRadius: '0 6px 6px 0',
-              }}>
-                <p style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontStyle: 'italic',
-                  fontWeight: 600,
-                  fontSize: '0.82rem',
-                  color: '#333',
-                  margin: 0,
-                  lineHeight: 1.7,
-                }}>"{s.quote}"</p>
-              </blockquote>
-            )}
-            {s.url && (
-              <p style={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: '0.75rem',
-                color: '#888',
-                margin: '6px 0 0',
-              }}>
-                Learn more at{' '}
-                <a
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    color: '#ff4d4d',
-                    fontWeight: 700,
-                    textDecoration: 'none',
-                  }}
-                >{s.urlLabel || s.url}</a>.
-              </p>
-            )}
           </div>
         ))}
-
         {closing && (
           <p style={{
             fontFamily: "'Montserrat', sans-serif",
             fontWeight: 700,
             fontStyle: 'italic',
-            fontSize: '0.82rem',
+            fontSize: '0.85rem',
             color: '#1a1a1a',
-            lineHeight: 1.75,
-            margin: '4px 0 20px',
-            paddingTop: sponsors?.length ? '4px' : 0,
+            margin: '8px 0 20px',
           }}>{closing}</p>
         )}
       </div>
@@ -376,7 +329,7 @@ const WeekSection = ({ recap, gameDataMap, onOpenBoxscore, defaultOpen }) => {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div style={{ marginBottom: '52px', textAlign: 'left' }}> {/* Align WeekSection container */}
+    <div style={{ marginBottom: '60px', textAlign: 'left' }}>
       <div
         onClick={() => setOpen(o => !o)}
         style={{
@@ -385,44 +338,42 @@ const WeekSection = ({ recap, gameDataMap, onOpenBoxscore, defaultOpen }) => {
           justifyContent: 'space-between',
           gap: '12px',
           cursor: 'pointer',
-          paddingBottom: '14px',
+          paddingBottom: '16px',
           borderBottom: '3px solid #1a1a1a',
-          marginBottom: '22px',
+          marginBottom: '24px',
           userSelect: 'none',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
           <span className="week-badge">WEEK {recap.week}</span>
           <div>
             <div style={{
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 900,
               fontStyle: 'italic',
-              fontSize: 'clamp(0.95rem, 2.2vw, 1.25rem)',
+              fontSize: '1.35rem',
               color: '#1a1a1a',
               textTransform: 'uppercase',
-              letterSpacing: '-0.3px',
-              lineHeight: 1.15,
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em'
             }}>{recap.title}</div>
             <div style={{
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 600,
-              fontSize: '0.68rem',
-              color: '#aaa',
-              marginTop: '2px',
-              letterSpacing: '0.06em',
+              fontSize: '0.7rem',
+              color: '#999',
+              marginTop: '4px',
               textTransform: 'uppercase',
+              letterSpacing: '0.05em'
             }}>{recap.date}</div>
           </div>
         </div>
         <span style={{
           color: '#bbb',
-          fontSize: '0.85rem',
-          marginTop: '4px',
-          transition: 'transform 0.2s',
+          fontSize: '1rem',
           transform: open ? 'rotate(180deg)' : 'none',
           display: 'inline-block',
-          flexShrink: 0,
+          transition: 'transform 0.2s'
         }}>▾</span>
       </div>
 
@@ -433,17 +384,17 @@ const WeekSection = ({ recap, gameDataMap, onOpenBoxscore, defaultOpen }) => {
               fontFamily: "'Montserrat', sans-serif",
               fontStyle: 'italic',
               fontWeight: 500,
-              fontSize: '0.95rem', // Slightly larger for intro recap
-              lineHeight: 1.7,
+              fontSize: '1rem',
+              lineHeight: 1.75,
               color: '#444',
-              textAlign: 'left', // Ensure left alignment
-              marginBottom: '24px',
-              paddingBottom: '20px',
+              textAlign: 'left',
+              marginBottom: '28px',
+              paddingBottom: '24px',
               borderBottom: '1px solid #eeeeee',
             }}>{recap.content}</p>
           )}
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {recap.games?.map((game, i) => (
               <GameCard
                 key={i}
@@ -470,7 +421,6 @@ const Recaps = () => {
   useEffect(() => {
     const loadData = async () => {
       const combinedMap = {};
-
       for (const path in jsonFiles) {
         const data = jsonFiles[path].default || jsonFiles[path];
         if (data.game) {
@@ -478,7 +428,6 @@ const Recaps = () => {
           combinedMap[key] = { ...data };
         }
       }
-
       for (const path in csvFiles) {
         const rawContent = await csvFiles[path]();
         const results = Papa.parse(rawContent, { skipEmptyLines: true });
@@ -489,7 +438,6 @@ const Recaps = () => {
           combinedMap[key].scores = parseScoreFromCSV(rows);
         }
       }
-
       setGameDataMap(combinedMap);
       setLoading(false);
     };
@@ -517,9 +465,9 @@ const Recaps = () => {
   );
 
   return (
-    <div className="px-3 px-md-5 py-5" style={{ textAlign: 'left' }}> {/* Align main page content left */}
+    <div className="px-3 px-md-5 py-5" style={{ textAlign: 'left' }}>
       <div className="mb-5" style={{ textAlign: 'left' }}>
-        <h1 className="rosters-heading" style={{ textAlign: 'left' }}>Game Recaps</h1>
+        <h1 className="rosters-heading" style={{ textAlign: 'left', margin: '0', fontSize: '2.5rem' }}>Game Recaps</h1>
       </div>
 
       <div style={{ maxWidth: '860px', margin: '0 auto' }}>
