@@ -1,13 +1,473 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Badge, Button, Spinner, Row, Col } from 'react-bootstrap';
+import { Row, Col, Spinner } from 'react-bootstrap';
 import Papa from 'papaparse';
 import BoxscoreModal from '../components/BoxscoreModal';
 import { slugifyMatchup, parseScoreFromCSV } from '../utils/boxscoreEngine';
 
-// Use ** to recursively find files in any weekly subfolder
 const csvFiles = import.meta.glob('../data/boxscores/**/*.csv', { query: '?raw', import: 'default' });
 const jsonFiles = import.meta.glob('../data/boxscores/**/*.json', { eager: true });
 const recapFiles = import.meta.glob('../data/recaps/*.json', { eager: true });
+
+// ─── Team color map (matches App.css team-header-* colors) ────────────────────
+const TEAM_COLORS = {
+  TAN:    '#d2b48c',
+  YELLOW: '#ffc107',
+  PURPLE: '#6f42c1',
+  BLUE:   '#007bff',
+  GRAY:   '#6c757d',
+  WHITE:  '#adb5bd',
+  BLACK:  '#1a1a1a',
+  PINK:   '#e83e8c',
+  GREEN:  '#28a745',
+  RED:    '#ff4d4d',
+  ORANGE: '#fd7e14',
+};
+
+const LIGHT_TEAMS = new Set(['YELLOW', 'WHITE', 'TAN']);
+
+const getTeamColor = (name) => {
+  const key = name?.toUpperCase().trim().split(' ')[0];
+  return TEAM_COLORS[key] || '#1a1a1a';
+};
+
+const isLightTeam = (name) => {
+  const key = name?.toUpperCase().trim().split(' ')[0];
+  return LIGHT_TEAMS.has(key);
+};
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+const TeamPill = ({ name }) => (
+  <span style={{
+    background: getTeamColor(name),
+    color: isLightTeam(name) ? '#1a1a1a' : '#fff',
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 800,
+    fontStyle: 'italic',
+    fontSize: '0.65rem',
+    letterSpacing: '0.06em',
+    padding: '3px 11px',
+    borderRadius: '100px',
+    textTransform: 'uppercase',
+    display: 'inline-block',
+    lineHeight: 1.7,
+    whiteSpace: 'nowrap',
+  }}>
+    {name}
+  </span>
+);
+
+const PerformerLine = ({ line }) => {
+  const [name, stats] = line.split(/\s*—\s*/);
+  if (!stats) return null;
+  const statParts = stats.split(',').map(s => s.trim());
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      gap: '6px',
+      padding: '7px 0',
+      borderBottom: '1px solid #f0f0f0',
+    }}>
+      <span style={{
+        fontFamily: "'Montserrat', sans-serif",
+        fontWeight: 800,
+        fontSize: '0.78rem',
+        color: '#1a1a1a',
+        minWidth: '145px',
+        flexShrink: 0,
+      }}>
+        {name.trim()}
+      </span>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+        {statParts.map((s, i) => (
+          <span key={i} style={{
+            background: i === 0 ? '#1a1a1a' : '#f0f0f0',
+            color: i === 0 ? '#fff' : '#555',
+            fontSize: '0.62rem',
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 700,
+            letterSpacing: '0.04em',
+            padding: '2px 8px',
+            borderRadius: '100px',
+          }}>{s}</span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const PerformersPanel = ({ performers }) => {
+  if (!performers || Object.keys(performers).length === 0) return null;
+  const teams = Object.keys(performers);
+
+  return (
+    <Row className="g-3 mt-2">
+      {teams.map((team) => {
+        const lines = performers[team].split(';').map(l => l.trim()).filter(Boolean);
+        return (
+          <Col key={team} xs={12} md={6}>
+            <div style={{
+              background: '#fafafa',
+              border: '1px solid #eeeeee',
+              borderTop: `4px solid ${getTeamColor(team)}`,
+              borderRadius: '10px',
+              padding: '14px 16px',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                <TeamPill name={team} />
+                <span style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700,
+                  fontSize: '0.58rem',
+                  letterSpacing: '0.14em',
+                  color: '#999',
+                  textTransform: 'uppercase',
+                }}>Top Performers</span>
+              </div>
+              {lines.map((line, i) => <PerformerLine key={i} line={line} />)}
+            </div>
+          </Col>
+        );
+      })}
+    </Row>
+  );
+};
+
+const GameCard = ({ game, onOpenBoxscore, gameDataMap }) => {
+  const [expanded, setExpanded] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  const matchupClean = game.matchup.replace(/^Game \d+:\s*/i, '').trim();
+  const gameLabel = game.matchup.match(/^Game \d+/i)?.[0]?.toUpperCase() || 'GAME';
+  const teams = matchupClean.split(/\s+vs\.?\s+/i).map(t => t.trim());
+  const hasBoxscore = !!gameDataMap[slugifyMatchup(matchupClean)];
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        borderRadius: '0.75rem',
+        border: expanded ? '2px solid #1a1a1a' : hovered ? '2px solid #ff4d4d' : '2px solid #e0e0e0',
+        overflow: 'hidden',
+        background: '#fff',
+        transition: 'border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease',
+        boxShadow: hovered && !expanded ? '0 6px 20px rgba(255,77,77,0.12)' : expanded ? '0 4px 16px rgba(0,0,0,0.08)' : '0 1px 4px rgba(0,0,0,0.05)',
+        transform: hovered && !expanded ? 'translateY(-2px)' : 'none',
+      }}
+    >
+      {/* Clickable header row */}
+      <div
+        onClick={() => setExpanded(e => !e)}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '14px 18px',
+          cursor: 'pointer',
+          background: expanded ? '#f8f9fa' : hovered ? '#fff9f9' : '#fff',
+          borderBottom: expanded ? '2px solid #eeeeee' : 'none',
+          transition: 'background 0.15s',
+          userSelect: 'none',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+          <span style={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 900,
+            fontSize: '0.58rem',
+            letterSpacing: '0.2em',
+            color: '#ff4d4d',
+            textTransform: 'uppercase',
+          }}>{gameLabel}</span>
+          <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+            {teams.map((t, i) => (
+              <React.Fragment key={i}>
+                <TeamPill name={t} />
+                {i < teams.length - 1 && (
+                  <span style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontWeight: 900,
+                    fontStyle: 'italic',
+                    fontSize: '0.6rem',
+                    color: '#ccc',
+                  }}>VS</span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+          <span style={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 700,
+            fontSize: '0.6rem',
+            letterSpacing: '0.08em',
+            color: expanded ? '#1a1a1a' : '#aaa',
+            textTransform: 'uppercase',
+            transition: 'color 0.15s',
+          }}>{expanded ? 'Close' : 'Read Recap'}</span>
+          <span style={{
+            color: expanded ? '#1a1a1a' : '#bbb',
+            fontSize: '0.75rem',
+            transition: 'transform 0.2s, color 0.15s',
+            transform: expanded ? 'rotate(180deg)' : 'none',
+            display: 'inline-block',
+          }}>▾</span>
+        </div>
+      </div>
+
+      {/* Expanded body */}
+      {expanded && (
+        <div style={{ padding: '20px 18px 22px' }}>
+          <p style={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontSize: '0.84rem',
+            lineHeight: 1.85,
+            color: '#555',
+            margin: 0,
+          }}>{game.text}</p>
+
+          <PerformersPanel performers={game.performers} />
+
+          {hasBoxscore && (
+            <div style={{ marginTop: '18px' }}>
+              <button
+                onClick={() => onOpenBoxscore(matchupClean)}
+                className="btn btn-primary"
+                style={{ fontSize: '0.72rem', padding: '8px 20px' }}
+              >
+                Full Boxscore →
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ─── Sponsor Block ────────────────────────────────────────────────────────────
+
+const SponsorBlock = ({ sponsors, closing }) => {
+  if (!sponsors?.length && !closing) return null;
+
+  return (
+    <div style={{
+      marginTop: '28px',
+      border: '1px solid #eeeeee',
+      borderTop: '4px solid #1a1a1a',
+      borderRadius: '0.75rem',
+      overflow: 'hidden',
+      background: '#fafafa',
+    }}>
+      {/* Header */}
+      <div style={{
+        background: '#1a1a1a',
+        padding: '10px 20px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '10px',
+      }}>
+        <span style={{
+          fontFamily: "'Montserrat', sans-serif",
+          fontWeight: 900,
+          fontStyle: 'italic',
+          fontSize: '0.65rem',
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          color: '#ff4d4d',
+        }}>★</span>
+        <span style={{
+          fontFamily: "'Montserrat', sans-serif",
+          fontWeight: 900,
+          fontStyle: 'italic',
+          fontSize: '0.65rem',
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          color: '#fff',
+        }}>A Word From Our Sponsors</span>
+      </div>
+
+      <div style={{ padding: '20px 20px 6px' }}>
+        {sponsors?.map((s, i) => (
+          <div key={i} style={{
+            marginBottom: '18px',
+            paddingBottom: '18px',
+            borderBottom: i < sponsors.length - 1 ? '1px solid #eeeeee' : 'none',
+          }}>
+            <div style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 900,
+              fontStyle: 'italic',
+              fontSize: '0.82rem',
+              color: '#1a1a1a',
+              marginBottom: '4px',
+              textTransform: 'uppercase',
+              letterSpacing: '-0.2px',
+            }}>{s.name}</div>
+            <p style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontSize: '0.8rem',
+              color: '#555',
+              lineHeight: 1.75,
+              margin: 0,
+            }}>{s.message}</p>
+            {s.quote && (
+              <blockquote style={{
+                margin: '12px 0 8px',
+                padding: '10px 16px',
+                borderLeft: '3px solid #ff4d4d',
+                background: '#fff',
+                borderRadius: '0 6px 6px 0',
+              }}>
+                <p style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontStyle: 'italic',
+                  fontWeight: 600,
+                  fontSize: '0.82rem',
+                  color: '#333',
+                  margin: 0,
+                  lineHeight: 1.7,
+                }}>"{s.quote}"</p>
+              </blockquote>
+            )}
+            {s.url && (
+              <p style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: '0.75rem',
+                color: '#888',
+                margin: '6px 0 0',
+              }}>
+                Learn more and begin your mindfulness journey at{' '}
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: '#ff4d4d',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
+                  onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
+                >{s.urlLabel || s.url}</a>.
+              </p>
+            )}
+          </div>
+        ))}
+
+        {closing && (
+          <p style={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 700,
+            fontStyle: 'italic',
+            fontSize: '0.82rem',
+            color: '#1a1a1a',
+            lineHeight: 1.75,
+            margin: '4px 0 20px',
+            paddingTop: sponsors?.length ? '4px' : 0,
+          }}>{closing}</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// ─── Week Section ─────────────────────────────────────────────────────────────
+
+const WeekSection = ({ recap, gameDataMap, onOpenBoxscore, defaultOpen }) => {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <div style={{ marginBottom: '52px' }}>
+      <div
+        onClick={() => setOpen(o => !o)}
+        style={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          gap: '12px',
+          cursor: 'pointer',
+          paddingBottom: '14px',
+          borderBottom: '3px solid #1a1a1a',
+          marginBottom: '22px',
+          userSelect: 'none',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+          <span className="week-badge">WEEK {recap.week}</span>
+          <div>
+            <div style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 900,
+              fontStyle: 'italic',
+              fontSize: 'clamp(0.95rem, 2.2vw, 1.25rem)',
+              color: '#1a1a1a',
+              textTransform: 'uppercase',
+              letterSpacing: '-0.3px',
+              lineHeight: 1.15,
+            }}>{recap.title}</div>
+            <div style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 600,
+              fontSize: '0.68rem',
+              color: '#aaa',
+              marginTop: '2px',
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+            }}>{recap.date}</div>
+          </div>
+        </div>
+        <span style={{
+          color: '#bbb',
+          fontSize: '0.85rem',
+          marginTop: '4px',
+          transition: 'transform 0.2s',
+          transform: open ? 'rotate(180deg)' : 'none',
+          display: 'inline-block',
+          flexShrink: 0,
+        }}>▾</span>
+      </div>
+
+      {open && (
+        <>
+          {recap.content && (
+            <p style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontStyle: 'italic',
+              fontWeight: 600,
+              fontSize: '0.88rem',
+              lineHeight: 1.85,
+              color: '#666',
+              marginBottom: '24px',
+              paddingBottom: '20px',
+              borderBottom: '1px solid #eeeeee',
+            }}>{recap.content}</p>
+          )}
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {recap.games?.map((game, i) => (
+              <GameCard
+                key={i}
+                game={game}
+                onOpenBoxscore={onOpenBoxscore}
+                gameDataMap={gameDataMap}
+              />
+            ))}
+          </div>
+
+          <SponsorBlock sponsors={recap.sponsors} closing={recap.closing} />
+        </>
+      )}
+    </div>
+  );
+};
+
+// ─── Main Page ────────────────────────────────────────────────────────────────
 
 const Recaps = () => {
   const [loading, setLoading] = useState(true);
@@ -19,25 +479,20 @@ const Recaps = () => {
     const loadData = async () => {
       const combinedMap = {};
 
-      // 1. Process JSON Boxscores from all weekly folders
       for (const path in jsonFiles) {
         const data = jsonFiles[path].default || jsonFiles[path];
-        // Ensure we only process files with game data
         if (data.game) {
           const key = slugifyMatchup(data.game);
           combinedMap[key] = { ...data };
         }
       }
 
-      // 2. Merge CSV Metadata (Scores) from all weekly folders
       for (const path in csvFiles) {
         const rawContent = await csvFiles[path]();
         const results = Papa.parse(rawContent, { skipEmptyLines: true });
         const rows = results.data;
-        
-        const matchupLine = rows.find(r => r[0]?.includes('vs.'))?.[0] || "";
+        const matchupLine = rows.find(r => r[0]?.includes('vs.'))?.[0] || '';
         const key = slugifyMatchup(matchupLine);
-        
         if (combinedMap[key]) {
           combinedMap[key].scores = parseScoreFromCSV(rows);
         }
@@ -70,40 +525,27 @@ const Recaps = () => {
   );
 
   return (
-    <div className="container py-5">
-      <h1 className="display-4 fw-black italic mb-5" style={{ letterSpacing: '-2px' }}>GAME RECAPS</h1>
+    <div className="px-3 px-md-5 py-5">
+      <div className="text-center mb-5">
+        <h1 className="rosters-heading">Game Recaps</h1>
+      </div>
 
-      {allRecaps.map((recap, idx) => (
-        <div key={idx} className="card mb-5 border-0 shadow-sm" style={{ borderLeft: '8px solid #ff4d4d' }}>
-          <div className="card-body p-4">
-            <div className="d-flex justify-content-between mb-3">
-              <Badge bg="danger">WEEK {recap.week}</Badge>
-              <span className="text-muted small fw-bold">{recap.date}</span>
-            </div>
-            <h2 className="fw-black mb-3">{recap.title}</h2>
-            <p className="text-secondary mb-4">{recap.content}</p>
-            
-            <Row className="g-3">
-              {recap.matchups?.map((m, mIdx) => (
-                <Col key={mIdx} xs={12} md={6} lg={4}>
-                  <Button 
-                    variant="outline-dark" 
-                    className="w-100 fw-black py-2 shadow-sm boxscore-btn"
-                    onClick={() => handleOpenBoxscore(m)}
-                  >
-                    {m} <span className="text-danger ms-1">BOXSCORE</span>
-                  </Button>
-                </Col>
-              ))}
-            </Row>
-          </div>
-        </div>
-      ))}
+      <div style={{ maxWidth: '860px', margin: '0 auto' }}>
+        {allRecaps.map((recap, idx) => (
+          <WeekSection
+            key={idx}
+            recap={recap}
+            gameDataMap={gameDataMap}
+            onOpenBoxscore={handleOpenBoxscore}
+            defaultOpen={idx === 0}
+          />
+        ))}
+      </div>
 
-      <BoxscoreModal 
-        show={showBoxscore} 
-        onHide={() => setShowBoxscore(false)} 
-        gameData={selectedGame} 
+      <BoxscoreModal
+        show={showBoxscore}
+        onHide={() => setShowBoxscore(false)}
+        gameData={selectedGame}
       />
     </div>
   );
