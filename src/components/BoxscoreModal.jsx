@@ -46,7 +46,7 @@ const BoxscoreModal = ({ show, onHide, gameData }) => {
 
   return (
     <Modal show={show} onHide={onHide} size="xl" centered>
-      <Modal.Header closeButton className="bg-dark text-white">
+      <Modal.Header closeButton className="bg-dark text-white" data-bs-theme="dark">
         <Modal.Title className="fw-black italic">{gameData.game}</Modal.Title>
       </Modal.Header>
       <Modal.Body className="p-4">
