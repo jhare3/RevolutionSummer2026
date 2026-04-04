@@ -334,7 +334,7 @@ const SponsorBlock = ({ sponsors, closing }) => {
                 color: '#888',
                 margin: '6px 0 0',
               }}>
-                Learn more at{' '}
+                Learn more about Warden's Wisdom and begin your mindfulness journey at:{' '}
                 <a
                   href={s.url}
                   target="_blank"
