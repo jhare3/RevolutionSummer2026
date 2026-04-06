@@ -74,24 +74,24 @@
     "date": "Sunday, May 10",
     "location": "Edmunds Middle School",
     "games": [
-      { "time": "8:00 AM", "matchup": "TAN vs BLACK" },
-      { "time": "9:00 AM", "matchup": "ORANGE vs GREEN" },
-      { "time": "10:00 AM", "matchup": "YELLOW vs WHITE" },
-      { "time": "11:00 AM", "matchup": "PINK vs BLUE" },
+      { "time": "8:00 AM", "matchup": "BLACK vs ORANGE" },
+      { "time": "9:00 AM", "matchup": "YELLOW vs PINK" },
+      { "time": "10:00 AM", "matchup": "TAN vs PURPLE" },
+      { "time": "11:00 AM", "matchup": "WHITE vs GREEN" },
       { "time": "12:00 PM", "matchup": "GRAY vs RED" }
     ],
-    "bye": "PURPLE"
+    "bye": "BLUE"
   },
   {
     "week": 7,
     "date": "Sunday, May 17",
     "location": "Edmunds Middle School",
     "games": [
-      { "time": "8:00 AM", "matchup": "ORANGE vs YELLOW" },
-      { "time": "9:00 AM", "matchup": "PINK vs TAN" },
-      { "time": "10:00 AM", "matchup": "PURPLE vs GRAY" },
-      { "time": "11:00 AM", "matchup": "BLUE vs RED" },
-      { "time": "12:00 PM", "matchup": "GREEN vs BLACK" }
+      { "time": "8:00 AM", "matchup": "RED vs PURPLE" },
+      { "time": "9:00 AM", "matchup": "YELLOW vs BLUE" },
+      { "time": "10:00 AM", "matchup": "BLACK vs GREEN" },
+      { "time": "11:00 AM", "matchup": "ORANGE vs TAN" },
+      { "time": "12:00 PM", "matchup": "PINK vs GRAY" }
     ],
     "bye": "WHITE"
   },
@@ -100,12 +100,17 @@
     "date": "Sunday, May 31",
     "location": "Edmunds Middle School",
     "games": [
-      { "time": "8:00 AM", "matchup": "GRAY vs PINK" },
-      { "time": "9:00 AM", "matchup": "WHITE vs GREEN" },
-      { "time": "10:00 AM", "matchup": "RED vs PURPLE" },
-      { "time": "11:00 AM", "matchup": "BLUE vs YELLOW" },
-      { "time": "12:00 PM", "matchup": "BLACK vs ORANGE" }
+      { "time": "8:00 AM", "matchup": "RED vs ORANGE" },
+      { "time": "9:00 AM", "matchup": "BLACK vs TAN" },
+      { "time": "10:00 AM", "matchup": "BLUE vs ORANGE" },
+      { "time": "11:00 AM", "matchup": "TAN vs GRAY" },
+      { "time": "12:00 PM", "matchup": "GREEN vs BLUE" },
+      { "time": "1:00 PM", "matchup": "GRAY vs YELLOW" },
+      { "time": "2:00 PM", "matchup": "PINK vs WHITE" },
+      { "time": "3:00 PM", "matchup": "PURPLE vs GREEN" },
+      { "time": "4:00 PM", "matchup": "YELLOW vs WHITE" },
+      { "time": "5:00 PM", "matchup": "PINK vs PURPLE" }
     ],
-    "bye": "TAN"
+    "bye": "BLACK, RED (One Game)"
   }
 ]

@@ -15,31 +15,41 @@ const Schedule = () => {
   const [showBoxscore, setShowBoxscore] = useState(false);
   const [selectedGame, setSelectedGame] = useState(null);
 
-  // Identical data-loading logic to Recaps.jsx
   useEffect(() => {
     const loadData = async () => {
       const combinedMap = {};
 
-      // 1. Process JSON boxscores from all weekly folders
+      // 1. Process JSON boxscores
       for (const path in jsonFiles) {
         const data = jsonFiles[path].default || jsonFiles[path];
         if (data.game) {
-          const key = slugifyMatchup(data.game);
-          combinedMap[key] = { ...data };
+          // Extract week number from folder path (e.g., 'week1') if not in JSON
+          const weekFromPath = path.match(/week(\d+)/)?.[1];
+          const weekNum = data.week || weekFromPath;
+
+          if (weekNum) {
+            // CRITICAL: Use week + matchup as a unique key to allow repeat matchups (like PURPLE vs BLUE)
+            const key = `${weekNum}-${slugifyMatchup(data.game)}`;
+            combinedMap[key] = { ...data, week: weekNum };
+          }
         }
       }
 
-      // 2. Merge CSV score metadata from all weekly folders
+      // 2. Merge CSV score metadata
       for (const path in csvFiles) {
         const rawContent = await csvFiles[path]();
         const results = Papa.parse(rawContent, { skipEmptyLines: true });
         const rows = results.data;
 
         const matchupLine = rows.find(r => r[0]?.includes('vs.'))?.[0] || '';
-        const key = slugifyMatchup(matchupLine);
+        const weekLine = rows.find(r => r[0]?.toLowerCase().includes('week'))?.[0] || '';
+        const weekNum = weekLine.match(/\d+/)?.[0] || path.match(/week(\d+)/)?.[1];
 
-        if (combinedMap[key]) {
-          combinedMap[key].scores = parseScoreFromCSV(rows);
+        if (weekNum && matchupLine) {
+          const key = `${weekNum}-${slugifyMatchup(matchupLine)}`;
+          if (combinedMap[key]) {
+            combinedMap[key].scores = parseScoreFromCSV(rows);
+          }
         }
       }
 
@@ -50,16 +60,16 @@ const Schedule = () => {
     loadData();
   }, []);
 
-  const handleOpenBoxscore = (matchup) => {
-    const key = slugifyMatchup(matchup);
+  const handleOpenBoxscore = (weekNum, matchup) => {
+    const key = `${weekNum}-${slugifyMatchup(matchup)}`;
     if (gameDataMap[key]) {
       setSelectedGame(gameDataMap[key]);
       setShowBoxscore(true);
     }
   };
 
-  const hasBoxscore = (matchup) => {
-    return !!gameDataMap[slugifyMatchup(matchup)];
+  const hasBoxscore = (weekNum, matchup) => {
+    return !!gameDataMap[`${weekNum}-${slugifyMatchup(matchup)}`];
   };
 
   return (
@@ -98,12 +108,6 @@ const Schedule = () => {
           margin-bottom: 2rem;
         }
 
-        .week-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 16px 36px rgba(220, 53, 69, 0.1);
-          border: 1px solid rgba(220, 53, 69, 0.15) !important;
-        }
-
         .week-card-header {
           background: #1a1a1a;
           border-bottom: 2px solid #ff4d4d;
@@ -131,7 +135,6 @@ const Schedule = () => {
           letter-spacing: 0.5px;
           padding: 0.4em 0.85em;
           border-radius: 100px;
-          border: none !important;
         }
 
         .location-bar {
@@ -141,39 +144,6 @@ const Schedule = () => {
           font-size: 0.8rem;
           color: #6c757d;
           font-weight: 600;
-        }
-
-        .schedule-table {
-          margin-bottom: 0;
-          color: #1a1a1a !important;
-        }
-
-        .schedule-table thead th {
-          background: #f8f9fa;
-          color: #1a1a1a;
-          font-weight: 800;
-          font-size: 0.7rem;
-          text-transform: uppercase;
-          border-bottom: 2px solid #eeeeee;
-          padding: 0.75rem 1.5rem;
-          white-space: nowrap;
-          font-family: 'Montserrat', sans-serif;
-        }
-
-        .schedule-table tbody td {
-          color: #444 !important;
-          border-color: #eeeeee !important;
-          padding: 0.85rem 1.5rem;
-          vertical-align: middle;
-          font-size: 0.88rem;
-        }
-
-        .matchup-row:hover td {
-          background-color: #fff5f5 !important;
-        }
-
-        .matchup-row.has-boxscore {
-          cursor: pointer;
         }
 
         .game-time {
@@ -187,34 +157,24 @@ const Schedule = () => {
           color: #1a1a1a !important;
         }
 
+        .boxscore-badge {
+          background: #ff4d4d !important;
+          color: white !important;
+          font-size: 0.7rem;
+          font-weight: 700;
+          padding: 0.35em 0.75em;
+          border-radius: 100px;
+          cursor: pointer;
+        }
+
         .status-badge {
           background: transparent !important;
           border: 1px solid #ddd !important;
           color: #6c757d !important;
           font-size: 0.7rem;
           font-weight: 700;
-          letter-spacing: 0.5px;
           padding: 0.35em 0.75em;
           border-radius: 100px;
-        }
-
-        .boxscore-badge {
-          background: #ff4d4d !important;
-          border: 1px solid #ff4d4d !important;
-          color: white !important;
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.5px;
-          padding: 0.35em 0.75em;
-          border-radius: 100px;
-          cursor: pointer;
-          transition: background 0.2s ease, transform 0.15s ease;
-        }
-
-        .boxscore-badge:hover {
-          background: #cc0000 !important;
-          border-color: #cc0000 !important;
-          transform: scale(1.05);
         }
 
         .bye-bar {
@@ -223,13 +183,6 @@ const Schedule = () => {
           border-top: 1px solid #eeeeee;
           font-size: 0.82rem;
           color: #6c757d;
-        }
-
-        .bye-bar strong {
-          color: #1a1a1a;
-          text-transform: uppercase;
-          font-size: 0.75rem;
-          margin-right: 0.4rem;
         }
       `}</style>
 
@@ -252,7 +205,7 @@ const Schedule = () => {
 
             <div className="location-bar">📍 {week.location}</div>
 
-            <Table responsive hover className="schedule-table mb-0">
+            <Table responsive hover className="mb-0">
               <thead>
                 <tr>
                   <th style={{ width: '140px' }}>Time</th>
@@ -262,12 +215,12 @@ const Schedule = () => {
               </thead>
               <tbody>
                 {week.games.map((game, idx) => {
-                  const available = hasBoxscore(game.matchup);
+                  const available = hasBoxscore(week.week, game.matchup);
                   return (
                     <tr
                       key={idx}
-                      className={`matchup-row${available ? ' has-boxscore' : ''}`}
-                      onClick={() => available && handleOpenBoxscore(game.matchup)}
+                      onClick={() => available && handleOpenBoxscore(week.week, game.matchup)}
+                      style={{ cursor: available ? 'pointer' : 'default' }}
                     >
                       <td className="game-time">{game.time}</td>
                       <td className="matchup-name">{game.matchup}</td>
