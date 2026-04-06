@@ -14,6 +14,7 @@
     { "id": 6, "first_name": "Kerry", "last_name": "Lyons", "team": "GREEN" },
     { "id": 7, "first_name": "Ty", "last_name": "Gray", "team": "GREEN" },
     { "id": 8, "first_name": "Andre", "last_name": "McKenzie", "team": "GREEN" },
+    { "id": 92, "first_name": "Jerome", "last_name": "Anderson", "team": "GREEN" },
 
     { "id": 9, "first_name": "Carter", "last_name": "Beeman", "team": "RED", "captain": true },
     { "id": 10, "first_name": "Jibril", "last_name": "Abdullahi", "team": "RED" },
