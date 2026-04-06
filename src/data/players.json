@@ -105,6 +105,7 @@
     { "id": 86, "first_name": "Kaleb", "last_name": "Swetty", "team": "PURPLE" },
     { "id": 87, "first_name": "Brandon", "last_name": "Huestis", "team": "PURPLE" },
     { "id": 88, "first_name": "Mark", "last_name": "Nigolian", "team": "PURPLE" },
-    { "id": 89, "first_name": "Peter", "last_name": "SUB", "team": "PURPLE" }
+    { "id": 89, "first_name": "Peter", "last_name": "SUB", "team": "PURPLE" },
+    { "id": 91, "first_name": "Stan", "last_name": "SUB", "team": "PURPLE" }
   ]
 }
