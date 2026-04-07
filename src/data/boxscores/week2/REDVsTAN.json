@@ -1,6 +1,10 @@
 {
   "game": "RED vs. TAN",
   "date": "4/5/26, 11:56\u202fAM",
+  "scores": {
+  "team1": { "name": "TAN", "half1": "19", "half2": "43", "final": "62" },
+  "team2": { "name": "RED", "half1": "35", "half2": "35", "final": "70" }
+  },
   "stats": [
     {
       "Player Name": "Aiden Brown",

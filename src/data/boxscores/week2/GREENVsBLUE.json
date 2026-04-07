@@ -1,6 +1,10 @@
 {
   "game": "GREEN vs. BLUE",
   "date": "4/5/26, 8:00\u202fAM",
+  "scores": {
+  "team1": { "name": "BLUE", "half1": "41", "half2": "39", "final": "80" },
+  "team2": { "name": "GREEN", "half1": "49", "half2": "43", "final": "92" }
+  },
   "stats": [
     {
       "Player Name": "Aaron West",

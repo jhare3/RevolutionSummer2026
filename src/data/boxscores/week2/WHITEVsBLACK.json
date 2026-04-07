@@ -1,6 +1,10 @@
 {
   "game": "WHITE vs. BLACK",
   "date": "4/5/26, 8:57\u202fAM",
+  "scores": {
+  "team1": { "name": "BLACK", "half1": "50", "half2": "48", "final": "98" },
+  "team2": { "name": "WHITE", "half1": "46", "half2": "47", "final": "93" }
+  },
   "stats": [
     {
       "Player Name": "Adam Gawrys",

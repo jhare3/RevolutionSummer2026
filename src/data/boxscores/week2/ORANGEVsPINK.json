@@ -1,6 +1,10 @@
 {
   "game": "ORANGE vs. PINK",
   "date": "4/5/26, 10:02\u202fAM",
+  "scores": {
+  "team1": { "name": "ORANGE", "half1": "42", "half2": "25", "final": "67" },
+  "team2": { "name": "PINK", "half1": "36", "half2": "37", "final": "73" }
+  },
   "stats": [
     {
       "Player Name": "Cole Sampson",

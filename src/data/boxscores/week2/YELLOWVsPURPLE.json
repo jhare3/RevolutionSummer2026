@@ -1,6 +1,10 @@
 {
   "game": "YELLOW vs. PURPLE",
   "date": "4/5/26, 10:56\u202fAM",
+  "scores": {
+  "team1": { "name": "YELLOW", "half1": "46", "half2": "29", "final": "75" },
+  "team2": { "name": "PURPLE", "half1": "40", "half2": "46", "final": "86" }
+  },
   "stats": [
     {
       "Player Name": "Alex Philo",
