@@ -1,0 +1,56 @@
+{
+  "week": 2,
+  "date": "April 5, 2026",
+  "title": "REVOLUTION 2026 SPRING MEN'S LEAGUE | WEEK 2",
+  "content": "Week 2 recaps are currently being drafted. Check back soon for the full breakdown of every game!",
+  "matchups": ["GREEN vs BLUE", "ORANGE vs PINK", "RED vs TAN", "WHITE vs BLACK", "YELLOW vs PURPLE"],
+  "games": [
+    {
+      "matchup": "Game 1: Green vs. Blue",
+      "text": "Recap coming soon...",
+      "performers": {
+        "Green": "Stats pending",
+        "Blue": "Stats pending"
+      }
+    },
+    {
+      "matchup": "Game 2: Orange vs. Pink",
+      "text": "Recap coming soon...",
+      "performers": {
+        "Orange": "Stats pending",
+        "Pink": "Stats pending"
+      }
+    },
+    {
+      "matchup": "Game 3: Red vs. Tan",
+      "text": "Recap coming soon...",
+      "performers": {
+        "Red": "Stats pending",
+        "Tan": "Stats pending"
+      }
+    },
+    {
+      "matchup": "Game 4: White vs. Black",
+      "text": "Recap coming soon...",
+      "performers": {
+        "White": "Stats pending",
+        "Black": "Stats pending"
+      }
+    },
+    {
+      "matchup": "Game 5: Yellow vs. Purple",
+      "text": "Recap coming soon...",
+      "performers": {
+        "Yellow": "Stats pending",
+        "Purple": "Stats pending"
+      }
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Alta Group & The Windjammer Restaurant and Upper Deck Pub",
+      "message": "This recap is proudly brought to you by the Alta Group and The Windjammer Restaurant and Upper Deck Pub."
+    }
+  ],
+  "closing": "Full statistical breakdowns and boxscores are available below."
+}
