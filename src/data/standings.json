@@ -1,94 +1,16 @@
 {
   "EASTERN": [
-    {
-      "name": "TAN",
-      "W": 1,
-      "L": 0,
-      "PF": 87,
-      "PA": 84,
-      "conference": "EASTERN"
-    },
-    {
-      "name": "BLACK",
-      "W": 1,
-      "L": 0,
-      "PF": 78,
-      "PA": 61,
-      "conference": "EASTERN"
-    },
-    {
-      "name": "GREEN",
-      "W": 1,
-      "L": 0,
-      "PF": 75,
-      "PA": 55,
-      "conference": "EASTERN"
-    },
-    {
-      "name": "YELLOW",
-      "W": 0,
-      "L": 1,
-      "PF": 84,
-      "PA": 87,
-      "conference": "EASTERN"
-    },
-    {
-      "name": "PINK",
-      "W": 0,
-      "L": 1,
-      "PF": 61,
-      "PA": 78,
-      "conference": "EASTERN"
-    },
-    {
-      "name": "RED",
-      "W": 0,
-      "L": 1,
-      "PF": 55,
-      "PA": 75,
-      "conference": "EASTERN"
-    }
+    { "name": "GREEN", "W": 2, "L": 0, "PF": 167, "PA": 135, "conference": "EASTERN" },
+    { "name": "WHITE", "W": 1, "L": 1, "PF": 167, "PA": 164, "conference": "EASTERN" },
+    { "name": "GRAY", "W": 0, "L": 1, "PF": 66, "PA": 74, "conference": "EASTERN" },
+    { "name": "ORANGE", "W": 0, "L": 1, "PF": 67, "PA": 73, "conference": "EASTERN" },
+    { "name": "BLACK", "W": 2, "L": 0, "PF": 176, "PA": 154, "conference": "EASTERN" }
   ],
   "WESTERN": [
-    {
-      "name": "WHITE",
-      "W": 1,
-      "L": 0,
-      "PF": 74,
-      "PA": 66,
-      "conference": "WESTERN"
-    },
-    {
-      "name": "PURPLE",
-      "W": 1,
-      "L": 0,
-      "PF": 63,
-      "PA": 62,
-      "conference": "WESTERN"
-    },
-    {
-      "name": "GRAY",
-      "W": 0,
-      "L": 1,
-      "PF": 66,
-      "PA": 74,
-      "conference": "WESTERN"
-    },
-    {
-      "name": "BLUE",
-      "W": 0,
-      "L": 1,
-      "PF": 62,
-      "PA": 63,
-      "conference": "WESTERN"
-    },
-    {
-      "name": "ORANGE",
-      "W": 0,
-      "L": 0,
-      "PF": 0,
-      "PA": 0,
-      "conference": "WESTERN"
-    }
+    { "name": "TAN", "W": 1, "L": 1, "PF": 149, "PA": 154, "conference": "WESTERN" },
+    { "name": "YELLOW", "W": 0, "L": 2, "PF": 159, "PA": 173, "conference": "WESTERN" },
+    { "name": "PURPLE", "W": 2, "L": 0, "PF": 149, "PA": 137, "conference": "WESTERN" },
+    { "name": "RED", "W": 1, "L": 1, "PF": 125, "PA": 137, "conference": "WESTERN" },
+    { "name": "BLUE", "W": 0, "L": 2, "PF": 142, "PA": 155, "conference": "WESTERN" }
   ]
 }
