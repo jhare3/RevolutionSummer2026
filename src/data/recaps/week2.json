@@ -1,56 +1,63 @@
 {
   "week": 2,
-  "date": "April 5, 2026",
-  "title": "REVOLUTION 2026 SPRING MEN'S LEAGUE | WEEK 2",
-  "content": "Week 2 recaps are currently being drafted. Check back soon for the full breakdown of every game!",
-  "matchups": ["GREEN vs BLUE", "ORANGE vs PINK", "RED vs TAN", "WHITE vs BLACK", "YELLOW vs PURPLE"],
+  "date": "April 10, 2026",
+  "title": "REVOLUTION 2026 SPRING MEN'S LEAGUE | WEEK 2 RECAP",
+  "content": "Week two was a flat-out war. Dagger threes, second-half stampedes, and two men — Stefan \"The Don\" Radan and Hakeem \"The Dream\" Faud — putting on scoring clinics that had jaws on the floor. Green locked in from tip-off and never looked back, Black survived a furious White rally, Pink flipped the script after halftime, Purple's second half was something to witness, and Red held off a one-man Tan army behind the cool clutch of \"Prince\" Jibril Abdullahi. Let's get into the action.",
+  "matchups": ["GREEN vs BLUE", "BLACK vs WHITE", "ORANGE vs PINK", "YELLOW vs PURPLE", "RED vs TAN"],
   "games": [
     {
       "matchup": "Game 1: Green vs. Blue",
-      "text": "Recap coming soon...",
+      "text": "Green was locked in from tip-off, but Blue was no pushover. Matt \"Swiss Army Knife\" Spear had a strong performance to lead the way. He poured in 22 points, hauled down 11 rebounds, and dished 8 assists, carrying Blue on his back through the first half. \"Mean\" Joe Ruggles knocked down five threes and added 15 points, and Peter Lindholm connected on four from deep to give Blue some perimeter bite. But Green's firepower was simply on another level. Jerrick Jacobs was on fire from three, Asko Mostarlic was a problem in the paint and on the perimeter, and Mahlik \"Skywalker\" Franklin did damage in every area of his game as Green took control heading into the break. Halftime: Green 49, Blue 41. Green never flinched in the second half. Jacobs continued his assault from deep — finishing with 27 points on 6-of-12 from three — and Mostarlic was relentless, ending the night with 24 points and 8 rebounds. Franklin was the unsung engine of the whole thing, finishing with 18 points, 9 rebounds, 4 assists, and 2 steals. Andy Bousono orchestrated the offense with a quiet 6 assists, keeping Green humming on all cylinders. Blue had no answer, and Green pulled away for a comfortable victory. Green won, 92-80.",
       "performers": {
-        "Green": "Stats pending",
-        "Blue": "Stats pending"
+        "Green": "Jerrick Jacobs — 27 pts, 3 REB, 6/12 3PT; Asko Mostarlic — 24 pts, 8 REB, 4 AST; Mahlik Franklin — 18 pts, 9 REB, 4 AST, 2 STL",
+        "Blue": "Matt Spear — 22 pts, 11 REB, 8 AST; Joe Ruggles — 15 pts, 6 REB, 5/12 3PT; Peter Lindholm — 14 pts, 7 REB, 4/8 3PT"
       }
     },
     {
-      "matchup": "Game 2: Orange vs. Pink",
-      "text": "Recap coming soon...",
+      "matchup": "Game 2: Black vs. White",
+      "text": "White showed up ready to make a statement. Black led by four at the half, but nothing about this game felt comfortable. Stefan \"The Don\" Radan was in full-on takeover mode from the opening tip. He attacked the rim, knocked down threes, and did things that made you tilt your head. Chris Cayole was a battering ram inside, finishing the half with buckets and glass work, while Kenny Black handled his business distributing and defending. White was answering every punch. Donnie Dwyer was splashing threes left and right, and Tavian Barrino was running the show with a complete, all-around game on both ends. Halftime: Black 50, White 46. White wouldn't roll over, but The Don had the last word. Tavian Barrino was spectacular. His final line — 32 points, 10 rebounds, and 9 assists — was one of the most complete stat lines of the week. Matt Riordan was dialed in from the field, finishing 10-of-13 for 24 points. White clawed all the way back and pulled within three late in the game. Then Stefan Radan did what stars do in big moments — he rose up and buried a three from deep to push the lead to 96-93, sticking a dagger in White's heart and ending any hope of a comeback. Radan finished with 39 points, 11 rebounds, and 7 assists. Black won, 98-93.",
       "performers": {
-        "Orange": "Stats pending",
-        "Pink": "Stats pending"
+        "Black": "Stefan Radan — 39 pts, 11 REB, 7 AST, 2 STL, 15/27 FG; Chris Cayole — 29 pts, 9 REB, 6 AST; Adam Gawrys — 11 pts, 3/4 3PT",
+        "White": "Tavian Barrino — 32 pts, 10 REB, 9 AST; Donnie Dwyer — 27 pts, 8 REB, 6/11 3PT; Matt Riordan — 24 pts, 4 REB, 10/13 FG"
       }
     },
     {
-      "matchup": "Game 3: Red vs. Tan",
-      "text": "Recap coming soon...",
+      "matchup": "Game 3: Orange vs. Pink",
+      "text": "Orange came out of the gate swinging. The first half was Orange's half. Will Oboh was getting to his spots — attacking the mid-range and the rim — and Trent Roleau was a double-double threat every time he touched the ball. Walker Storey and Cole Sampson were connecting from the perimeter to keep the three-point game honest. Pink's Tyrone Conley was grinding, but Orange's group defense and ball movement had Pink on their heels. Orange took a comfortable lead into the locker room. Halftime: Orange 42, Pink 36. Pink's second half was something to see. Pink came out of halftime a completely different team. They outscored Orange 37-25 in the final frame — an absolute gear change. Tyrone Conley was a monster, finishing with 32 points and 13 rebounds, and Kyle Haley ran the show to perfection with 22 points, 10 rebounds, and 7 assists. Max Taylor was solid all night with 11 points and 7 rebounds. Orange had no answer as Pink tightened the screws on both ends and closed it out. Pink won, 73-67.",
       "performers": {
-        "Red": "Stats pending",
-        "Tan": "Stats pending"
+        "Pink": "Tyrone Conley — 32 pts, 13 REB, 2 AST; Kyle Haley — 22 pts, 10 REB, 7 AST; Max Taylor — 11 pts, 7 REB",
+        "Orange": "Will Oboh — 19 pts, 6 REB, 4 AST; Trent Roleau — 17 pts, 8 REB; Cole Sampson — 11 pts, 3 REB"
       }
     },
     {
-      "matchup": "Game 4: White vs. Black",
-      "text": "Recap coming soon...",
+      "matchup": "Game 4: Yellow vs. Purple",
+      "text": "Yellow came out firing on all cylinders. The first half of this game was a showcase for Yellow. Alex Philo was electric from the arc — knocking down five threes on his way to 21 points — and Logan Letourneau was dominant on both ends, doing the dirty work inside while also scoring at will. Dylan Mackie was running the offense with confidence, dropping 13 points and 5 assists. Purple was right there, with Jimmy Warden pulling strings and Kaleb Swetty knocking down shots. But Yellow's energy in the first half was unmatched, and they carried a six-point lead into halftime. Halftime: Yellow 46, Purple 40. Purple's second half was a masterpiece. Purple outscored Yellow 46-29 after the break — a staggering swing. Trevis Buckhannon was the engine of the comeback, finishing with 18 points and an absolutely bonkers 18 rebounds. Warden orchestrated the whole thing with 11 assists, reading the defense and putting teammates in positions to succeed all night. Stan \"The Man\" Salley and Peter Walsh came up huge off the bench, combining for 32 points on efficient shooting. Kaleb Swetty finished with 20 points and 5-of-10 from three to close the door. Purple won, 86-75.",
       "performers": {
-        "White": "Stats pending",
-        "Black": "Stats pending"
+        "Purple": "Trevis Buckhannon — 18 pts, 18 REB, 3 AST; Kaleb Swetty — 20 pts, 4 REB, 4 AST; Jimmy Warden — 16 pts, 3 REB, 11 AST, 3 STL",
+        "Yellow": "Logan Letourneau — 23 pts, 10 REB, 3 AST; Alex Philo — 21 pts, 3 REB, 5/8 3PT; Dylan Mackie — 13 pts, 5 AST, 2 STL"
       }
     },
     {
-      "matchup": "Game 5: Yellow vs. Purple",
-      "text": "Recap coming soon...",
+      "matchup": "Game 5: Red vs. Tan",
+      "text": "Red was all business from the opening tip. Red set the tone early and built its lead methodically throughout the first half. Jibril Abdullahi was doing a little of everything — scoring, rebounding, and facilitating — and Will Ewald was a monster on the glass. Tan struggled to find any offensive rhythm, and Red's defense was suffocating. Red's lead ballooned to 16 by halftime. Halftime: Red 35, Tan 19. What followed was one of the most remarkable individual performances of the week. Hakeem Faud went to work and dragged Tan back into the fight almost entirely by himself. He finished with 40 points, 14 rebounds, and a perfect 8-of-8 from the free throw line — accounting for nearly two-thirds of Tan's entire scoring total. With less than five minutes left, he had pulled Tan to within one possession, and the game was genuinely up for grabs. But \"Prince\" Jibril Abdullahi had no interest in letting this one slip. When the moment demanded it, Abdullahi rose up and hit back-to-back pull-up jumpers — pure ice. Then, with some free throws from Josh Carter, Red slammed the door on the comeback. Red won, 70-62.",
       "performers": {
-        "Yellow": "Stats pending",
-        "Purple": "Stats pending"
+        "Red": "Jibril Abdullahi — 23 pts, 8 REB, 5 AST, 2 STL; Will Ewald — 16 pts, 15 REB, 3 AST; Josh Carter — 12 pts, 7 REB, 3 STL",
+        "Tan": "Hakeem Faud — 40 pts, 14 REB, 8/8 FT; Brody Snow — 5 pts, 12 REB; Kyle Picard — 6 pts, 10 REB"
       }
     }
   ],
   "sponsors": [
     {
       "name": "Alta Group & The Windjammer Restaurant and Upper Deck Pub",
-      "message": "This recap is proudly brought to you by the Alta Group and The Windjammer Restaurant and Upper Deck Pub."
+      "message": "This recap is proudly brought to you by the Alta Group and The Windjammer Restaurant and Upper Deck Pub. Thank you for your continued support of the Revolution Men's League."
+    },
+    {
+      "name": "Warden's Wisdom",
+      "message": "This recap is also brought to you by Warden's Wisdom — a mindfulness-based coaching business helping individuals relieve anxiety through personalized mindfulness practices.",
+      "quote": "The comeback is always stronger than the setback.",
+      "url": "https://wardenswisdom.net",
+      "urlLabel": "wardenswisdom.net"
     }
   ],
-  "closing": "Be patient. Jimmy is hard at work crafting the full recaps for each game, and they will be worth the wait. Check back soon for the complete breakdown of every matchup from Week 2!"
+  "closing": "See you on the 19th! The action only gets better from here."
 }
