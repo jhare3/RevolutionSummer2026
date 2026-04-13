@@ -1,7 +1,7 @@
 {
   "rounds": [
     {
-      "name": "Round Robin",
+      "name": "Day 1 Games",
       "date": "4/11/26",
       "games": [
         { "id": "RR1", "matchup": "Sea Cougars vs. Rev'd Up",                   "time": "8:00 AM"  },
