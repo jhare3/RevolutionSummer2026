@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import Footer from './components/Footer'; // New import
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import Rosters from './pages/Rosters';
 import Schedule from './pages/Schedule';
 import Standings from './pages/Standings';
 import Stats from './pages/Stats';
 import Recaps from './pages/Recaps';
+import Tournament from './pages/Tournament'; // Import the new page
 import './App.css';
 
 function App() {
@@ -22,9 +23,10 @@ function App() {
             <Route path="/standings" element={<Standings />} /> 
             <Route path="/stats" element={<Stats />} /> 
             <Route path="/recaps" element={<Recaps />} />
+            <Route path="/tournament" element={<Tournament />} /> {/* Register the route */}
           </Routes>
         </main>
-        <Footer /> {/* Footer added here */}
+        <Footer />
       </div>
     </Router>
   );

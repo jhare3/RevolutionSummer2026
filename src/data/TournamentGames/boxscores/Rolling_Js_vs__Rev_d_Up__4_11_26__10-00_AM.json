@@ -1,15 +1,16 @@
 {
+  "gameId": "RR3",
   "game": "Rolling Js vs. Rev'd Up",
   "date": "4/11/26, 10:00\u202fAM",
   "scores": {
     "Rolling Js": {
-      "Q1": "37",
-      "Q2": "40",
+      "1": "37",
+      "2": "40",
       "Total": "77"
     },
     "Rev'd Up": {
-      "Q1": "32",
-      "Q2": "37",
+      "1": "32",
+      "2": "37",
       "Total": "69"
     }
   },
@@ -48,7 +49,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Chris Cayole ",
+      "Player Name": "Chris Cayole",
       "No.": "1",
       "2FGM": "0",
       "2FGA": "0",
@@ -323,6 +324,37 @@
       "Foul Rcd": "0",
       "Eff": "0",
       "TS%": "0%",
+      "Charge  Taken": "0",
+      "Airball": "1"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "24",
+      "2FGA": "42",
+      "2FG%": "57%",
+      "3FGM": "4",
+      "3FGA": "13",
+      "3FG%": "31%",
+      "FGM": "28",
+      "FGA": "55",
+      "FG%": "51%",
+      "FTM": "17",
+      "FTA": "26",
+      "FT%": "65%",
+      "Points": "77",
+      "Assists": "14",
+      "Off Reb": "11",
+      "Def Reb": "25",
+      "Fouls": "10",
+      "Blocks": "1",
+      "Deflections": "0",
+      "Steals": "8",
+      "Turnovers": "11",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "89",
+      "TS%": "57%",
       "Charge  Taken": "0",
       "Airball": "1"
     }
@@ -606,6 +638,37 @@
       "TS%": "0%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "17",
+      "2FGA": "27",
+      "2FG%": "63%",
+      "3FGM": "10",
+      "3FGA": "31",
+      "3FG%": "32%",
+      "FGM": "27",
+      "FGA": "58",
+      "FG%": "47%",
+      "FTM": "5",
+      "FTA": "7",
+      "FT%": "71%",
+      "Points": "69",
+      "Assists": "18",
+      "Off Reb": "3",
+      "Def Reb": "20",
+      "Fouls": "19",
+      "Blocks": "2",
+      "Deflections": "1",
+      "Steals": "8",
+      "Turnovers": "12",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "75",
+      "TS%": "56%",
+      "Charge  Taken": "1",
+      "Airball": "2"
     }
   ]
 }

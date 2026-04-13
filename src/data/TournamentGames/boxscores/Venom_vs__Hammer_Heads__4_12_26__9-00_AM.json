@@ -1,15 +1,16 @@
 {
+  "gameId": "Q1",
   "game": "Venom vs. Hammer Heads",
   "date": "4/12/26, 9:00\u202fAM",
   "scores": {
     "Venom": {
-      "Q1": "30",
-      "Q2": "35",
+      "1": "30",
+      "2": "35",
       "Total": "65"
     },
     "Hammer Heads": {
-      "Q1": "27",
-      "Q2": "21",
+      "1": "27",
+      "2": "21",
       "Total": "48"
     }
   },
@@ -294,6 +295,37 @@
       "TS%": "18%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "11",
+      "2FGA": "25",
+      "2FG%": "44%",
+      "3FGM": "11",
+      "3FGA": "29",
+      "3FG%": "38%",
+      "FGM": "22",
+      "FGA": "54",
+      "FG%": "41%",
+      "FTM": "10",
+      "FTA": "14",
+      "FT%": "71%",
+      "Points": "65",
+      "Assists": "15",
+      "Off Reb": "3",
+      "Def Reb": "26",
+      "Fouls": "10",
+      "Blocks": "2",
+      "Deflections": "0",
+      "Steals": "6",
+      "Turnovers": "4",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "77",
+      "TS%": "54%",
+      "Charge  Taken": "0",
+      "Airball": "0"
     }
   ],
   "home_stats": [
@@ -573,6 +605,37 @@
       "Foul Rcd": "0",
       "Eff": "7",
       "TS%": "13%",
+      "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "14",
+      "2FGA": "29",
+      "2FG%": "48%",
+      "3FGM": "4",
+      "3FGA": "35",
+      "3FG%": "11%",
+      "FGM": "18",
+      "FGA": "64",
+      "FG%": "28%",
+      "FTM": "8",
+      "FTA": "10",
+      "FT%": "80%",
+      "Points": "48",
+      "Assists": "5",
+      "Off Reb": "16",
+      "Def Reb": "29",
+      "Fouls": "14",
+      "Blocks": "2",
+      "Deflections": "0",
+      "Steals": "3",
+      "Turnovers": "10",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "45",
+      "TS%": "35%",
       "Charge  Taken": "0",
       "Airball": "0"
     }

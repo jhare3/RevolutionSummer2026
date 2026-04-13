@@ -1,7 +1,23 @@
 {
+  "gameId": "S1",
   "game": "Squirty Spartans  vs. Rolling Js",
   "date": "4/12/26, 12:56\u202fPM",
-  "scores": {},
+  "scores": {
+    "Squirty Spartans": {
+      "1": "23",
+      "2": "32",
+      "OT1": "6",
+      "OT2": "0",
+      "Total": "61"
+    },
+    "Rolling Js": {
+      "1": "34",
+      "2": "21",
+      "OT1": "6",
+      "OT2": "10",
+      "Total": "71"
+    }
+  },
   "visitors": "Squirty Spartans",
   "home": "Rolling Js",
   "visitor_stats": [
@@ -223,7 +239,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Jerrick Jacobs ",
+      "Player Name": "Jerrick Jacobs",
       "No.": "2",
       "2FGM": "1",
       "2FGA": "2",
@@ -314,6 +330,37 @@
       "TS%": "0%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "11",
+      "2FGA": "24",
+      "2FG%": "46%",
+      "3FGM": "10",
+      "3FGA": "33",
+      "3FG%": "30%",
+      "FGM": "21",
+      "FGA": "57",
+      "FG%": "37%",
+      "FTM": "9",
+      "FTA": "17",
+      "FT%": "53%",
+      "Points": "61",
+      "Assists": "6",
+      "Off Reb": "9",
+      "Def Reb": "9",
+      "Fouls": "20",
+      "Blocks": "0",
+      "Deflections": "0",
+      "Steals": "6",
+      "Turnovers": "6",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "41",
+      "TS%": "47%",
+      "Charge  Taken": "1",
+      "Airball": "0"
     }
   ],
   "home_stats": [
@@ -349,7 +396,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Chris Cayole ",
+      "Player Name": "Chris Cayole",
       "No.": "1",
       "2FGM": "5",
       "2FGA": "12",
@@ -624,6 +671,37 @@
       "Foul Rcd": "0",
       "Eff": "0",
       "TS%": "0%",
+      "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "20",
+      "2FGA": "36",
+      "2FG%": "56%",
+      "3FGM": "3",
+      "3FGA": "14",
+      "3FG%": "21%",
+      "FGM": "23",
+      "FGA": "50",
+      "FG%": "46%",
+      "FTM": "22",
+      "FTA": "28",
+      "FT%": "79%",
+      "Points": "71",
+      "Assists": "15",
+      "Off Reb": "13",
+      "Def Reb": "23",
+      "Fouls": "16",
+      "Blocks": "5",
+      "Deflections": "0",
+      "Steals": "2",
+      "Turnovers": "13",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "83",
+      "TS%": "56%",
       "Charge  Taken": "0",
       "Airball": "0"
     }

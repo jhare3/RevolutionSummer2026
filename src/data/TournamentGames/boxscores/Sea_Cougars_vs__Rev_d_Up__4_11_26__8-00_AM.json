@@ -1,15 +1,16 @@
 {
+  "gameId": "RR1",
   "game": "Sea Cougars vs. Rev'd Up",
   "date": "4/11/26, 8:00\u202fAM",
   "scores": {
     "Sea Cougars": {
-      "Q1": "40",
-      "Q2": "24",
+      "1": "40",
+      "2": "24",
       "Total": "64"
     },
     "Rev'd Up": {
-      "Q1": "34",
-      "Q2": "36",
+      "1": "34",
+      "2": "36",
       "Total": "70"
     }
   },
@@ -325,6 +326,37 @@
       "TS%": "52%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "14",
+      "2FGA": "28",
+      "2FG%": "50%",
+      "3FGM": "11",
+      "3FGA": "35",
+      "3FG%": "31%",
+      "FGM": "25",
+      "FGA": "63",
+      "FG%": "40%",
+      "FTM": "3",
+      "FTA": "4",
+      "FT%": "75%",
+      "Points": "64",
+      "Assists": "8",
+      "Off Reb": "6",
+      "Def Reb": "25",
+      "Fouls": "7",
+      "Blocks": "2",
+      "Deflections": "1",
+      "Steals": "9",
+      "Turnovers": "5",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "70",
+      "TS%": "49%",
+      "Charge  Taken": "0",
+      "Airball": "0"
     }
   ],
   "home_stats": [
@@ -604,6 +636,37 @@
       "Foul Rcd": "0",
       "Eff": "-1",
       "TS%": "0%",
+      "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "13",
+      "2FGA": "33",
+      "2FG%": "39%",
+      "3FGM": "14",
+      "3FGA": "31",
+      "3FG%": "45%",
+      "FGM": "27",
+      "FGA": "64",
+      "FG%": "42%",
+      "FTM": "2",
+      "FTA": "4",
+      "FT%": "50%",
+      "Points": "70",
+      "Assists": "15",
+      "Off Reb": "8",
+      "Def Reb": "30",
+      "Fouls": "7",
+      "Blocks": "0",
+      "Deflections": "1",
+      "Steals": "2",
+      "Turnovers": "11",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "75",
+      "TS%": "53%",
       "Charge  Taken": "0",
       "Airball": "0"
     }

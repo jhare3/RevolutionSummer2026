@@ -1,15 +1,16 @@
 {
+  "gameId": "RR5",
   "game": "Venom vs. Apogee Ball",
   "date": "4/11/26, 12:00\u202fPM",
   "scores": {
     "Venom": {
-      "Q1": "23",
-      "Q2": "47",
+      "1": "23",
+      "2": "47",
       "Total": "70"
     },
     "Apogee Ball": {
-      "Q1": "28",
-      "Q2": "34",
+      "1": "28",
+      "2": "34",
       "Total": "62"
     }
   },
@@ -294,11 +295,42 @@
       "TS%": "63%",
       "Charge  Taken": "0",
       "Airball": "1"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "18",
+      "2FGA": "33",
+      "2FG%": "55%",
+      "3FGM": "8",
+      "3FGA": "26",
+      "3FG%": "31%",
+      "FGM": "26",
+      "FGA": "59",
+      "FG%": "44%",
+      "FTM": "10",
+      "FTA": "13",
+      "FT%": "77%",
+      "Points": "70",
+      "Assists": "6",
+      "Off Reb": "7",
+      "Def Reb": "27",
+      "Fouls": "12",
+      "Blocks": "3",
+      "Deflections": "0",
+      "Steals": "9",
+      "Turnovers": "12",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "74",
+      "TS%": "54%",
+      "Charge  Taken": "1",
+      "Airball": "1"
     }
   ],
   "home_stats": [
     {
-      "Player Name": "Brock Carpenter ",
+      "Player Name": "Brock Carpenter",
       "No.": "2",
       "2FGM": "1",
       "2FGA": "2",
@@ -391,7 +423,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Kyle Picard ",
+      "Player Name": "Kyle Picard",
       "No.": "7",
       "2FGM": "0",
       "2FGA": "2",
@@ -515,7 +547,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Tavarius Vance ",
+      "Player Name": "Tavarius Vance",
       "No.": "6",
       "2FGM": "0",
       "2FGA": "5",
@@ -575,6 +607,37 @@
       "TS%": "60%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "18",
+      "2FGA": "39",
+      "2FG%": "46%",
+      "3FGM": "7",
+      "3FGA": "23",
+      "3FG%": "30%",
+      "FGM": "25",
+      "FGA": "62",
+      "FG%": "40%",
+      "FTM": "5",
+      "FTA": "7",
+      "FT%": "71%",
+      "Points": "62",
+      "Assists": "9",
+      "Off Reb": "9",
+      "Def Reb": "22",
+      "Fouls": "14",
+      "Blocks": "1",
+      "Deflections": "1",
+      "Steals": "7",
+      "Turnovers": "9",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "62",
+      "TS%": "47%",
+      "Charge  Taken": "1",
+      "Airball": "1"
     }
   ]
 }

@@ -1,15 +1,16 @@
 {
+  "gameId": "RR7",
   "game": "Revolution vs. Venom",
   "date": "4/11/26, 2:00\u202fPM",
   "scores": {
     "Revolution": {
-      "Q1": "44",
-      "Q2": "40",
+      "1": "44",
+      "2": "40",
       "Total": "84"
     },
     "Venom": {
-      "Q1": "26",
-      "Q2": "34",
+      "1": "26",
+      "2": "34",
       "Total": "60"
     }
   },
@@ -325,6 +326,37 @@
       "TS%": "38%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "18",
+      "2FGA": "32",
+      "2FG%": "56%",
+      "3FGM": "12",
+      "3FGA": "27",
+      "3FG%": "44%",
+      "FGM": "30",
+      "FGA": "59",
+      "FG%": "51%",
+      "FTM": "12",
+      "FTA": "15",
+      "FT%": "80%",
+      "Points": "84",
+      "Assists": "17",
+      "Off Reb": "6",
+      "Def Reb": "21",
+      "Fouls": "15",
+      "Blocks": "2",
+      "Deflections": "0",
+      "Steals": "10",
+      "Turnovers": "6",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "102",
+      "TS%": "64%",
+      "Charge  Taken": "0",
+      "Airball": "0"
     }
   ],
   "home_stats": [
@@ -606,6 +638,37 @@
       "TS%": "41%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "18",
+      "2FGA": "33",
+      "2FG%": "55%",
+      "3FGM": "6",
+      "3FGA": "27",
+      "3FG%": "22%",
+      "FGM": "24",
+      "FGA": "60",
+      "FG%": "40%",
+      "FTM": "6",
+      "FTA": "10",
+      "FT%": "60%",
+      "Points": "60",
+      "Assists": "5",
+      "Off Reb": "14",
+      "Def Reb": "23",
+      "Fouls": "12",
+      "Blocks": "1",
+      "Deflections": "1",
+      "Steals": "5",
+      "Turnovers": "10",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "58",
+      "TS%": "46%",
+      "Charge  Taken": "0",
+      "Airball": "1"
     }
   ]
 }

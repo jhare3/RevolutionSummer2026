@@ -1,15 +1,16 @@
 {
+  "gameId": "Q4",
   "game": "Mapleleaf Carpet Cleaning vs. Revolution",
   "date": "4/12/26, 11:50\u202fAM",
   "scores": {
     "Mapleleaf Carpet Cleaning": {
-      "Q1": "24",
-      "Q2": "33",
+      "1": "24",
+      "2": "33",
       "Total": "57"
     },
     "Revolution": {
-      "Q1": "47",
-      "Q2": "42",
+      "1": "47",
+      "2": "42",
       "Total": "89"
     }
   },
@@ -172,7 +173,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Joe Ruggles ",
+      "Player Name": "Joe Ruggles",
       "No.": "1",
       "2FGM": "0",
       "2FGA": "0",
@@ -294,6 +295,37 @@
       "TS%": "50%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "10",
+      "2FGA": "29",
+      "2FG%": "34%",
+      "3FGM": "11",
+      "3FGA": "31",
+      "3FG%": "35%",
+      "FGM": "21",
+      "FGA": "60",
+      "FG%": "35%",
+      "FTM": "4",
+      "FTA": "6",
+      "FT%": "67%",
+      "Points": "57",
+      "Assists": "11",
+      "Off Reb": "5",
+      "Def Reb": "17",
+      "Fouls": "12",
+      "Blocks": "1",
+      "Deflections": "0",
+      "Steals": "8",
+      "Turnovers": "9",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "49",
+      "TS%": "45%",
+      "Charge  Taken": "0",
+      "Airball": "1"
     }
   ],
   "home_stats": [
@@ -604,6 +636,37 @@
       "Foul Rcd": "0",
       "Eff": "18",
       "TS%": "64%",
+      "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "26",
+      "2FGA": "43",
+      "2FG%": "60%",
+      "3FGM": "10",
+      "3FGA": "20",
+      "3FG%": "50%",
+      "FGM": "36",
+      "FGA": "63",
+      "FG%": "57%",
+      "FTM": "7",
+      "FTA": "15",
+      "FT%": "47%",
+      "Points": "89",
+      "Assists": "17",
+      "Off Reb": "13",
+      "Def Reb": "25",
+      "Fouls": "5",
+      "Blocks": "1",
+      "Deflections": "0",
+      "Steals": "5",
+      "Turnovers": "10",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "105",
+      "TS%": "63%",
       "Charge  Taken": "0",
       "Airball": "0"
     }

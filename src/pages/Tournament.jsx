@@ -1,0 +1,110 @@
+import React, { useState, useEffect } from 'react';
+import { Badge, Spinner, Container } from 'react-bootstrap';
+import TournamentBoxscoreModal from '../components/TournamentBoxscoreModal';
+import bracketData from '../data/tournamentBracket.json';
+
+const tournamentFiles = import.meta.glob('../data/TournamentGames/boxscores/*.json', { eager: true });
+
+const Tournament = () => {
+  const [loading, setLoading] = useState(true);
+  const [gameDataMap, setGameDataMap] = useState({});
+  const [showBoxscore, setShowBoxscore] = useState(false);
+  const [selectedGame, setSelectedGame] = useState(null);
+
+  useEffect(() => {
+    const combinedMap = {};
+    for (const path in tournamentFiles) {
+      const data = tournamentFiles[path].default || tournamentFiles[path];
+      // Key by gameId — must match the IDs in tournamentBracket.json
+      if (data && data.gameId) {
+        combinedMap[data.gameId] = data;
+      }
+    }
+    setGameDataMap(combinedMap);
+    setLoading(false);
+  }, []);
+
+  const handleOpen = (id) => {
+    const data = gameDataMap[id];
+    if (data) {
+      setSelectedGame(data);
+      setShowBoxscore(true);
+    }
+  };
+
+  const getTeamScore = (data, teamKey) => {
+    if (!data) return null;
+    const teamName = data[teamKey]; // 'visitors' or 'home'
+    return data.scores?.[teamName]?.Total ?? null;
+  };
+
+  return (
+    <Container fluid className="py-5 bg-light min-vh-100">
+      <div className="text-center mb-5">
+        <h1 className="schedule-page-heading">Revolution Tournament</h1>
+        <span className="schedule-subtext">Spring 2026 Bracket</span>
+      </div>
+
+      {loading ? (
+        <div className="text-center py-5"><Spinner animation="border" variant="danger" /></div>
+      ) : (
+        <div className="bracket-container d-flex justify-content-around overflow-auto">
+          {bracketData.rounds.map((round) => (
+            <div
+              key={round.name}
+              className="bracket-round d-flex flex-column mx-3"
+              style={{ minWidth: '280px' }}
+            >
+              <h5 className="text-center fw-black italic text-uppercase border-bottom border-danger border-3 pb-2 mb-4">
+                {round.name}
+              </h5>
+              {round.games.map((game) => {
+                const data = gameDataMap[game.id];
+                const teams = game.matchup.split(' vs. ');
+                const visitorScore = getTeamScore(data, 'visitors');
+                const homeScore = getTeamScore(data, 'home');
+                const hasOT = data
+                  ? Object.keys(data.scores?.[data.visitors] || {}).some(k => k.startsWith('OT'))
+                  : false;
+
+                return (
+                  <div
+                    key={game.id}
+                    className="bracket-game bg-white p-3 my-2 shadow-sm border-start border-5 border-danger"
+                    style={{ cursor: data ? 'pointer' : 'default', borderRadius: '8px' }}
+                    onClick={() => data && handleOpen(game.id)}
+                  >
+                    <div className="text-muted small mb-1 fw-bold d-flex justify-content-between align-items-center">
+                      <span>{game.time}</span>
+                      <div className="d-flex gap-1 align-items-center">
+                        {hasOT && <Badge bg="warning" text="dark" style={{ fontSize: '0.55rem' }}>OT</Badge>}
+                        {data && <Badge bg="danger" style={{ fontSize: '0.6rem' }}>BOXSCORE</Badge>}
+                      </div>
+                    </div>
+                    <div className="d-flex justify-content-between fw-bold small">
+                      <span>{teams[0]}</span>
+                      {visitorScore !== null && <span className="text-danger">{visitorScore}</span>}
+                    </div>
+                    <hr className="my-1" />
+                    <div className="d-flex justify-content-between fw-bold small">
+                      <span>{teams[1]}</span>
+                      {homeScore !== null && <span className="text-danger">{homeScore}</span>}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      )}
+
+      <TournamentBoxscoreModal
+        show={showBoxscore}
+        onHide={() => setShowBoxscore(false)}
+        gameData={selectedGame}
+      />
+    </Container>
+  );
+};
+
+export default Tournament;

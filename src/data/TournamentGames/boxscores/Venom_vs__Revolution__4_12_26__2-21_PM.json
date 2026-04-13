@@ -1,15 +1,16 @@
 {
+  "gameId": "S2",
   "game": "Venom vs. Revolution",
   "date": "4/12/26, 2:21\u202fPM",
   "scores": {
     "Venom": {
-      "Q1": "27",
-      "Q2": "24",
+      "1": "27",
+      "2": "24",
       "Total": "51"
     },
     "Revolution": {
-      "Q1": "44",
-      "Q2": "26",
+      "1": "44",
+      "2": "26",
       "Total": "70"
     }
   },
@@ -292,6 +293,37 @@
       "Foul Rcd": "0",
       "Eff": "15",
       "TS%": "91%",
+      "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "10",
+      "2FGA": "22",
+      "2FG%": "45%",
+      "3FGM": "8",
+      "3FGA": "27",
+      "3FG%": "30%",
+      "FGM": "18",
+      "FGA": "49",
+      "FG%": "37%",
+      "FTM": "7",
+      "FTA": "11",
+      "FT%": "64%",
+      "Points": "51",
+      "Assists": "7",
+      "Off Reb": "3",
+      "Def Reb": "20",
+      "Fouls": "13",
+      "Blocks": "1",
+      "Deflections": "0",
+      "Steals": "3",
+      "Turnovers": "11",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "39",
+      "TS%": "47%",
       "Charge  Taken": "0",
       "Airball": "0"
     }
@@ -605,6 +637,37 @@
       "Eff": "22",
       "TS%": "61%",
       "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "23",
+      "2FGA": "36",
+      "2FG%": "64%",
+      "3FGM": "5",
+      "3FGA": "21",
+      "3FG%": "24%",
+      "FGM": "28",
+      "FGA": "57",
+      "FG%": "49%",
+      "FTM": "9",
+      "FTA": "15",
+      "FT%": "60%",
+      "Points": "70",
+      "Assists": "14",
+      "Off Reb": "8",
+      "Def Reb": "32",
+      "Fouls": "11",
+      "Blocks": "0",
+      "Deflections": "0",
+      "Steals": "7",
+      "Turnovers": "5",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "91",
+      "TS%": "55%",
+      "Charge  Taken": "2",
       "Airball": "0"
     }
   ]

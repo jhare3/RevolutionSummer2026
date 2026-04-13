@@ -1,15 +1,16 @@
 {
-  "game": "Sea Cougars vs. Squirty Spartans ",
+  "gameId": "Q3",
+  "game": "Sea Cougars vs. Squirty Spartans",
   "date": "4/12/26, 10:53\u202fAM",
   "scores": {
     "Sea Cougars": {
-      "Q1": "32",
-      "Q2": "22",
+      "1": "32",
+      "2": "22",
       "Total": "54"
     },
-    "Squirty Spartans ": {
-      "Q1": "34",
-      "Q2": "32",
+    "Squirty Spartans": {
+      "1": "34",
+      "2": "32",
       "Total": "66"
     }
   },
@@ -325,6 +326,37 @@
       "TS%": "40%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "12",
+      "2FGA": "26",
+      "2FG%": "46%",
+      "3FGM": "8",
+      "3FGA": "26",
+      "3FG%": "31%",
+      "FGM": "20",
+      "FGA": "52",
+      "FG%": "38%",
+      "FTM": "6",
+      "FTA": "8",
+      "FT%": "75%",
+      "Points": "54",
+      "Assists": "8",
+      "Off Reb": "5",
+      "Def Reb": "21",
+      "Fouls": "23",
+      "Blocks": "1",
+      "Deflections": "0",
+      "Steals": "4",
+      "Turnovers": "6",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "53",
+      "TS%": "48%",
+      "Charge  Taken": "0",
+      "Airball": "0"
     }
   ],
   "home_stats": [
@@ -546,7 +578,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Jerrick Jacobs ",
+      "Player Name": "Jerrick Jacobs",
       "No.": "2",
       "2FGM": "4",
       "2FGA": "9",
@@ -635,6 +667,37 @@
       "Foul Rcd": "0",
       "Eff": "0",
       "TS%": "0%",
+      "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "17",
+      "2FGA": "28",
+      "2FG%": "61%",
+      "3FGM": "6",
+      "3FGA": "18",
+      "3FG%": "33%",
+      "FGM": "23",
+      "FGA": "46",
+      "FG%": "50%",
+      "FTM": "14",
+      "FTA": "23",
+      "FT%": "61%",
+      "Points": "66",
+      "Assists": "7",
+      "Off Reb": "6",
+      "Def Reb": "22",
+      "Fouls": "8",
+      "Blocks": "1",
+      "Deflections": "0",
+      "Steals": "3",
+      "Turnovers": "9",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "64",
+      "TS%": "58%",
       "Charge  Taken": "0",
       "Airball": "0"
     }

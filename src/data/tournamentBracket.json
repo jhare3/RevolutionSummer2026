@@ -1,0 +1,43 @@
+{
+  "rounds": [
+    {
+      "name": "Round Robin",
+      "date": "4/11/26",
+      "games": [
+        { "id": "RR1", "matchup": "Sea Cougars vs. Rev'd Up",                   "time": "8:00 AM"  },
+        { "id": "RR2", "matchup": "Apogee Ball vs. Mapleleaf Carpet Cleaning",   "time": "9:00 AM"  },
+        { "id": "RR3", "matchup": "Rolling Js vs. Rev'd Up",                     "time": "10:00 AM" },
+        { "id": "RR4", "matchup": "Revolution vs. Hammer Heads",                 "time": "11:00 AM" },
+        { "id": "RR5", "matchup": "Venom vs. Apogee Ball",                       "time": "12:00 PM" },
+        { "id": "RR6", "matchup": "Hammer Heads vs. Mapleleaf Carpet Cleaning",  "time": "1:00 PM"  },
+        { "id": "RR7", "matchup": "Revolution vs. Venom",                        "time": "2:00 PM"  },
+        { "id": "RR8", "matchup": "Squirty Spartans vs. Sea Cougars",            "time": "3:00 PM"  }
+      ]
+    },
+    {
+      "name": "Quarterfinals",
+      "date": "4/12/26",
+      "games": [
+        { "id": "Q1", "matchup": "Venom vs. Hammer Heads",                       "time": "9:00 AM"  },
+        { "id": "Q2", "matchup": "Rolling Js vs. Rev'd Up",                      "time": "10:00 AM" },
+        { "id": "Q3", "matchup": "Sea Cougars vs. Squirty Spartans",             "time": "10:53 AM" },
+        { "id": "Q4", "matchup": "Mapleleaf Carpet Cleaning vs. Revolution",     "time": "11:50 AM" }
+      ]
+    },
+    {
+      "name": "Semifinals",
+      "date": "4/12/26",
+      "games": [
+        { "id": "S1", "matchup": "Squirty Spartans vs. Rolling Js",              "time": "12:56 PM" },
+        { "id": "S2", "matchup": "Venom vs. Revolution",                         "time": "2:21 PM"  }
+      ]
+    },
+    {
+      "name": "Championship",
+      "date": "4/12/26",
+      "games": [
+        { "id": "F1", "matchup": "Revolution vs. Rolling Js",                    "time": "3:17 PM"  }
+      ]
+    }
+  ]
+}

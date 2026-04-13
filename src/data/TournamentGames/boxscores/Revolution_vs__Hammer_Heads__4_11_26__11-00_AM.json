@@ -1,15 +1,16 @@
 {
+  "gameId": "RR4",
   "game": "Revolution vs. Hammer Heads",
   "date": "4/11/26, 11:00\u202fAM",
   "scores": {
     "Revolution": {
-      "Q1": "25",
-      "Q2": "33",
+      "1": "25",
+      "2": "33",
       "Total": "58"
     },
     "Hammer Heads": {
-      "Q1": "25",
-      "Q2": "29",
+      "1": "25",
+      "2": "29",
       "Total": "54"
     }
   },
@@ -325,6 +326,37 @@
       "TS%": "62%",
       "Charge  Taken": "0",
       "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "15",
+      "2FGA": "26",
+      "2FG%": "58%",
+      "3FGM": "4",
+      "3FGA": "17",
+      "3FG%": "24%",
+      "FGM": "19",
+      "FGA": "43",
+      "FG%": "44%",
+      "FTM": "16",
+      "FTA": "24",
+      "FT%": "67%",
+      "Points": "58",
+      "Assists": "12",
+      "Off Reb": "3",
+      "Def Reb": "15",
+      "Fouls": "14",
+      "Blocks": "0",
+      "Deflections": "0",
+      "Steals": "15",
+      "Turnovers": "7",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "64",
+      "TS%": "54%",
+      "Charge  Taken": "0",
+      "Airball": "0"
     }
   ],
   "home_stats": [
@@ -605,6 +637,37 @@
       "Eff": "1",
       "TS%": "34%",
       "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "10",
+      "2FGA": "20",
+      "2FG%": "50%",
+      "3FGM": "7",
+      "3FGA": "20",
+      "3FG%": "35%",
+      "FGM": "17",
+      "FGA": "40",
+      "FG%": "43%",
+      "FTM": "13",
+      "FTA": "19",
+      "FT%": "68%",
+      "Points": "54",
+      "Assists": "6",
+      "Off Reb": "8",
+      "Def Reb": "21",
+      "Fouls": "20",
+      "Blocks": "3",
+      "Deflections": "1",
+      "Steals": "2",
+      "Turnovers": "20",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "45",
+      "TS%": "55%",
+      "Charge  Taken": "1",
       "Airball": "0"
     }
   ]

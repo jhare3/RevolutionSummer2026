@@ -1,15 +1,16 @@
 {
+  "gameId": "RR2",
   "game": "Apogee Ball vs. Mapleleaf Carpet Cleaning",
   "date": "4/11/26, 9:00\u202fAM",
   "scores": {
     "Apogee Ball": {
-      "Q1": "38",
-      "Q2": "38",
+      "1": "38",
+      "2": "38",
       "Total": "76"
     },
     "Mapleleaf Carpet Cleaning": {
-      "Q1": "43",
-      "Q2": "41",
+      "1": "43",
+      "2": "41",
       "Total": "84"
     }
   },
@@ -17,7 +18,7 @@
   "home": "Mapleleaf Carpet Cleaning",
   "visitor_stats": [
     {
-      "Player Name": "Brock Carpenter ",
+      "Player Name": "Brock Carpenter",
       "No.": "2",
       "2FGM": "0",
       "2FGA": "1",
@@ -110,7 +111,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Kyle Picard ",
+      "Player Name": "Kyle Picard",
       "No.": "7",
       "2FGM": "3",
       "2FGA": "5",
@@ -234,7 +235,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Tavarius Vance ",
+      "Player Name": "Tavarius Vance",
       "No.": "6",
       "2FGM": "4",
       "2FGA": "8",
@@ -292,6 +293,37 @@
       "Foul Rcd": "0",
       "Eff": "25",
       "TS%": "51%",
+      "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "20",
+      "2FGA": "36",
+      "2FG%": "56%",
+      "3FGM": "11",
+      "3FGA": "37",
+      "3FG%": "30%",
+      "FGM": "31",
+      "FGA": "73",
+      "FG%": "42%",
+      "FTM": "3",
+      "FTA": "9",
+      "FT%": "33%",
+      "Points": "76",
+      "Assists": "10",
+      "Off Reb": "15",
+      "Def Reb": "21",
+      "Fouls": "9",
+      "Blocks": "2",
+      "Deflections": "0",
+      "Steals": "6",
+      "Turnovers": "16",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "66",
+      "TS%": "49%",
       "Charge  Taken": "0",
       "Airball": "0"
     }
@@ -453,7 +485,7 @@
       "Airball": "0"
     },
     {
-      "Player Name": "Joe Ruggles ",
+      "Player Name": "Joe Ruggles",
       "No.": "1",
       "2FGM": "0",
       "2FGA": "0",
@@ -573,6 +605,37 @@
       "Foul Rcd": "0",
       "Eff": "10",
       "TS%": "60%",
+      "Charge  Taken": "0",
+      "Airball": "0"
+    },
+    {
+      "Player Name": "Totals",
+      "No.": "",
+      "2FGM": "29",
+      "2FGA": "43",
+      "2FG%": "67%",
+      "3FGM": "7",
+      "3FGA": "24",
+      "3FG%": "29%",
+      "FGM": "36",
+      "FGA": "67",
+      "FG%": "54%",
+      "FTM": "5",
+      "FTA": "9",
+      "FT%": "56%",
+      "Points": "84",
+      "Assists": "17",
+      "Off Reb": "11",
+      "Def Reb": "23",
+      "Fouls": "9",
+      "Blocks": "1",
+      "Deflections": "0",
+      "Steals": "14",
+      "Turnovers": "14",
+      "Charge Taken": "0",
+      "Foul Rcd": "0",
+      "Eff": "101",
+      "TS%": "59%",
       "Charge  Taken": "0",
       "Airball": "0"
     }
