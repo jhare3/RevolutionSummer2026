@@ -15,7 +15,6 @@ const Tournament = () => {
     const combinedMap = {};
     for (const path in tournamentFiles) {
       const data = tournamentFiles[path].default || tournamentFiles[path];
-      // Key by gameId — must match the IDs in tournamentBracket.json
       if (data && data.gameId) {
         combinedMap[data.gameId] = data;
       }
@@ -34,7 +33,7 @@ const Tournament = () => {
 
   const getTeamScore = (data, teamKey) => {
     if (!data) return null;
-    const teamName = data[teamKey]; // 'visitors' or 'home'
+    const teamName = data[teamKey];
     return data.scores?.[teamName]?.Total ?? null;
   };
 
@@ -45,31 +44,24 @@ const Tournament = () => {
         <span className="schedule-subtext">Spring 2026 Bracket</span>
       </div>
 
-      {/* Highlights Section */}
-      <div style={imageGalleryContainer}>
-        <div style={imageWrapper}>
-          <img 
-            src="/winningTeam.png" 
-            alt="Tournament Champions" 
-            style={highlightImage} 
-          />
-          <p style={imageCaption}>2026 TOURNAMENT CHAMPIONS</p>
+      {/* Optimized Highlights Section for Desktop/Mobile */}
+      <div className="highlights-grid-container" style={imageGalleryGrid}>
+        <div style={leftStack}>
+          <div style={imageWrapper}>
+            <img src="/winningTeam.png" alt="Tournament Champions" style={highlightImage} />
+            <p style={imageCaption}>2026 TOURNAMENT CHAMPIONS</p>
+          </div>
+          <div style={imageWrapper}>
+            <img src="/bracket.jpeg" alt="Bracket Overview" style={highlightImage} />
+            <p style={imageCaption}>BRACKET OVERVIEW</p>
+          </div>
         </div>
-        <div style={imageWrapper}>
-          <img 
-            src="/bracket.jpeg" 
-            alt="Bracket Overview" 
-            style={highlightImage} 
-          />
-          <p style={imageCaption}>Bracket</p>
-        </div>
-        <div style={imageWrapper}>
-          <img 
-            src="/dunk.jpeg" 
-            alt="Tournament Highlight" 
-            style={highlightImage} 
-          />
-          <p style={imageCaption}>GAME HIGHLIGHT</p>
+
+        <div style={rightSide}>
+          <div style={imageWrapper}>
+            <img src="/dunk.jpeg" alt="Tournament Highlight" style={highlightImage} />
+            <p style={imageCaption}>GAME HIGHLIGHT</p>
+          </div>
         </div>
       </div>
 
@@ -78,11 +70,7 @@ const Tournament = () => {
       ) : (
         <div className="bracket-container d-flex justify-content-around overflow-auto">
           {bracketData.rounds.map((round) => (
-            <div
-              key={round.name}
-              className="bracket-round d-flex flex-column mx-3"
-              style={{ minWidth: '280px' }}
-            >
+            <div key={round.name} className="bracket-round d-flex flex-column mx-3" style={{ minWidth: '280px' }}>
               <h5 className="text-center fw-black italic text-uppercase border-bottom border-danger border-3 pb-2 mb-4">
                 {round.name}
               </h5>
@@ -91,9 +79,7 @@ const Tournament = () => {
                 const teams = game.matchup.split(' vs. ');
                 const visitorScore = getTeamScore(data, 'visitors');
                 const homeScore = getTeamScore(data, 'home');
-                const hasOT = data
-                  ? Object.keys(data.scores?.[data.visitors] || {}).some(k => k.startsWith('OT'))
-                  : false;
+                const hasOT = data ? Object.keys(data.scores?.[data.visitors] || {}).some(k => k.startsWith('OT')) : false;
 
                 return (
                   <div
@@ -126,44 +112,51 @@ const Tournament = () => {
         </div>
       )}
 
-      <TournamentBoxscoreModal
-        show={showBoxscore}
-        onHide={() => setShowBoxscore(false)}
-        gameData={selectedGame}
-      />
+      <TournamentBoxscoreModal show={showBoxscore} onHide={() => setShowBoxscore(false)} gameData={selectedGame} />
     </Container>
   );
 };
 
-// Styles for Gallery
-const imageGalleryContainer = {
+// Layout Styles
+const imageGalleryGrid = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+  gap: '30px',
+  marginBottom: '60px',
+  maxWidth: '1200px',
+  margin: '0 auto 60px auto'
+};
+
+const leftStack = {
   display: 'flex',
-  flexWrap: 'wrap',
-  gap: '20px',
-  marginBottom: '40px',
-  justifyContent: 'center'
+  flexDirection: 'column',
+  gap: '30px'
+};
+
+const rightSide = {
+  display: 'flex',
+  alignItems: 'center'
 };
 
 const imageWrapper = {
-  flex: '1',
-  minWidth: '300px',
-  maxWidth: '500px',
+  width: '100%',
   textAlign: 'center'
 };
 
 const highlightImage = {
   width: '100%',
   height: 'auto',
-  borderRadius: '8px',
+  borderRadius: '4px',
   border: '4px solid #111',
-  boxShadow: '8px 8px 0px #ff4d4d'
+  boxShadow: '10px 10px 0px #ff4d4d'
 };
 
 const imageCaption = {
   fontWeight: '900',
-  marginTop: '10px',
+  marginTop: '12px',
   textTransform: 'uppercase',
-  fontSize: '14px'
+  fontSize: '14px',
+  letterSpacing: '1px'
 };
 
 export default Tournament;
