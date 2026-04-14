@@ -41,7 +41,7 @@ const Tournament = () => {
     <Container fluid className="py-5 bg-light min-vh-100">
       <div className="text-center mb-5">
         <h1 className="schedule-page-heading">Revolution Tournament</h1>
-        <span className="schedule-subtext">Spring 2026 Bracket</span>
+        <span className="schedule-subtext">Championships, Trophies, and Awards</span>
       </div>
 
       {/* Optimized Highlights Section for Desktop/Mobile */}
