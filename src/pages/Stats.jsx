@@ -47,12 +47,12 @@ const Stats = () => {
     items.sort((a, b) => {
       const sortMap = { 
         "PPG":          "PPG",
-        "Points":       "PPG",
-        "Assists":      "APG",
-        "REB":          "RPG",
-        "2PT":          "twoM",     // Sort by 2PT makes only
+        "Points":       "points",     // Updated to sort by cumulative points
+        "Assists":      "assists",    // Updated to sort by cumulative assists
+        "REB":          "rebounds",   // Updated to sort by cumulative rebounds
+        "2PT":          "twoM",     
         "3PT":          "threePM",
-        "FG":           "fgm",      // Sort by combined FG makes
+        "FG":           "fgm",      
         "FT":           "ftm",
         "Steals":       "steals",
         "Blocks":       "blocks",
@@ -92,14 +92,14 @@ const Stats = () => {
   const renderCellContent = (player, header) => {
     const s = player.stats;
     switch(header) {
-      case "2PT": return renderStacked(s.twoM, s.twoA, s["2FG%"]);       // 2PT only
+      case "2PT": return renderStacked(s.twoM, s.twoA, s["2FG%"]);
       case "3PT": return renderStacked(s.threePM, s.threePA, s["3FG%"]);
-      case "FG":  return renderStacked(s.fgm, s.fga, s["FG%"]);          // Combined 2PT + 3PT
+      case "FG":  return renderStacked(s.fgm, s.fga, s["FG%"]);
       case "FT":  return renderStacked(s.ftm, s.fta, s["FT%"]);
-      case "REB": return <span style={primaryText}>{s.RPG || 0}</span>;
-      case "Points":
+      case "REB": return <span style={primaryText}>{s.rebounds || 0}</span>;
+      case "Points": return <span style={primaryText}>{s.points || 0}</span>;
       case "PPG": return <span style={primaryText}>{s.PPG || 0}</span>;
-      case "Assists": return <span style={primaryText}>{s.APG || 0}</span>;
+      case "Assists": return <span style={primaryText}>{s.assists || 0}</span>;
       case "Steals": return <span style={primaryText}>{s.steals || 0}</span>;
       case "Blocks": return <span style={primaryText}>{s.blocks || 0}</span>;
       case "Deflections": return <span style={primaryText}>{s.deflections || 0}</span>;
