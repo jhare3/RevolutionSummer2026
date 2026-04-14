@@ -45,6 +45,34 @@ const Tournament = () => {
         <span className="schedule-subtext">Spring 2026 Bracket</span>
       </div>
 
+      {/* Highlights Section */}
+      <div style={imageGalleryContainer}>
+        <div style={imageWrapper}>
+          <img 
+            src="/winningTeam.png" 
+            alt="Tournament Champions" 
+            style={highlightImage} 
+          />
+          <p style={imageCaption}>2026 TOURNAMENT CHAMPIONS</p>
+        </div>
+        <div style={imageWrapper}>
+          <img 
+            src="/bracket.jpeg" 
+            alt="Bracket Overview" 
+            style={highlightImage} 
+          />
+          <p style={imageCaption}>Bracket</p>
+        </div>
+        <div style={imageWrapper}>
+          <img 
+            src="/dunk.jpeg" 
+            alt="Tournament Highlight" 
+            style={highlightImage} 
+          />
+          <p style={imageCaption}>GAME HIGHLIGHT</p>
+        </div>
+      </div>
+
       {loading ? (
         <div className="text-center py-5"><Spinner animation="border" variant="danger" /></div>
       ) : (
@@ -105,6 +133,37 @@ const Tournament = () => {
       />
     </Container>
   );
+};
+
+// Styles for Gallery
+const imageGalleryContainer = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '20px',
+  marginBottom: '40px',
+  justifyContent: 'center'
+};
+
+const imageWrapper = {
+  flex: '1',
+  minWidth: '300px',
+  maxWidth: '500px',
+  textAlign: 'center'
+};
+
+const highlightImage = {
+  width: '100%',
+  height: 'auto',
+  borderRadius: '8px',
+  border: '4px solid #111',
+  boxShadow: '8px 8px 0px #ff4d4d'
+};
+
+const imageCaption = {
+  fontWeight: '900',
+  marginTop: '10px',
+  textTransform: 'uppercase',
+  fontSize: '14px'
 };
 
 export default Tournament;
