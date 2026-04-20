@@ -88,6 +88,7 @@
     { "id": 70, "first_name": "Nick", "last_name": "Lynn", "team": "BLUE" },
     { "id": 71, "first_name": "Bob", "last_name": "Yefchak", "team": "BLUE" },
     { "id": 72, "first_name": "Wyatt", "last_name": "Jarvis-Comi", "team": "BLUE" },
+    { "id": 93, "first_name": "Jack", "last_name": "McCoy", "team": "BLUE" },
 
     { "id": 73, "first_name": "Jason", "last_name": "West", "team": "ORANGE", "captain": true },
     { "id": 74, "first_name": "Walker", "last_name": "Storey", "team": "ORANGE" },
