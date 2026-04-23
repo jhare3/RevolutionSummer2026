@@ -1,0 +1,63 @@
+{
+  "week": 3,
+  "date": "",
+  "title": "REVOLUTION 2026 SPRING MEN'S LEAGUE | WEEK 3 RECAP",
+  "content": "Week 3 was absolutely electric. Five games of men's league basketball packed with dominant individual performances, dramatic second-half swings, and a thriller that came down to the final possessions. Stefan Radan went full superstar mode for Black, a dead-even halftime score set the stage for a gripping Red-Yellow finish, Gray flipped the script on Blue with a ferocious second half, and Logan Letourneau torched the nets from deep in a losing effort. Let's get into the action.",
+  "matchups": ["BLACK vs ORANGE", "PINK vs WHITE", "BLUE vs GRAY", "RED vs YELLOW", "TAN vs GREEN"],
+  "games": [
+    {
+      "matchup": "Game 1: Orange vs. Black",
+      "text": "Black came to play, and they brought two stars to do it. The first half belonged to a back-and-forth battle, but Black's inside-outside combination proved too much to contain early. Stefan Radan was everywhere — crashing the glass, hitting mid-range jumpers, and drawing contact — while Chris Cayole imposed his will in the paint, finishing well through traffic on multiple possessions. Black's balanced attack kept Orange from finding a comfortable rhythm, and the physical presence of Kenny Black on the boards gave them second-chance opportunities throughout the half. Black headed into the break with a slim lead. Halftime: Black 39, Orange 36. The second half was more of the same, only louder. Black pulled away with Stefan Radan putting on a full clinic, and Orange's best effort to claw back — powered by Trent Roleau's relentless push in the paint — wasn't quite enough. Black cruised to the final buzzer, winning 85-76 behind a commanding all-around team effort.",
+      "performers": {
+        "Black": "Stefan Radan — 33 pts, 17 REB, 3 AST; Chris Cayole — 27 pts, 10 REB, 3 AST; Kenny Black — 10 pts, 10 REB",
+        "Orange": "Trent Roleau — 31 pts, 14 REB; Will Oboh — 16 pts, 4 STL; Jason West — 13 pts, 2 STL"
+      }
+    },
+    {
+      "matchup": "Game 2: Pink vs. White",
+      "text": "White came in ready to make a statement — and the first half told the whole story. White jumped out of the gates with energy and execution, building a lead that Pink struggled to close. Donnie Dwyer set the tone early, attacking off the dribble and converting at a high clip. Matt Riordan was equally impactful, going a perfect 6-for-6 from the field while also disrupting Pink's sets with four steals in the game. Pink hung tough thanks to Tyrone Conley's relentless effort around the rim and Kyle Haley's activity on the glass, but White's edge in ball movement and defensive intensity kept them in front. Halftime: Pink 35, White 41. Pink came out of the break determined to close the gap and chipped away, but White's lead proved just too sturdy. Conley kept battling, but White found answers every time Pink threatened. White held on for the 68-63 win in a hard-fought, physical game.",
+      "performers": {
+        "White": "Donnie Dwyer — 27 pts, 8 REB, 4/13 3PT; Matt Riordan — 17 pts, 6/6 FG, 4 AST, 4 STL; Zaire Wilson — 16 pts, 7 REB",
+        "Pink": "Tyrone Conley — 23 pts, 11 REB, 3 AST; Kyle Haley — 18 pts, 11 REB, 5 AST; Liam Walsh — 12 pts, 7 REB"
+      }
+    },
+    {
+      "matchup": "Game 3: Blue vs. Gray",
+      "text": "Blue built a lead in the first half. Gray erased it — and then some — in the second. Blue came out sharp, moving the ball and finding open looks early. Jackson McCoy was a one-man wrecking crew on the glass, pulling down an absurd number of rebounds while also scoring from the mid-range. Blue's 25-19 halftime advantage looked like a platform to build on, but Gray had a different plan for the second 20 minutes. Halftime: Blue 25, Gray 19. Gray came out of the half a completely different team. Kevin Garrison took over the game as a scorer, rebounder, and playmaker simultaneously, while Manny Robertson got hot from the perimeter and attacked the rim with aggression. Gray outscored Blue 46-28 in the second half in a statement performance. Gray ran away with it, 65-53, in one of the biggest second-half turnarounds of the week.",
+      "performers": {
+        "Gray": "Kevin Garrison — 20 pts, 14 REB, 6 AST, 2 STL; Manny Robertson — 20 pts, 10 REB, 3 STL; Dylan Pratico — 15 pts, 2 STL",
+        "Blue": "Jackson McCoy — 25 pts, 23 REB; Aaron West — 9 pts, 6 REB, 3 AST; Nick Lynn — 6 pts, 2/3 3PT"
+      }
+    },
+    {
+      "matchup": "Game 4: Red vs. Yellow",
+      "text": "Buckle up — this was the game of the week. Red and Yellow played to a dead-even first half, trading bucket for bucket in a game that had \"overtime\" written all over it. Logan Letourneau was already cooking from three-point range, hitting an otherworldly barrage of deep balls and providing Yellow with their offensive heartbeat. On Red's side, Logan Tobin was matching him shot for shot with efficient scoring on 10-of-15 from the field, and Will Ewald was quietly controlling the paint with 20 rebounds that will be talked about for weeks. Halftime: Red 44, Yellow 44. All tied. The second half was tense, physical, and decided by inches. Red edged ahead and leaned on their collective depth while Yellow kept throwing haymakers, with Letourneau continuing to splash threes at a rate that seemed almost unfair. In the end, Red's balance was the difference. Red survived the thriller, 79-76, in a game that deserved a bigger crowd.",
+      "performers": {
+        "Red": "Logan Tobin — 23 pts, 10/15 FG, 3/6 3PT; Will Ewald — 17 pts, 20 REB; Josh Carter — 18 pts, 9 REB",
+        "Yellow": "Logan Letourneau — 36 pts, 12/20 3PT; Cam Perta — 18 pts, 5/16 3PT; Dylan Mackie — 0 pts, 7 REB, 6 AST, 4 STL"
+      }
+    },
+    {
+      "matchup": "Game 5: Tan vs. Green",
+      "text": "Green had answers. Tan didn't have enough. Tan opened the game with some momentum, cutting, moving, and competing enough to stay within striking distance in the first half. Hakeem Faud led the charge, scoring efficiently from everywhere and crashing the glass with purpose. But Green's depth and firepower proved to be a step too much to handle, and Asko Mostarlic's combination of interior dominance and perimeter shooting gave Tan fits all night. Halftime: Tan 32, Green 36. Green pulled away decisively in the second half, with Mostarlic, Andy Bousono, and Jaren Jeffcoat all contributing quality buckets. Mahlik Franklin locked down on the defensive end with four steals while also contributing 16 points. Tan's Faud kept fighting, but Green had too many weapons. Green rolled to an 80-65 win in a game that was closer than the final score suggests for most of the night.",
+      "performers": {
+        "Green": "Asko Mostarlic — 25 pts, 14 REB; Andy Bousono — 18 pts, 4/8 3PT, 6 REB; Jaren Jeffcoat — 17 pts, 6 REB, 7/12 FG",
+        "Tan": "Hakeem Faud — 21 pts, 13 REB, 3 AST, 2 STL; Cory Chaplin — 14 pts, 7 REB; Aiden Brown — 13 pts, 3/11 3PT, 3 AST"
+      }
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Alta Group & The Windjammer Restaurant and Upper Deck Pub",
+      "message": "This recap is proudly brought to you by the Alta Group and The Windjammer Restaurant and Upper Deck Pub. Thank you for your continued support of the Revolution Men's League."
+    },
+    {
+      "name": "Warden's Wisdom",
+      "message": "This recap is also brought to you by Warden's Wisdom — a mindfulness-based coaching business dedicated to helping individuals relieve anxiety through personalized mindfulness practices. Whether you're navigating pressure in the fourth quarter or pressure in everyday life, Warden's Wisdom helps you find your center.",
+      "quote": "The mind that is at peace does not chase the moment — it simply meets it. Show up fully, and the game takes care of itself.",
+      "url": "https://wardenswisdom.net",
+      "urlLabel": "wardenswisdom.net"
+    }
+  ],
+  "closing": "Week 3 delivered. Week 4 promises even more. Tune in and don't miss a minute of the action."
+}
