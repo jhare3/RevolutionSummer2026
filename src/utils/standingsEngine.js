@@ -3,7 +3,7 @@
 export const calculateStandings = (gameFiles, rosterData) => {
   const teams = {};
 
-  // 1. Initialize teams from Roster
+  // 1. Initialize all teams from conferences to ensure 0-0 teams (like PINK) appear
   const eastern = rosterData.conferences.EASTERN || [];
   const western = rosterData.conferences.WESTERN || [];
   
@@ -18,23 +18,33 @@ export const calculateStandings = (gameFiles, rosterData) => {
   eastern.forEach(t => setup(t, 'EASTERN'));
   western.forEach(t => setup(t, 'WESTERN'));
 
-  // 2. Process Files
+  // Create a player-to-team lookup map from players.json
+  const playerToTeam = {};
+  rosterData.players.forEach(p => {
+    playerToTeam[p.first_name + " " + p.last_name] = p.team.toUpperCase();
+  });
+
+  // 2. Process Game Files
   Object.values(gameFiles).forEach((file) => {
     const gameData = file.default || file;
     if (!gameData.stats) return;
 
     const gameScores = {}; 
 
+    // Aggregate points by looking up each player's team
     gameData.stats.forEach(row => {
-      const teamName = (row.team || row.Team || "").toUpperCase().trim();
-      // Filter out meta rows
-      if (!teamName || teamName.includes("TOTAL") || teamName.includes("EVENT")) return;
+      const playerName = row["Player Name"];
+      const teamName = playerToTeam[playerName];
       
-      if (!gameScores[teamName]) gameScores[teamName] = 0;
-      gameScores[teamName] += (parseInt(row.Points) || 0);
+      if (teamName) {
+        if (!gameScores[teamName]) gameScores[teamName] = 0;
+        gameScores[teamName] += (parseInt(row.Points) || 0);
+      }
     });
 
     const competing = Object.keys(gameScores);
+    
+    // Determine winner and loser based on aggregated player points
     if (competing.length === 2) {
       const [tA, tB] = competing;
       const sA = gameScores[tA];
@@ -44,8 +54,13 @@ export const calculateStandings = (gameFiles, rosterData) => {
         teams[tA].PF += sA; teams[tA].PA += sB;
         teams[tB].PF += sB; teams[tB].PA += sA;
 
-        if (sA > sB) { teams[tA].W += 1; teams[tB].L += 1; }
-        else if (sB > sA) { teams[tB].W += 1; teams[tA].L += 1; }
+        if (sA > sB) { 
+          teams[tA].W += 1; 
+          teams[tB].L += 1; 
+        } else if (sB > sA) { 
+          teams[tB].W += 1; 
+          teams[tA].L += 1; 
+        }
       }
     }
   });

@@ -1,28 +1,30 @@
 import React, { useMemo, useState } from 'react';
-import standingsDataRaw from '../data/standings.json';
+import { calculateStandings } from '../utils/standingsEngine';
+import playerConfig from '../data/players.json';
+
+// Dynamically import all boxscore files from the week subfolders
+const gameFiles = import.meta.glob('../data/boxscores/**/*.json', { eager: true });
 
 const Standings = () => {
   // State for interactive sorting
   const [sortConfig, setSortConfig] = useState({ key: 'W', direction: 'desc' });
 
   const standingsData = useMemo(() => {
-    // Flatten the Eastern and Western arrays from standings.json into one list
-    const allTeams = [
-      ...standingsDataRaw.EASTERN,
-      ...standingsDataRaw.WESTERN
-    ];
+    // 1. Calculate base stats (W, L, PF, PA) using the standingsEngine logic
+    // This uses players.json as the source of truth for team/conference mapping
+    const calculatedTeams = calculateStandings(gameFiles, playerConfig);
     
-    let items = allTeams.map(t => {
+    // 2. Process calculated data for display (Win % and Point Differential)
+    let items = calculatedTeams.map(t => {
       const gp = t.W + t.L;
       return {
         ...t,
-        // Calculate Win Percentage and Point Differential on the fly
         PCT: gp > 0 ? (t.W / gp).toFixed(3) : ".000",
         DIFF: t.PF - t.PA
       };
     });
 
-    // Interactive Sort Logic
+    // 3. Interactive Sort Logic
     items.sort((a, b) => {
       let aVal = a[sortConfig.key];
       let bVal = b[sortConfig.key];
@@ -93,13 +95,14 @@ const Standings = () => {
   return (
     <div className="container py-5" style={{ fontFamily: 'Inter, sans-serif' }}>
       <h1 className="text-center fw-black mb-5" style={{ letterSpacing: '-2px', fontSize: '3rem' }}>STANDINGS</h1>
+      {/* Filtering based on the conference property assigned during calculation */}
       {renderTable('EASTERN', standingsData.filter(t => t.conference === 'EASTERN'))}
       {renderTable('WESTERN', standingsData.filter(t => t.conference === 'WESTERN'))}
     </div>
   );
 };
 
-// --- STYLES (Retained from original) ---
+// --- STYLES ---
 const confHeaderStyle = { fontWeight: '900', color: '#ff4d4d', borderBottom: '4px solid #111', paddingBottom: '8px', marginBottom: '20px' };
 const tableWrapper = { borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', border: '1px solid #eee' };
 const thStyle = { padding: '15px', textAlign: 'center', fontSize: '12px', fontWeight: '800', cursor: 'pointer' };
