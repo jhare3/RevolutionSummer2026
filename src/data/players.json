@@ -61,6 +61,7 @@
     { "id": 46, "first_name": "Nate", "last_name": "Merrill", "team": "BLACK" },
     { "id": 47, "first_name": "Kenny", "last_name": "Black", "team": "BLACK" },
     { "id": 48, "first_name": "Adam", "last_name": "Gawrys", "team": "BLACK" },
+    { "id": 94, "first_name": "Nate", "last_name": "Luong", "team": "BLACK" },
 
     { "id": 49, "first_name": "Dylan", "last_name": "Pratico", "team": "GRAY", "captain": true },
     { "id": 50, "first_name": "Kevin", "last_name": "Garrison", "team": "GRAY" },
