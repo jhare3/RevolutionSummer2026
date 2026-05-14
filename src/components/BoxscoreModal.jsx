@@ -6,12 +6,16 @@ const BoxscoreModal = ({ show, onHide, gameData }) => {
   if (!gameData) return null;
 
   const groupedStats = groupStatsByTeam(gameData.stats || []);
+  const t1 = gameData.scores?.team1 || {};
+  const t2 = gameData.scores?.team2 || {};
+  
+  // Look specifically for OT keys in the score object
+  const hasOT = t1.OT1 !== undefined || t2.OT1 !== undefined;
 
   const renderTeamTable = (teamName, players) => (
     <div key={teamName} className="mb-4">
-      <h3 className="fw-black bg-dark text-white p-2 h6 d-flex justify-content-between align-items-center">
-        {teamName}
-        <Badge bg="danger" style={{ fontSize: '10px' }}>TEAM TOTALS</Badge>
+      <h3 className="fw-black bg-dark text-white p-2 h6 d-flex justify-content-between align-items-center italic">
+        {teamName} <Badge bg="danger" style={{ fontSize: '10px' }}>STATS</Badge>
       </h3>
       <Table responsive hover size="sm" className="mb-0 border">
         <thead className="table-light small">
@@ -23,7 +27,6 @@ const BoxscoreModal = ({ show, onHide, gameData }) => {
             <th className="text-center">FT</th>
             <th className="text-center">REB</th>
             <th className="text-center">AST</th>
-            <th className="text-center">STL</th>
           </tr>
         </thead>
         <tbody>
@@ -36,7 +39,6 @@ const BoxscoreModal = ({ show, onHide, gameData }) => {
               <td className="text-center">{p.FTM}/{p.FTA}</td>
               <td className="text-center">{Number(p["Off Reb"] || 0) + Number(p["Def Reb"] || 0)}</td>
               <td className="text-center">{p.Assists}</td>
-              <td className="text-center">{p.Steals}</td>
             </tr>
           ))}
         </tbody>
@@ -45,33 +47,33 @@ const BoxscoreModal = ({ show, onHide, gameData }) => {
   );
 
   return (
-    <Modal show={show} onHide={onHide} size="xl" centered>
+    <Modal show={show} onHide={onHide} size="xl" centered scrollable>
       <Modal.Header closeButton className="bg-dark text-white" data-bs-theme="dark">
         <Modal.Title className="fw-black italic">{gameData.game}</Modal.Title>
       </Modal.Header>
       <Modal.Body className="p-4">
-        {gameData.scores && (
-          <div className="text-center mb-5 border-bottom pb-4">
-            <Row className="align-items-center">
-              <Col>
-                <div className="h3 fw-black mb-0">{gameData.scores.team1.name}</div>
-                <div className="display-4 fw-black text-danger">{gameData.scores.team1.final}</div>
-              </Col>
-              <Col xs={2}>
-                <Badge bg="secondary" className="px-3 py-2">FINAL</Badge>
-              </Col>
-              <Col>
-                <div className="h3 fw-black mb-0">{gameData.scores.team2.name}</div>
-                <div className="display-4 fw-black text-danger">{gameData.scores.team2.final}</div>
-              </Col>
-            </Row>
-            <div className="small text-muted fw-bold mt-3">
-              1ST HALF: {gameData.scores.team1.half1}-{gameData.scores.team2.half1} | 
-              2ND HALF: {gameData.scores.team1.half2}-{gameData.scores.team2.half2}
-            </div>
+        <div className="text-center mb-5 border-bottom pb-4">
+          <Row className="align-items-center">
+            <Col>
+              <div className="h3 fw-black mb-0">{t1.name}</div>
+              <div className="display-4 fw-black text-danger">{t1.final}</div>
+            </Col>
+            <Col xs={2}>
+              <Badge bg="secondary" className="px-3 py-2 d-block mb-1">FINAL</Badge>
+              {hasOT && <Badge bg="warning" text="dark" style={{ fontSize: '0.65rem' }}>OT</Badge>}
+            </Col>
+            <Col>
+              <div className="h3 fw-black mb-0">{t2.name}</div>
+              <div className="display-4 fw-black text-danger">{t2.final}</div>
+            </Col>
+          </Row>
+          <div className="d-flex justify-content-center gap-4 mt-3 small text-muted fw-bold text-uppercase">
+            <div>1st: {t1.half1}-{t2.half1}</div>
+            <div>2nd: {t1.half2}-{t2.half2}</div>
+            {hasOT && <div className="text-danger">OT: {t1.OT1}-{t2.OT1}</div>}
           </div>
-        )}
-        
+          <div className="small text-muted fw-bold mt-2">{gameData.date}</div>
+        </div>
         {Object.entries(groupedStats).map(([team, players]) => renderTeamTable(team, players))}
       </Modal.Body>
     </Modal>
