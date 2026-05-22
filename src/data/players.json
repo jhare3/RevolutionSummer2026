@@ -102,6 +102,7 @@
     { "id": 78, "first_name": "Cole", "last_name": "Sampson", "team": "ORANGE" },
     { "id": 79, "first_name": "Eleizer", "last_name": "Perez Jr.", "team": "ORANGE" },
     { "id": 80, "first_name": "Timmy", "last_name": "Ashley", "team": "ORANGE" },
+    { "id": 98, "first_name": "Sub", "last_name": "Stan", "team": "ORANGE" },
 
     { "id": 81, "first_name": "Jimmy", "last_name": "Warden", "team": "PURPLE", "captain": true },
     { "id": 82, "first_name": "Tre", "last_name": "Grubbs", "team": "PURPLE" },
