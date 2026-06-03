@@ -1,0 +1,63 @@
+{
+  "week": 7,
+  "date": "",
+  "title": "REVOLUTION 2026 SPRING MEN'S LEAGUE | WEEK 7 RECAP",
+  "content": "Week 7 delivered on every level. Red pulled off a second-half comeback to knock off Purple by two. Yellow and Blue traded buckets all morning in a one-point nail-biter. Green handled a shorthanded Black squad. Trent Roleau reminded the league exactly who he is against Tan. And Gray kept rolling with a steady win over Pink. Let's get into the action.",
+  "matchups": ["PURPLE vs RED", "BLUE vs YELLOW", "BLACK vs GREEN", "ORANGE vs TAN", "PINK vs GRAY"],
+  "games": [
+    {
+      "matchup": "Game 1: Red vs. Purple",
+      "text": "Purple jumped out in front and led by four at the break, looking like the sharper team for most of the first half. Jimmy Warden scored efficiently from three, drilling three first-half threes and finishing around the rim, while Trevis Buckhannon was active on the boards and the paint. He even started the game with an emphatic dunk off a dime from Tre Grubbs. Jibril Abdullahi was doing everything he could to keep Red in it, battling on every possession and drawing fouls. Despite the deficit, Red never felt out of it. Halftime: Purple 40, Red 36. Red came out of the break with a different mentality. Abdullahi finished with 32 points on 13-of-34 shooting with 9 rebounds and 2 assists, carrying Red's offense down the stretch. Carter Beeman was a problem on the boards, grabbing 12 rebounds to go with 13 points. Red outscored Purple 31-25 in the second half to flip the result. The finishing touch was put on by none other than Kolby Bradford who received a laser pass from Abdullahi to put Red up two. Purple's three-point attempt at the buzzer front rimmed, and Red escaped with a two-point win. Red won, 67-65.",
+      "performers": {
+        "Red": "Jibril Abdullahi — 32 pts, 9 REB, 2 AST; Carter Beeman — 13 pts, 12 REB; Will Ewald — 8 pts, 9 REB, 2 AST",
+        "Purple": "Jimmy Warden — 19 pts, 4 REB, 2 AST; Tre Grubbs — 14 pts, 11 REB, 4 AST; Trevis Buckhannon — 14 pts, 18 REB, 1 AST"
+      }
+    },
+    {
+      "matchup": "Game 2: Yellow vs. Blue",
+      "text": "One point. That was the difference after 40 minutes of basketball. Blue held a slim one-point lead at the break, and both teams were locked in throughout. Jackson McCoy was a workhorse for Blue, getting to the rim on contact and pulling down rebounds. Aaron West provided perimeter scoring and playmaking. For Yellow, Drew Pelkey attacked off the dribble all morning, and Alex Philo was a threat every time he caught the ball on the wing and unloaded from deep. Halftime: Blue 38, Yellow 37. Neither team blinked in the second half. It was back-and-forth until Yellow started to pull away, but Blue chipped away to make it a one-possession game. Pelkey performed well from behind the arc and off the bounce, while Philo drained from downtown. McCoy and West were a dynamic duo that led the comeback effort in the second. However, Yellow held on and won by a bucket. Yellow won, 78-77.",
+      "performers": {
+        "Yellow": "Drew Pelkey — 27 pts, 5 REB, 2 AST; Alex Philo — 23 pts, 12 REB, 2 AST; Dylan Mackie — 13 pts, 5 REB, 4 AST",
+        "Blue": "Jack McCoy — 24 pts, 19 REB, 3 AST; Aaron West — 17 pts, 2 REB, 5 AST; James Hare — 13 pts, 2 REB, 1 AST"
+      }
+    },
+    {
+      "matchup": "Game 3: Black vs. Green",
+      "text": "Green was the better team from the opening tip. Green jumped out to a double-digit lead quickly and never let Black breathe. Mahlik Franklin was exceptional, finishing with 22 points and a remarkable 10 assists while grabbing 11 rebounds. Jaren Jeffcoat went to work in the post and converted consistently, finishing with 20 points and 11 rebounds. Jerrick Jacobs added 19 points. For Black, Chris Cayole was the lone bright spot with 20 points, but Green's defense made it extremely difficult for anyone else to get going. Halftime: Green 36, Black 22. Green was too deep, too efficient, and too locked in. Green won the second half 44-33 and completed a thorough 25-point victory from buzzer to buzzer. Stefan Radan had 9 points and 11 rebounds, doing what he could, but Green simply had too much on this day. Green remains the standard in the Eastern Conference. Green won, 80-55.",
+      "performers": {
+        "Green": "Mahlik Franklin — 22 pts, 11 REB, 10 AST; Jaren Jeffcoat — 20 pts, 11 REB; Jerrick Jacobs — 19 pts, 8 REB, 2 AST",
+        "Black": "Chris Cayole — 20 pts, 5 REB; Kenny Black — 8 pts, 6 REB, 2 AST; Adam Gawrys — 7 pts, 1 REB, 1 AST"
+      }
+    },
+    {
+      "matchup": "Game 4: Orange vs. Tan",
+      "text": "Trent Roleau had a point to make, and he made it from the opening tip to the final buzzer. Orange controlled this game early and never let Tan find any real momentum. Roleau was relentless, attacking the basket, drawing fouls, and dominating the glass against a Tan front line that had no answer for him. Will Oboh knocked down four threes and made plays on both ends. Walker Storey came alive offensively and gave Orange another reliable scoring option all game. Tan's Hakeem Faud kept competing hard, but the game felt out of reach early. Halftime: Orange 40, Tan 29. Orange cruised in the second half, winning that frame 40-28 to complete a dominant performance. Tan saw some spark from Jeremy Franklin and Devin Bradford from downtown, and Franklin got particularly scrappy on the defensive end. But it was too little too late for Tan. Orange won, 80-57.",
+      "performers": {
+        "Orange": "Trent Roleau — 26 pts, 14 REB, 1 AST; Will Oboh — 18 pts, 3 REB, 3 AST; Walker Storey — 16 pts, 9 REB, 5 AST",
+        "Tan": "Hakeem Faud — 24 pts, 18 REB, 5 AST; Devin Bradford — 10 pts, 5 REB; Jeremy Franklin — 10 pts, 4 REB, 4 AST"
+      }
+    },
+    {
+      "matchup": "Game 5: Pink vs. Gray",
+      "text": "Gray was the steadier team throughout and won a disciplined game from wire to wire. Kevin Garrison was everywhere, scoring inside and out and anchoring the defensive effort. Kyle DeCoster provided reliable perimeter shooting and solid two-way play. Pink battled hard and had strong contributions from Tyrone Conley and Kyle Haley, but Gray's defense made every basket feel earned. Halftime: Gray 35, Pink 31. Pink kept fighting in the second half, but Gray matched them stride for stride and extended their lead. Garrison was Gray's engine all afternoon. He finished with 32 points on 11-of-22 shooting, knocked down 6 threes, pulled down 16 rebounds, and dished 5 assists. DeCoster added 14 points and 5 rebounds. Dylan Pratico went for 11 and dropped 3 dimes. For Pink, Conley led the way with 22 points and 5 threes, Haley grabbed 12 rebounds and scored 17, Semic poured in 13, and Walsh hauled in 16 rebounds. Pink had bodies on the glass but couldn't generate enough offense to close the gap. Gray won, 72-63.",
+      "performers": {
+        "Gray": "Kevin Garrison — 32 pts, 16 REB, 5 AST; Kyle DeCoster — 14 pts, 5 REB; Dylan Pratico — 11 pts, 7 REB, 3 AST",
+        "Pink": "Tyrone Conley — 22 pts, 9 REB, 2 AST; Kyle Haley — 17 pts, 12 REB, 4 AST; Edo Semic — 13 pts, 1 REB, 1 AST"
+      }
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Alta Group & The Windjammer Restaurant and Upper Deck Pub",
+      "message": "This recap is proudly brought to you by the Alta Group and The Windjammer Restaurant and Upper Deck Pub. Thank you for your continued support of the Revolution Men's League."
+    },
+    {
+      "name": "Warden's Wisdom",
+      "message": "This recap is also brought to you by Warden's Wisdom — a mindfulness-based coaching business dedicated to helping clients relieve anxiety through personalized mindfulness practices.",
+      "quote": "When the game is on the line, and the pressure is high, the calm mind wins.",
+      "url": "https://wardenswisdom.net",
+      "urlLabel": "wardenswisdom.net"
+    }
+  ],
+  "closing": "Green stays perfect. The rest of the field is chasing. Week 8 is right around the corner. Tune in."
+}
