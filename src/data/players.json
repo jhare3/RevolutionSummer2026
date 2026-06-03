@@ -44,6 +44,7 @@
     { "id": 30, "first_name": "Aiden", "last_name": "Brown", "team": "TAN" },
     { "id": 31, "first_name": "Devin", "last_name": "Bradford", "team": "TAN" },
     { "id": 32, "first_name": "Logan", "last_name": "Pelchar", "team": "TAN" },
+    { "id": 96, "first_name": "Sub", "last_name": "Brandon", "team": "TAN" },
 
     { "id": 33, "first_name": "Aid", "last_name": "Semic", "team": "PINK", "captain": true },
     { "id": 34, "first_name": "Tyrone", "last_name": "Conley", "team": "PINK" },
