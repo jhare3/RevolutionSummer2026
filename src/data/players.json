@@ -25,6 +25,8 @@
     { "id": 15, "first_name": "Logan", "last_name": "Hogaboom", "team": "RED" },
     { "id": 16, "first_name": "Logan", "last_name": "Tobin", "team": "RED" },
     { "id": 95, "first_name": "Picard", "last_name": "SUB", "team": "RED" },
+    {"id": 98, "first_name": "Sub", "last_name": "Aiden", "team": "RED" },
+    {"id": 99, "first_name": "Sub", "last_name": "Kiley", "team": "RED" },
 
     { "id": 17, "first_name": "Cam", "last_name": "Perta", "team": "YELLOW", "captain": true },
     { "id": 18, "first_name": "Bela", "last_name": "Dobkowski", "team": "YELLOW" },
@@ -45,6 +47,7 @@
     { "id": 31, "first_name": "Devin", "last_name": "Bradford", "team": "TAN" },
     { "id": 32, "first_name": "Logan", "last_name": "Pelchar", "team": "TAN" },
     { "id": 96, "first_name": "Sub", "last_name": "Brandon", "team": "TAN" },
+    {"id": 100, "first_name": "Sub", "last_name": "Will", "team": "TAN" },
 
     { "id": 33, "first_name": "Aid", "last_name": "Semic", "team": "PINK", "captain": true },
     { "id": 34, "first_name": "Tyrone", "last_name": "Conley", "team": "PINK" },
@@ -84,6 +87,8 @@
     { "id": 62, "first_name": "Hans", "last_name": "Lynn", "team": "WHITE" },
     { "id": 63, "first_name": "John", "last_name": "Helsel", "team": "WHITE" },
     { "id": 64, "first_name": "John", "last_name": "O'Brien", "team": "WHITE" },
+    {"id": 101, "first_name": "Sub", "last_name": "Jake", "team": "WHITE" },
+    {"id": 102, "first_name": "Sub", "last_name": "Tavarius", "team": "WHITE" },
 
     { "id": 65, "first_name": "Aaron", "last_name": "West", "team": "BLUE", "captain": true },
     { "id": 66, "first_name": "Matt", "last_name": "Spear", "team": "BLUE" },
