@@ -1,124 +1,460 @@
 {
-  "league": "Edmunds Middle School Spring League",
+  "league": "Edmunds Middle School Summer League",
   "season": "2026",
-  "conferences": {
-    "EASTERN": ["GREEN", "RED", "YELLOW", "TAN", "PINK", "BLACK"],
-    "WESTERN": ["GRAY", "WHITE", "BLUE", "ORANGE", "PURPLE"]
-  },
+  
   "players": [
-    { "id": 1, "first_name": "Andy", "last_name": "Bousono", "team": "GREEN", "captain": true },
-    { "id": 2, "first_name": "Mahlik", "last_name": "Franklin", "team": "GREEN" },
-    { "id": 3, "first_name": "Jerrick", "last_name": "Jacobs", "team": "GREEN" },
-    { "id": 4, "first_name": "Jaren", "last_name": "Jeffcoat", "team": "GREEN" },
-    { "id": 5, "first_name": "Asko", "last_name": "Mostarlic", "team": "GREEN" },
-    { "id": 6, "first_name": "Kerry", "last_name": "Lyons", "team": "GREEN" },
-    { "id": 7, "first_name": "Ty", "last_name": "Gray", "team": "GREEN" },
-    { "id": 8, "first_name": "Andre", "last_name": "McKenzie", "team": "GREEN" },
-    { "id": 92, "first_name": "Jerome", "last_name": "Anderson", "team": "GREEN" },
-
-    { "id": 9, "first_name": "Carter", "last_name": "Beeman", "team": "RED", "captain": true },
-    { "id": 10, "first_name": "Jibril", "last_name": "Abdullahi", "team": "RED" },
-    { "id": 11, "first_name": "Josh", "last_name": "Carter", "team": "RED" },
-    { "id": 12, "first_name": "Will", "last_name": "Ewald", "team": "RED" },
-    { "id": 13, "first_name": "Kolby", "last_name": "Bradford", "team": "RED" },
-    { "id": 14, "first_name": "Emin", "last_name": "Kekic", "team": "RED" },
-    { "id": 15, "first_name": "Logan", "last_name": "Hogaboom", "team": "RED" },
-    { "id": 16, "first_name": "Logan", "last_name": "Tobin", "team": "RED" },
-    { "id": 95, "first_name": "Picard", "last_name": "SUB", "team": "RED" },
-    {"id": 98, "first_name": "Sub", "last_name": "Aiden", "team": "RED" },
-    {"id": 99, "first_name": "Sub", "last_name": "Kiley", "team": "RED" },
-
-    { "id": 17, "first_name": "Cam", "last_name": "Perta", "team": "YELLOW", "captain": true },
-    { "id": 18, "first_name": "Bela", "last_name": "Dobkowski", "team": "YELLOW" },
-    { "id": 19, "first_name": "Drew", "last_name": "Pelkey", "team": "YELLOW" },
-    { "id": 20, "first_name": "Alex", "last_name": "Philo", "team": "YELLOW" },
-    { "id": 21, "first_name": "Logan", "last_name": "Letourneau", "team": "YELLOW" },
-    { "id": 22, "first_name": "Dylan", "last_name": "Mackie", "team": "YELLOW" },
-    { "id": 23, "first_name": "Graden", "last_name": "Conger", "team": "YELLOW" },
-    { "id": 24, "first_name": "Braden", "last_name": "Elnicki", "team": "YELLOW" },
-    { "id": 90, "first_name": "Kam", "last_name": "Strickland", "team": "YELLOW" },
-
-    { "id": 25, "first_name": "Brody", "last_name": "Snow", "team": "TAN", "captain": true },
-    { "id": 26, "first_name": "Hakeem", "last_name": "Faud", "team": "TAN" },
-    { "id": 27, "first_name": "Kyle", "last_name": "Picard", "team": "TAN" },
-    { "id": 28, "first_name": "Jeremy", "last_name": "Franklin", "team": "TAN" },
-    { "id": 29, "first_name": "Cory", "last_name": "Chaplin", "team": "TAN" },
-    { "id": 30, "first_name": "Aiden", "last_name": "Brown", "team": "TAN" },
-    { "id": 31, "first_name": "Devin", "last_name": "Bradford", "team": "TAN" },
-    { "id": 32, "first_name": "Logan", "last_name": "Pelchar", "team": "TAN" },
-    { "id": 96, "first_name": "Sub", "last_name": "Brandon", "team": "TAN" },
-    {"id": 100, "first_name": "Sub", "last_name": "Will", "team": "TAN" },
-
-    { "id": 33, "first_name": "Aid", "last_name": "Semic", "team": "PINK", "captain": true },
-    { "id": 34, "first_name": "Tyrone", "last_name": "Conley", "team": "PINK" },
-    { "id": 35, "first_name": "Kyle", "last_name": "Haley", "team": "PINK" },
-    { "id": 36, "first_name": "Liam", "last_name": "Walsh", "team": "PINK" },
-    { "id": 37, "first_name": "Edo", "last_name": "Semic", "team": "PINK" },
-    { "id": 38, "first_name": "Jack", "last_name": "Lloyd", "team": "PINK" },
-    { "id": 39, "first_name": "Cody", "last_name": "Jarvis", "team": "PINK" },
-    { "id": 40, "first_name": "Max", "last_name": "Taylor", "team": "PINK" },
-
-    { "id": 41, "first_name": "Cyle", "last_name": "Chappy", "team": "BLACK", "captain": true },
-    { "id": 42, "first_name": "Chris", "last_name": "Cayole", "team": "BLACK" },
-    { "id": 43, "first_name": "Stefan", "last_name": "Radan", "team": "BLACK" },
-    { "id": 44, "first_name": "Tanner", "last_name": "Freeman", "team": "BLACK" },
-    { "id": 45, "first_name": "Dennis", "last_name": "Schut", "team": "BLACK" },
-    { "id": 46, "first_name": "Nate", "last_name": "Merrill", "team": "BLACK" },
-    { "id": 47, "first_name": "Kenny", "last_name": "Black", "team": "BLACK" },
-    { "id": 48, "first_name": "Adam", "last_name": "Gawrys", "team": "BLACK" },
-    { "id": 94, "first_name": "Nate", "last_name": "Luong", "team": "BLACK" },
-
-    { "id": 49, "first_name": "Dylan", "last_name": "Pratico", "team": "GRAY", "captain": true },
-    { "id": 50, "first_name": "Kevin", "last_name": "Garrison", "team": "GRAY" },
-    { "id": 51, "first_name": "Kyle", "last_name": "DeCoster", "team": "GRAY" },
-    { "id": 52, "first_name": "Brando", "last_name": "Pratico", "team": "GRAY" },
-    { "id": 53, "first_name": "Manny", "last_name": "Robertson", "team": "GRAY" },
-    { "id": 54, "first_name": "Myles", "last_name": "Robertson", "team": "GRAY" },
-    { "id": 55, "first_name": "Drew", "last_name": "Fisher", "team": "GRAY" },
-    { "id": 56, "first_name": "Ethan", "last_name": "Calle", "team": "GRAY" },
-    { "id": 96, "first_name": "Sub", "last_name": "Finn", "team": "GRAY" },
-    { "id": 97, "first_name": "Sub", "last_name": "Peter", "team": "GRAY" },
-
-    { "id": 57, "first_name": "Matt", "last_name": "Riordan", "team": "WHITE", "captain": true },
-    { "id": 58, "first_name": "Zaire", "last_name": "Wilson", "team": "WHITE" },
-    { "id": 59, "first_name": "Tavian", "last_name": "Barrino", "team": "WHITE" },
-    { "id": 60, "first_name": "Donnie", "last_name": "Dwyer", "team": "WHITE" },
-    { "id": 61, "first_name": "Avery", "last_name": "Barrino", "team": "WHITE" },
-    { "id": 62, "first_name": "Hans", "last_name": "Lynn", "team": "WHITE" },
-    { "id": 63, "first_name": "John", "last_name": "Helsel", "team": "WHITE" },
-    { "id": 64, "first_name": "John", "last_name": "O'Brien", "team": "WHITE" },
-    {"id": 101, "first_name": "Sub", "last_name": "Jake", "team": "WHITE" },
-    {"id": 102, "first_name": "Sub", "last_name": "Tavarius", "team": "WHITE" },
-
-    { "id": 65, "first_name": "Aaron", "last_name": "West", "team": "BLUE", "captain": true },
-    { "id": 66, "first_name": "Matt", "last_name": "Spear", "team": "BLUE" },
-    { "id": 67, "first_name": "James", "last_name": "Hare", "team": "BLUE" },
-    { "id": 68, "first_name": "Joe", "last_name": "Ruggles", "team": "BLUE" },
-    { "id": 69, "first_name": "Peter", "last_name": "Lindholm", "team": "BLUE" },
-    { "id": 70, "first_name": "Nick", "last_name": "Lynn", "team": "BLUE" },
-    { "id": 71, "first_name": "Bob", "last_name": "Yefchak", "team": "BLUE" },
-    { "id": 72, "first_name": "Wyatt", "last_name": "Jarvis-Comi", "team": "BLUE" },
-    { "id": 93, "first_name": "Jack", "last_name": "McCoy", "team": "BLUE" },
-
-    { "id": 73, "first_name": "Jason", "last_name": "West", "team": "ORANGE", "captain": true },
-    { "id": 74, "first_name": "Walker", "last_name": "Storey", "team": "ORANGE" },
-    { "id": 75, "first_name": "Trent", "last_name": "Roleau", "team": "ORANGE" },
-    { "id": 76, "first_name": "Will", "last_name": "Oboh", "team": "ORANGE" },
-    { "id": 77, "first_name": "Paul", "last_name": "Gutierrez", "team": "ORANGE" },
-    { "id": 78, "first_name": "Cole", "last_name": "Sampson", "team": "ORANGE" },
-    { "id": 79, "first_name": "Eleizer", "last_name": "Perez Jr.", "team": "ORANGE" },
-    { "id": 80, "first_name": "Timmy", "last_name": "Ashley", "team": "ORANGE" },
-    { "id": 98, "first_name": "Sub", "last_name": "Stan", "team": "ORANGE" },
-
-    { "id": 81, "first_name": "Jimmy", "last_name": "Warden", "team": "PURPLE", "captain": true },
-    { "id": 82, "first_name": "Tre", "last_name": "Grubbs", "team": "PURPLE" },
-    { "id": 83, "first_name": "Trevis", "last_name": "Buckhannon", "team": "PURPLE" },
-    { "id": 84, "first_name": "Tim", "last_name": "Lemieux", "team": "PURPLE" },
-    { "id": 85, "first_name": "Brock", "last_name": "Carpenter", "team": "PURPLE" },
-    { "id": 86, "first_name": "Kaleb", "last_name": "Swetty", "team": "PURPLE" },
-    { "id": 87, "first_name": "Brandon", "last_name": "Huestis", "team": "PURPLE" },
-    { "id": 88, "first_name": "Mark", "last_name": "Nigolian", "team": "PURPLE" },
-    { "id": 89, "first_name": "Peter", "last_name": "SUB", "team": "PURPLE" },
-    { "id": 91, "first_name": "Stan", "last_name": "SUB", "team": "PURPLE" }
+    {
+      "id": 1,
+      "first_name": "Kyle",
+      "last_name": "Picard",
+      "team": "BLACK",
+      "captain": true
+    },
+    {
+      "id": 2,
+      "first_name": "Tavarius",
+      "last_name": "Vance",
+      "team": "BLACK"
+    },
+    {
+      "id": 3,
+      "first_name": "Kaleb",
+      "last_name": "Swetty",
+      "team": "BLACK"
+    },
+    {
+      "id": 4,
+      "first_name": "Will",
+      "last_name": "Ameden",
+      "team": "BLACK"
+    },
+    {
+      "id": 5,
+      "first_name": "Ty",
+      "last_name": "Gray",
+      "team": "BLACK"
+    },
+    {
+      "id": 6,
+      "first_name": "Seth",
+      "last_name": "Jackson",
+      "team": "BLACK"
+    },
+    {
+      "id": 7,
+      "first_name": "Nick",
+      "last_name": "Galuszka",
+      "team": "BLACK"
+    },
+    {
+      "id": 8,
+      "first_name": "Liam",
+      "last_name": "Walsh",
+      "team": "BLACK"
+    },
+    {
+      "id": 9,
+      "first_name": "Chris",
+      "last_name": "Thompson",
+      "team": "BLACK"
+    },
+    {
+      "id": 10,
+      "first_name": "Aid",
+      "last_name": "Semic",
+      "team": "WHITE",
+      "captain": true
+    },
+    {
+      "id": 11,
+      "first_name": "Tyrone",
+      "last_name": "Conley",
+      "team": "WHITE"
+    },
+    {
+      "id": 12,
+      "first_name": "Edo",
+      "last_name": "Semic",
+      "team": "WHITE"
+    },
+    {
+      "id": 13,
+      "first_name": "Colin",
+      "last_name": "Chicoine",
+      "team": "WHITE"
+    },
+    {
+      "id": 14,
+      "first_name": "Keenan",
+      "last_name": "Chicoine",
+      "team": "WHITE"
+    },
+    {
+      "id": 15,
+      "first_name": "Wyatt",
+      "last_name": "Messier",
+      "team": "WHITE"
+    },
+    {
+      "id": 16,
+      "first_name": "Devin",
+      "last_name": "Bradford",
+      "team": "WHITE"
+    },
+    {
+      "id": 17,
+      "first_name": "Kolby",
+      "last_name": "Bradford",
+      "team": "WHITE"
+    },
+    {
+      "id": 18,
+      "first_name": "Brody",
+      "last_name": "Lathrop",
+      "team": "WHITE"
+    },
+    {
+      "id": 19,
+      "first_name": "Cam",
+      "last_name": "Perta",
+      "team": "BLUE",
+      "captain": true
+    },
+    {
+      "id": 20,
+      "first_name": "Bela",
+      "last_name": "Dobkowski",
+      "team": "BLUE"
+    },
+    {
+      "id": 21,
+      "first_name": "Drew",
+      "last_name": "Pelkey",
+      "team": "BLUE"
+    },
+    {
+      "id": 22,
+      "first_name": "Alex",
+      "last_name": "Philo",
+      "team": "BLUE"
+    },
+    {
+      "id": 23,
+      "first_name": "Logan",
+      "last_name": "Letourneau",
+      "team": "BLUE"
+    },
+    {
+      "id": 24,
+      "first_name": "Dylan",
+      "last_name": "Mackie",
+      "team": "BLUE"
+    },
+    {
+      "id": 25,
+      "first_name": "Elijah",
+      "last_name": "Tucker-Bryant",
+      "team": "BLUE"
+    },
+    {
+      "id": 26,
+      "first_name": "Hayden",
+      "last_name": "Bernhardt",
+      "team": "BLUE"
+    },
+    {
+      "id": 27,
+      "first_name": "Cyle",
+      "last_name": "Chappy",
+      "team": "GRAY",
+      "captain": true
+    },
+    {
+      "id": 28,
+      "first_name": "Matt",
+      "last_name": "Spear",
+      "team": "GRAY"
+    },
+    {
+      "id": 29,
+      "first_name": "John",
+      "last_name": "Helsel",
+      "team": "GRAY"
+    },
+    {
+      "id": 30,
+      "first_name": "Tommy",
+      "last_name": "Brockmyre",
+      "team": "GRAY"
+    },
+    {
+      "id": 31,
+      "first_name": "Kerry",
+      "last_name": "Lyons",
+      "team": "GRAY"
+    },
+    {
+      "id": 32,
+      "first_name": "Aiden",
+      "last_name": "Brown",
+      "team": "GRAY"
+    },
+    {
+      "id": 33,
+      "first_name": "Chris",
+      "last_name": "Thomas",
+      "team": "GRAY"
+    },
+    {
+      "id": 34,
+      "first_name": "Adam",
+      "last_name": "Gawrys",
+      "team": "GRAY"
+    },
+    {
+      "id": 35,
+      "first_name": "Stanley",
+      "last_name": "Salley",
+      "team": "ORANGE",
+      "captain": true
+    },
+    {
+      "id": 36,
+      "first_name": "Stefan",
+      "last_name": "Radan",
+      "team": "ORANGE"
+    },
+    {
+      "id": 37,
+      "first_name": "Will",
+      "last_name": "Ewald",
+      "team": "ORANGE"
+    },
+    {
+      "id": 38,
+      "first_name": "Kenny",
+      "last_name": "Black",
+      "team": "ORANGE"
+    },
+    {
+      "id": 39,
+      "first_name": "Paul",
+      "last_name": "Gutierrez",
+      "team": "ORANGE"
+    },
+    {
+      "id": 40,
+      "first_name": "Spook",
+      "last_name": "McQueen",
+      "team": "ORANGE"
+    },
+    {
+      "id": 41,
+      "first_name": "James",
+      "last_name": "Hare",
+      "team": "ORANGE"
+    },
+    {
+      "id": 42,
+      "first_name": "Jordan",
+      "last_name": "Sanderson",
+      "team": "ORANGE"
+    },
+    {
+      "id": 43,
+      "first_name": "Dylan",
+      "last_name": "Pratico",
+      "team": "PURPLE",
+      "captain": true
+    },
+    {
+      "id": 44,
+      "first_name": "Kevin",
+      "last_name": "Garrison",
+      "team": "PURPLE"
+    },
+    {
+      "id": 45,
+      "first_name": "Ethan",
+      "last_name": "Calle",
+      "team": "PURPLE"
+    },
+    {
+      "id": 46,
+      "first_name": "Brando",
+      "last_name": "Pratico",
+      "team": "PURPLE"
+    },
+    {
+      "id": 47,
+      "first_name": "Dennis",
+      "last_name": "Schut",
+      "team": "PURPLE"
+    },
+    {
+      "id": 48,
+      "first_name": "Drew",
+      "last_name": "Fisher",
+      "team": "PURPLE"
+    },
+    {
+      "id": 49,
+      "first_name": "Brody",
+      "last_name": "Snow",
+      "team": "PURPLE"
+    },
+    {
+      "id": 50,
+      "first_name": "Logan",
+      "last_name": "Pelchar",
+      "team": "PURPLE"
+    },
+    {
+      "id": 51,
+      "first_name": "Matt",
+      "last_name": "Riordan",
+      "team": "PINK",
+      "captain": true
+    },
+    {
+      "id": 52,
+      "first_name": "Donnie",
+      "last_name": "Dwyer",
+      "team": "PINK"
+    },
+    {
+      "id": 53,
+      "first_name": "Tavian",
+      "last_name": "Barrino",
+      "team": "PINK"
+    },
+    {
+      "id": 54,
+      "first_name": "Jerrick",
+      "last_name": "Jacobs",
+      "team": "PINK"
+    },
+    {
+      "id": 55,
+      "first_name": "Joe",
+      "last_name": "Luiz",
+      "team": "PINK"
+    },
+    {
+      "id": 56,
+      "first_name": "Jeromy",
+      "last_name": "Anderson",
+      "team": "PINK"
+    },
+    {
+      "id": 57,
+      "first_name": "Hans",
+      "last_name": "Lynn",
+      "team": "PINK"
+    },
+    {
+      "id": 58,
+      "first_name": "John",
+      "last_name": "O'Brien",
+      "team": "PINK"
+    },
+    {
+      "id": 59,
+      "first_name": "Aaron",
+      "last_name": "West",
+      "team": "GREEN",
+      "captain": true
+    },
+    {
+      "id": 60,
+      "first_name": "Jibril",
+      "last_name": "Abdullahi",
+      "team": "GREEN"
+    },
+    {
+      "id": 61,
+      "first_name": "Calder",
+      "last_name": "Horowitz-McCadden",
+      "team": "GREEN"
+    },
+    {
+      "id": 62,
+      "first_name": "Paddy",
+      "last_name": "Monaghan",
+      "team": "GREEN"
+    },
+    {
+      "id": 63,
+      "first_name": "Brandon",
+      "last_name": "Boyer",
+      "team": "GREEN"
+    },
+    {
+      "id": 64,
+      "first_name": "Wyatt",
+      "last_name": "Jarvis-Comi",
+      "team": "GREEN"
+    },
+    {
+      "id": 65,
+      "first_name": "Nick",
+      "last_name": "Lynn",
+      "team": "GREEN"
+    },
+    {
+      "id": 66,
+      "first_name": "Austin",
+      "last_name": "Hamlin",
+      "team": "GREEN"
+    },
+    {
+      "id": 67,
+      "first_name": "Jason",
+      "last_name": "West",
+      "team": "RED",
+      "captain": true
+    },
+    {
+      "id": 68,
+      "first_name": "Chris",
+      "last_name": "Cayole",
+      "team": "RED"
+    },
+    {
+      "id": 69,
+      "first_name": "Will",
+      "last_name": "Oboh",
+      "team": "RED"
+    },
+    {
+      "id": 70,
+      "first_name": "Jaren",
+      "last_name": "Jeffcoat",
+      "team": "RED"
+    },
+    {
+      "id": 71,
+      "first_name": "Tim",
+      "last_name": "Lemieux",
+      "team": "RED"
+    },
+    {
+      "id": 72,
+      "first_name": "Timmy",
+      "last_name": "Ashley",
+      "team": "RED"
+    },
+    {
+      "id": 73,
+      "first_name": "Joel",
+      "last_name": "McMahon",
+      "team": "RED"
+    },
+    {
+      "id": 74,
+      "first_name": "Suave",
+      "last_name": "",
+      "team": "RED"
+    }
   ]
 }
