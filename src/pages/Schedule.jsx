@@ -188,7 +188,7 @@ const Schedule = () => {
 
       <div className="text-center mb-5">
         <h1 className="schedule-page-heading">League Schedule</h1>
-        <span className="schedule-subtext">Spring 2026 — Regular Season</span>
+        <span className="schedule-subtext">Summer 2026 — Regular Season</span>
       </div>
 
       {loading ? (
