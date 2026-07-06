@@ -109,16 +109,16 @@
     },
     {
       "id": 18,
-      "first_name": "Brody",
-      "last_name": "Lathrop",
-      "team": "BLUE"
-    },
-    {
-      "id": 19,
       "first_name": "Cam",
       "last_name": "Perta",
       "team": "BLUE",
       "captain": true
+    },
+    {
+      "id": 19,
+      "first_name": "Brody",
+      "last_name": "Lathrop",
+      "team": "BLUE"
     },
     {
       "id": 20,
