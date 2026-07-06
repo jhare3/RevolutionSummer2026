@@ -11,7 +11,7 @@ const Standings = () => {
 
   const standingsData = useMemo(() => {
     // 1. Calculate base stats (W, L, PF, PA) using the standingsEngine logic
-    // This uses players.json as the source of truth for team/conference mapping
+    // This uses players.json as the source of truth for team mapping
     const calculatedTeams = calculateStandings(gameFiles, playerConfig);
     
     // 2. Process calculated data for display (Win % and Point Differential)
@@ -95,9 +95,8 @@ const Standings = () => {
   return (
     <div className="container py-5" style={{ fontFamily: 'Inter, sans-serif' }}>
       <h1 className="text-center fw-black mb-5" style={{ letterSpacing: '-2px', fontSize: '3rem' }}>STANDINGS</h1>
-      {/* Filtering based on the conference property assigned during calculation */}
-      {renderTable('EASTERN', standingsData.filter(t => t.conference === 'EASTERN'))}
-      {renderTable('WESTERN', standingsData.filter(t => t.conference === 'WESTERN'))}
+      {/* No conference split this season - single combined table */}
+      {renderTable('OVERALL', standingsData)}
     </div>
   );
 };

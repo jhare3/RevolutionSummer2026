@@ -1,8 +1,8 @@
 [
   {
-    "week": 1,
-    "date": "Sunday, June 28",
-    "location": "Edmunds Middle School",
+    "week": "1 Rescheduled",
+    "date": "RESCHEDULED TO SUNDAY, AUGUST 30",
+    "location": "Edmunds Middle School RESCHEDULED TO SUNDAY, AUGUST 30",
     "games": [
       {
         "time": "8:00 AM",
@@ -215,13 +215,29 @@
     ],
     "bye": "PINK"
   },
-  {
-    "week": null,
+    {
+    "week": 1,
     "date": "Sunday, August 30",
     "location": "Edmunds Middle School",
-    "games": [],
-    "bye": null,
-    "note": "No games scheduled"
+    "games": [
+      {
+        "time": "8:00 AM",
+        "matchup": "ORANGE vs BLUE"
+      },
+      {
+        "time": "9:00 AM",
+        "matchup": "WHITE vs GREEN"
+      },
+      {
+        "time": "10:00 AM",
+        "matchup": "GRAY vs PINK"
+      },
+      {
+        "time": "11:00 AM",
+        "matchup": "BLACK vs RED"
+      }
+    ],
+    "bye": "PURPLE"
   },
   {
     "week": "Playoffs",

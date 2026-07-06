@@ -3,20 +3,19 @@
 export const calculateStandings = (gameFiles, rosterData) => {
   const teams = {};
 
-  // 1. Initialize all teams from conferences to ensure 0-0 teams (like PINK) appear
-  const eastern = rosterData.conferences.EASTERN || [];
-  const western = rosterData.conferences.WESTERN || [];
-  
-  const setup = (name, conf) => {
+  // 1. Initialize all teams from the roster itself to ensure 0-0 teams appear.
+  // Conferences are no longer used this season, so derive the team list
+  // directly from players.json instead of rosterData.conferences.
+  const teamNames = [...new Set(rosterData.players.map(p => p.team.toUpperCase()))];
+
+  const setup = (name) => {
     teams[name.toUpperCase()] = {
       name: name,
-      W: 0, L: 0, PF: 0, PA: 0,
-      conference: conf
+      W: 0, L: 0, PF: 0, PA: 0
     };
   };
 
-  eastern.forEach(t => setup(t, 'EASTERN'));
-  western.forEach(t => setup(t, 'WESTERN'));
+  teamNames.forEach(t => setup(t));
 
   // Create a player-to-team lookup map from players.json
   const playerToTeam = {};

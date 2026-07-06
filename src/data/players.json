@@ -1,7 +1,7 @@
 {
   "league": "Edmunds Middle School Summer League",
   "season": "2026",
-  
+
   "players": [
     {
       "id": 1,
@@ -111,7 +111,7 @@
       "id": 18,
       "first_name": "Brody",
       "last_name": "Lathrop",
-      "team": "WHITE"
+      "team": "BLUE"
     },
     {
       "id": 19,
@@ -453,8 +453,20 @@
     {
       "id": 74,
       "first_name": "Suave",
-      "last_name": "",
+      "last_name": "A",
       "team": "RED"
+    },
+    {
+      "id": 75,
+      "first_name": "Braeden",
+      "last_name": "Elnicki",
+      "team": "BLACK"
+    },
+    {
+      "id": 76,
+      "first_name": "Henry",
+      "last_name": "Cogswell",
+      "team": "BLACK"
     }
   ]
 }
