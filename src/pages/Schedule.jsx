@@ -199,7 +199,7 @@ const Schedule = () => {
         scheduleData.map((week) => (
           <div key={week.week} className="week-card">
             <div className="week-card-header">
-              <h3 className="week-label">Week {week.week}</h3>
+              <h3 className="week-label">Week: {week.week}</h3>
               <Badge className="week-date-badge">{week.date}</Badge>
             </div>
 

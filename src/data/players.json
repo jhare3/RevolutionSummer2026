@@ -467,6 +467,18 @@
       "first_name": "Henry",
       "last_name": "Cogswell",
       "team": "BLACK"
+    },
+    {
+      "id": 77,
+      "first_name": "Caleb",
+      "last_name": "Jarvis-Comi",
+      "team": "ORANGE"
+    },
+    {
+      "id": 78,
+      "first_name": "Don",
+      "last_name": "Margielaa",
+      "team": "ORANGE"
     }
   ]
 }
