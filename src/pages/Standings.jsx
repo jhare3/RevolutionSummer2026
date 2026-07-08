@@ -56,38 +56,40 @@ const Standings = () => {
     <div className="mb-5">
       <h2 style={confHeaderStyle}>{title}</h2>
       <div style={tableWrapper}>
-        <table className="table table-hover m-0">
-          <thead style={{ backgroundColor: '#111', color: '#fff' }}>
-            <tr>
-              <th style={{ ...thStyle, textAlign: 'left' }}>TEAM</th>
-              <th style={thStyle} onClick={() => requestSort('W')}>W</th>
-              <th style={thStyle} onClick={() => requestSort('L')}>L</th>
-              <th style={thStyle} onClick={() => requestSort('PCT')}>PCT</th>
-              <th style={thStyle} onClick={() => requestSort('PF')}>PF</th>
-              <th style={thStyle} onClick={() => requestSort('PA')}>PA</th>
-              <th style={thStyle} onClick={() => requestSort('DIFF')}>DIFF</th>
-            </tr>
-          </thead>
-          <tbody>
-            {teams.map((t) => (
-              <tr key={t.name} style={{ borderBottom: '1px solid #eee' }}>
-                <td style={{ ...tdStyle, textAlign: 'left', fontWeight: '800' }}>{t.name}</td>
-                <td style={tdStyle}>{t.W}</td>
-                <td style={tdStyle}>{t.L}</td>
-                <td style={tdStyle}>{t.PCT}</td>
-                <td style={tdStyle}>{t.PF}</td>
-                <td style={tdStyle}>{t.PA}</td>
-                <td style={{ 
-                  ...tdStyle, 
-                  fontWeight: '900', 
-                  color: t.DIFF > 0 ? '#28a745' : t.DIFF < 0 ? '#dc3545' : '#222' 
-                }}>
-                  {t.DIFF > 0 ? `+${t.DIFF}` : t.DIFF}
-                </td>
+        <div style={tableScroll}>
+          <table className="table table-hover m-0" style={{ minWidth: '560px' }}>
+            <thead style={{ backgroundColor: '#111', color: '#fff' }}>
+              <tr>
+                <th style={{ ...thStyle, textAlign: 'left' }}>TEAM</th>
+                <th style={thStyle} onClick={() => requestSort('W')}>W</th>
+                <th style={thStyle} onClick={() => requestSort('L')}>L</th>
+                <th style={thStyle} onClick={() => requestSort('PCT')}>PCT</th>
+                <th style={thStyle} onClick={() => requestSort('PF')}>PF</th>
+                <th style={thStyle} onClick={() => requestSort('PA')}>PA</th>
+                <th style={thStyle} onClick={() => requestSort('DIFF')}>DIFF</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {teams.map((t) => (
+                <tr key={t.name} style={{ borderBottom: '1px solid #eee' }}>
+                  <td style={{ ...tdStyle, textAlign: 'left', fontWeight: '800' }}>{t.name}</td>
+                  <td style={tdStyle}>{t.W}</td>
+                  <td style={tdStyle}>{t.L}</td>
+                  <td style={tdStyle}>{t.PCT}</td>
+                  <td style={tdStyle}>{t.PF}</td>
+                  <td style={tdStyle}>{t.PA}</td>
+                  <td style={{ 
+                    ...tdStyle, 
+                    fontWeight: '900', 
+                    color: t.DIFF > 0 ? '#28a745' : t.DIFF < 0 ? '#dc3545' : '#222' 
+                  }}>
+                    {t.DIFF > 0 ? `+${t.DIFF}` : t.DIFF}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
@@ -104,6 +106,7 @@ const Standings = () => {
 // --- STYLES ---
 const confHeaderStyle = { fontWeight: '900', color: '#ff4d4d', borderBottom: '4px solid #111', paddingBottom: '8px', marginBottom: '20px' };
 const tableWrapper = { borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', border: '1px solid #eee' };
+const tableScroll = { overflowX: 'auto', WebkitOverflowScrolling: 'touch' };
 const thStyle = { padding: '15px', textAlign: 'center', fontSize: '12px', fontWeight: '800', cursor: 'pointer' };
 const tdStyle = { padding: '15px', textAlign: 'center', verticalAlign: 'middle', fontSize: '14px' };
 
