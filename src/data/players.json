@@ -460,7 +460,7 @@
       "id": 75,
       "first_name": "Braeden",
       "last_name": "Elnicki",
-      "team": "BLACK"
+      "team": "BLUE"
     },
     {
       "id": 76,
@@ -479,6 +479,12 @@
       "first_name": "Don",
       "last_name": "Margielaa",
       "team": "ORANGE"
+    },
+{
+      "id": 79,
+      "first_name": "Sub",
+      "last_name": "Mahlik",
+      "team": "GRAY"
     }
   ]
 }
