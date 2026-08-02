@@ -497,6 +497,12 @@
       "first_name": "Sub",
       "last_name": "Joe",
       "team": "PURPLE"
+    },
+    {
+      "id": 82,
+      "first_name": "Sub",
+      "last_name": "Cole",
+      "team": "RED"
     }
   ]
 }
