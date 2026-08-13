@@ -1,55 +1,66 @@
 {
   "week": 2,
   "date": "",
-  "title": "REVOLUTION MEN'S LEAGUE | WEEK 2 RECAP",
-  "content": "Week 2 delivered fireworks from the opening tip to the final buzzer of the Revolution Men's League. Chris Cayole caught fire for 33 points but couldn't push Red past Blue, Purple ground out a road win over Orange, Tavian Barrino exploded for 46 points to carry Pink past Black, and Gray held off a late Green rally to escape with the win. Let's get into the action.",
-  "matchups": ["RED vs BLUE", "PURPLE vs ORANGE", "BLACK vs PINK", "GREEN vs GRAY"],
+  "title": "REVOLUTION SUMMER LEAGUE | WEEK 2 RECAP",
+  "content": "Week 2 saw the Revolution Summer League continue to deliver exciting basketball action. Tavarius Vance erupted for 35 points in a losing effort; Dennis Schut carried Purple with a 32-point takeover; Tommy Brockmyre and Matt Spear combined for 50 points to push Gray past Red; Blue survived a furious Black comeback by the slimmest of margins; and Pink jumped out to a 19-point first-half lead it never surrendered. Let's get into the action.",
+  "matchups": ["PURPLE vs GREEN", "GRAY vs RED", "BLUE vs BLACK", "PINK vs WHITE"],
   "games": [
     {
-      "matchup": "Game 1: Red vs. Blue",
-      "text": "Blue came out looking to make a statement early. Blue's balance was the story of the first half, with Drew Pelkey and Brody Lathrop combining to keep the offense humming while Logan Letourneau and Henry Cogswell chipped in from every angle. Red answered behind Chris Cayole, who was already raining threes, but Blue's depth off the bench gave them just enough cushion to head into the break in front. Blue led 49-44 at the break. The second half tipped the other way for a stretch, but Blue's balanced attack proved too much to overcome down the stretch. Red poured everything into the comeback, with Chris Cayole erupting for a game-high 33 points and Will Oboh adding 23 of his own on efficient shooting. Jaren Jeffcoat controlled the glass with 13 boards to keep Red within striking distance, but Red could only match Blue's 36 second-half points, and the first-half deficit was too steep to climb out of. Blue held on for an 85-79 win.",
+      "matchup": "Game 1: Purple vs. Green",
+      "text": "Purple came out on point. Behind a barrage of threes, Purple raced to a double-digit halftime lead. Dennis Schut was nearly unguardable, knocking down shot after shot on his way to a monster scoring night, while Dylan Pratico and Kevin Garrison chipped in on the glass to keep Green off balance. Green struggled to find any rhythm offensively in the opening frame, shooting cold from the field as Purple's defense forced tough looks all night. Halftime: Purple 37, Green 23. Green refused to go quietly. The second half belonged to Green, who found their footing and outscored Purple 39-35 over the final twenty minutes. Calder Horowitz-McCadden and Nick Lynn each poured in 18 points and controlled the boards, clawing the deficit back down possession by possession. But the hole dug in the first half proved too deep to climb out of. Purple won, 72-62.",
       "performers": {
-        "Red": "Chris Cayole — 33 pts, 13 REB, 1 AST; Will Oboh — 23 pts, 3 REB, 2 AST; Jaren Jeffcoat — 20 pts, 13 REB, 2 AST",
-        "Blue": "Brody Lathrop — 21 pts, 5 REB, 2 AST; Drew Pelkey — 21 pts, 9 REB, 3 AST; Logan Letourneau — 12 pts, 6 REB, 5 AST"
+        "Purple": "Dennis Schut — 32 pts, 11 REB; Dylan Pratico — 14 pts, 8 REB, 5 AST; Kevin Garrison — 5 pts, 11 REB, 4 AST",
+        "Green": "Calder Horowitz-McCadden — 18 pts, 18 REB; Nick Lynn — 18 pts, 14 REB; Aaron West — 11 pts, 9 REB"
       }
     },
     {
-      "matchup": "Game 2: Purple vs. Orange",
-      "text": "Purple refused to let this one slip away. Kevin Garrison set the tone immediately, attacking the rim and knocking down threes to give Purple an early cushion. Orange leaned on Kenny Black and Stefan Radan to battle on the boards, but Purple's balanced scoring from Brody Snow and Dennis Schut kept the margin comfortable heading into halftime. Purple led 29-22 at halftime. Orange tried to claw its way back in the third and fourth quarters, leaning on its size advantage down low. Kenny Black and Stefan Radan combined for 26 points and 26 rebounds in the second-half push, and Will Ewald chipped in on the glass as well, but Orange never fully closed the gap. Purple's second-half offense matched Orange point for point, which was enough to protect the early lead. Purple escaped with a 61-54 win.",
+      "matchup": "Game 2: Gray vs. Red",
+      "text": "Gray had a chip on its shoulder. Red jumped out early and controlled the first half, using Chris Cayole's scoring punch to build an advantage. Jaren Jeffcoat cleaned the glass all half, and Red's defense kept Gray searching for answers early. It looked like Red might run away with things heading into the break. Halftime: Red 40, Gray 25. Gray had other plans. Tommy Brockmyre and Matt Spear caught fire together in the second half and dragged Gray back into the fight. Kerry Lyons chipped in on the boards while the duo kept attacking the rim. What started as a double-digit deficit turned into a dogfight that spilled into overtime. Gray came out on top in the extra period. Gray won, 76-73.",
       "performers": {
-        "Purple": "Kevin Garrison — 24 pts, 9 REB, 1 AST; Brody Snow — 15 pts, 9 REB, 2 AST; Dennis Schut — 12 pts, 5 REB",
-        "Orange": "Kenny Black — 14 pts, 14 REB, 1 AST; Stefan Radan — 12 pts, 12 REB, 2 AST; Will Ewald — 11 pts, 11 REB, 2 AST"
+        "Gray": "Tommy Brockmyre — 27 pts, 7 REB, 3 AST; Matt Spear — 23 pts, 10 REB; Kerry Lyons — 6 pts, 10 REB",
+        "Red": "Chris Cayole — 21 pts, 9 REB; Jaren Jeffcoat — 15 pts, 15 REB; Will Oboh — 14 pts, 11 REB"
       }
     },
     {
-      "matchup": "Game 3: Black vs. Pink",
-      "text": "Pink had one thing on its mind: put on a show. Tavian Barrino started scoring in bunches from the opening minutes, getting to his spots at will and knocking down shots from all three levels. Jerrick Jacobs and Matt Riordan added secondary scoring to keep the pressure on, while Black leaned on Tavarius Vance just to stay within range. Pink led 34-27 at the break. Barrino never let off the gas in the second half, turning a comfortable lead into a rout. Tavarius Vance kept fighting for Black, finishing with 27 points and 10 rebounds to keep the scoreboard respectable, and Kaleb Swetty and Liam Walsh both reached double figures. But Barrino closed out an eye-popping 46-point performance, and Pink's offense simply had no answer coming from the other side of the floor. Pink pulled away for an 85-68 win.",
+      "matchup": "Game 3: Blue vs. Black",
+      "text": "Black wanted to make a statement early. Blue answered instead, building a surprising 43-34 lead at the half thanks to balanced scoring from Logan Letourneau, Brody Lathrop, and Drew Pelkey. Black's offense leaned heavily on one player in the first twenty minutes, and the rest of the roster couldn't get untracked against a Blue defense that closed off driving lanes. Halftime: Blue 43, Black 34. Black wasn't finished. Tavarius Vance took over in the second half, torching the nets for a large share of his 35-point night and single-handedly willing Black back into contention. The comeback fell just short, though, as Blue's early cushion held up by the narrowest of margins. Blue won, 73-71.",
       "performers": {
-        "Pink": "Tavian Barrino — 46 pts, 5 REB, 5 AST; Jerrick Jacobs — 14 pts, 3 REB, 2 AST; Matt Riordan — 10 pts, 7 REB, 2 AST",
-        "Black": "Tavarius Vance — 27 pts, 10 REB, 2 AST; Kaleb Swetty — 13 pts, 8 REB, 2 AST; Liam Walsh — 13 pts, 5 REB, 1 AST"
+        "Black": "Tavarius Vance — 35 pts, 13 REB, 3 AST; Will Ameden — 13 pts, 7 REB",
+        "Blue": "Logan Letourneau — 22 pts, 6 AST; Brody Lathrop — 19 pts, 3 AST; Drew Pelkey — 13 pts, 12 REB"
       }
     },
     {
-      "matchup": "Game 4: Green vs. Gray",
-      "text": "Gray needed every possession to survive this one. Gray's frontcourt set the tone early, with Sub Mahlik and John Helsel controlling the glass and Adam Gawrys knocking down outside shots to build a cushion. Green struggled to find its footing offensively in the opening minutes, missing chance after chance despite Aaron West's early scoring. Gray led 33-24 at halftime. Green found its rhythm coming out of the break and made a real push to get back into it. Aaron West carried the load with 19 points on the night, and Wyatt Jarvis-Comi added a strong all-around effort. Green outscored Gray 26-20 in the second half and cut what had been a nine-point deficit down to the wire, but the comeback fell just short. Gray held on for a 53-50 win.",
+      "matchup": "Game 4: Pink vs. White",
+      "text": "Pink meant business from the opening tip. Tavian Barrino was locked in from the jump, powering Pink to a commanding lead by halftime. Matt Riordan crashed the boards relentlessly, and White simply couldn't find an answer for Pink's scoring flurries in the first half. Halftime: Pink 37, White 18. White clawed back, but time ran short. Tyrone Conley and Wyatt Messier led a spirited rally in the second half and made things interesting late. It wasn't enough to erase the early damage, though, as Pink closed out a win to open the season. Pink won, 67-57.",
       "performers": {
-        "Gray": "Adam Gawrys — 15 pts, 4 REB; Sub Mahlik — 14 pts, 14 REB, 5 AST; John Helsel — 12 pts, 12 REB, 3 AST",
-        "Green": "Aaron West — 19 pts, 7 REB, 2 AST; Wyatt Jarvis-Comi — 10 pts, 6 REB; Paddy Monaghan — 6 pts, 14 REB, 1 AST"
+        "Pink": "Tavian Barrino — 32 pts, 9 REB; Matt Riordan — 13 pts, 13 REB; Donnie Dwyer — 10 pts, 8 REB, 4 AST",
+        "White": "Tyrone Conley — 15 pts, 12 REB; Wyatt Messier — 14 pts, 5 REB; Aid Semic — 8 pts, 6 REB"
       }
     }
+  ],
+  "standings": [
+    {"team": "Purple", "W": 1, "L": 0, "PCT": "1.000", "PF": 72, "PA": 62, "Diff": "+10"},
+    {"team": "Pink", "W": 1, "L": 0, "PCT": "1.000", "PF": 67, "PA": 57, "Diff": "+10"},
+    {"team": "Gray", "W": 1, "L": 0, "PCT": "1.000", "PF": 76, "PA": 73, "Diff": "+3"},
+    {"team": "Blue", "W": 1, "L": 0, "PCT": "1.000", "PF": 73, "PA": 71, "Diff": "+2"},
+    {"team": "Orange", "W": 0, "L": 0, "PCT": ".000", "PF": 0, "PA": 0, "Diff": "0"},
+    {"team": "Black", "W": 0, "L": 1, "PCT": ".000", "PF": 71, "PA": 73, "Diff": "-2"},
+    {"team": "Red", "W": 0, "L": 1, "PCT": ".000", "PF": 73, "PA": 76, "Diff": "-3"},
+    {"team": "White", "W": 0, "L": 1, "PCT": ".000", "PF": 57, "PA": 67, "Diff": "-10"},
+    {"team": "Green", "W": 0, "L": 1, "PCT": ".000", "PF": 62, "PA": 72, "Diff": "-10"}
   ],
   "sponsors": [
     {
       "name": "Alta Group & The Windjammer Restaurant and Upper Deck Pub",
-      "message": "A huge thank you to our sponsors, the Alta Group and The Windjammer Restaurant and Upper Deck Pub, for their continued support of the Revolution Men's League."
+      "message": "A big thank you to our Week 1 sponsors, the Alta Group and The Windjammer Restaurant and Upper Deck Pub, for making this league possible."
     },
     {
       "name": "Warden's Wisdom",
       "message": "This recap is brought to you by Warden's Wisdom, a mindfulness-based coaching business helping individuals relieve anxiety through personalized mindfulness practices.",
-      "quote": "When you play, play. Don't think about it; let it flow.",
+      "quote": "Stillness isn't the absence of movement — it's the choice of presence.",
       "url": "",
       "urlLabel": ""
     }
   ],
-  "closing": "Tune in next week for more action from the Revolution Men's League!"
+  "closing": "See you back here next week for more action from the Revolution Summer League."
 }
