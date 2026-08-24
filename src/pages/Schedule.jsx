@@ -184,6 +184,26 @@ const Schedule = () => {
           font-size: 0.82rem;
           color: #6c757d;
         }
+
+        .bye-bar {
+          padding: 0.75rem 1.5rem;
+          background: #fffbf0;
+          border-top: 1px solid #eeeeee;
+          font-size: 0.82rem;
+          color: #6c757d;
+        }
+
+        /* Add the mobile optimization right here before the closing tag */
+        @media (max-width: 576px) {
+          .week-card-header {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .week-date-badge {
+            text-align: left;
+            margin-top: 0.25rem;
+          }
+        }
       `}</style>
 
       <div className="text-center mb-5">
