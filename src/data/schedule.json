@@ -216,7 +216,7 @@
     "bye": "PINK"
   },
     {
-    "week": 1,
+    "week": "1 & 8",
     "date": "Sunday, August 30",
     "location": "Edmunds Middle School",
     "games": [
@@ -235,9 +235,25 @@
       {
         "time": "11:00 AM",
         "matchup": "BLACK vs RED"
+      },
+      {
+        "time": "TBD",
+        "matchup": "PINK vs GREEN"
+      },
+      {
+        "time": "TBD",
+        "matchup": "BLACK vs WHITE"
+      },
+      {
+        "time": "TBD",
+        "matchup": "PURPLE vs BLUE"
+      },
+      {
+        "time": "TBD",
+        "matchup": "GRAY vs ORANGE"
       }
     ],
-    "bye": "PURPLE"
+    "bye": null
   },
   {
     "week": "Playoffs",
@@ -258,6 +274,14 @@
       },
       {
         "time": "11:00 AM",
+        "matchup": "TBD"
+      },
+      {
+        "time": "12:00 PM",
+        "matchup": "TBD"
+      },
+      {
+        "time": "1:00 PM",
         "matchup": "TBD"
       }
     ],
