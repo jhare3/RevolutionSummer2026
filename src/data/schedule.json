@@ -222,11 +222,11 @@
     "games": [
       {
         "time": "8:00 AM",
-        "matchup": "ORANGE vs BLUE"
+        "matchup": "PINK vs GREEN"
       },
       {
         "time": "9:00 AM",
-        "matchup": "WHITE vs GREEN"
+        "matchup": "PURPLE vs BLUE"
       },
       {
         "time": "10:00 AM",
@@ -234,23 +234,23 @@
       },
       {
         "time": "11:00 AM",
-        "matchup": "BLACK vs RED"
-      },
+        "matchup": "WHITE vs GREEN"
+      },     
       {
-        "time": "TBD",
-        "matchup": "PINK vs GREEN"
-      },
+        "time": "12:00 PM",
+        "matchup": "ORANGE vs BLUE"
+      },     
       {
-        "time": "TBD",
+        "time": "1:00 PM",
         "matchup": "BLACK vs WHITE"
       },
       {
-        "time": "TBD",
-        "matchup": "PURPLE vs BLUE"
+        "time": "2:00 PM",
+        "matchup": "GRAY vs ORANGE"
       },
       {
-        "time": "TBD",
-        "matchup": "GRAY vs ORANGE"
+        "time": "3:00 PM",
+        "matchup": "BLACK vs RED"
       }
     ],
     "bye": null
