@@ -1,0 +1,56 @@
+{
+  "week": 8,
+  "date": "",
+  "title": "REVOLUTION MEN'S LEAGUE | WEEK 8 RECAP",
+  "content": "Week 8 has been postponed and rescheduled. Check back after the games for the full recap.",
+  "matchups": ["PINK vs GREEN", "BLACK vs WHITE", "PURPLE vs BLUE", "GRAY vs ORANGE"],
+  "bye": "Red",
+  "games": [
+    {
+      "matchup": "Game 1: Pink vs. Green",
+      "text": "",
+      "performers": {
+        "Pink": "",
+        "Green": ""
+      }
+    },
+    {
+      "matchup": "Game 2: Black vs. White",
+      "text": "",
+      "performers": {
+        "Black": "",
+        "White": ""
+      }
+    },
+    {
+      "matchup": "Game 3: Purple vs. Blue",
+      "text": "",
+      "performers": {
+        "Purple": "",
+        "Blue": ""
+      }
+    },
+    {
+      "matchup": "Game 4: Gray vs. Orange",
+      "text": "",
+      "performers": {
+        "Gray": "",
+        "Orange": ""
+      }
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Alta Group & The Windjammer Restaurant and Upper Deck Pub",
+      "message": "This recap is brought to you with thanks to our sponsors, the Alta Group and The Windjammer Restaurant and Upper Deck Pub. Their support keeps the Revolution Men's League running week after week."
+    },
+    {
+      "name": "Warden's Wisdom",
+      "message": "This recap is brought to you by Warden's Wisdom, a mindfulness-based coaching business helping individuals relieve anxiety through personalized mindfulness practices.",
+      "quote": "",
+      "url": "",
+      "urlLabel": ""
+    }
+  ],
+  "closing": ""
+}
