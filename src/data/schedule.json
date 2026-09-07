@@ -223,19 +223,19 @@
     "games": [
       {
         "time": "8:00 AM",
-        "matchup": "TBD"
+        "matchup": "ORANGE vs GRAY"
       },
       {
         "time": "9:00 AM",
-        "matchup": "TBD"
+        "matchup": "PINK vs RED"
       },
       {
         "time": "10:00 AM",
-        "matchup": "TBD"
+        "matchup": "PURPLE vs BLACK"
       },
       {
         "time": "11:00 AM",
-        "matchup": "TBD"
+        "matchup": "GREEN vs BLUE"
       }
     ],
     "bye": null
@@ -246,16 +246,16 @@
     "location": "Edmunds Middle School",
     "games": [
       {
+        "time": "9:00 AM",
+        "matchup": "BLUE vs GRAY"
+      },
+      {
         "time": "10:00 AM",
-        "matchup": "TBD"
+        "matchup": "RED vs PURPLE"
       },
       {
-        "time": "11:00 AM",
-        "matchup": "TBD"
-      },
-      {
-        "time": "12:00 PM",
-        "matchup": "TBD"
+        "time": "11:00 PM",
+        "matchup": "PURPLE vs BLUE"
       }
     ],
     "bye": null
