@@ -184,7 +184,6 @@
         "time": "1:00 PM",
         "matchup": "BLACK vs WHITE"
       },
-      
       {
         "time": "2:00 PM",
         "matchup": "GRAY vs ORANGE"
@@ -254,7 +253,7 @@
         "matchup": "RED vs PURPLE"
       },
       {
-        "time": "11:00 PM",
+        "time": "11:00 AM",
         "matchup": "PURPLE vs BLUE"
       }
     ],

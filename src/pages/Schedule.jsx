@@ -19,12 +19,20 @@ const Schedule = () => {
     const loadData = async () => {
       const combinedMap = {};
 
+      // Helper to dynamically pull the week (or playoffs/championships) from the folder path
+      const getWeekFromPath = (path) => {
+        const lowerPath = path.toLowerCase();
+        if (lowerPath.includes('/playoffs/')) return 'Playoffs';
+        if (lowerPath.includes('/championships/')) return 'Championships';
+        const weekMatch = path.match(/week(\d+)/i);
+        return weekMatch ? weekMatch[1] : null;
+      };
+
       // 1. Process JSON boxscores
       for (const path in jsonFiles) {
         const data = jsonFiles[path].default || jsonFiles[path];
         if (data.game) {
-          // Extract week number from folder path (e.g., 'week1') if not in JSON
-          const weekFromPath = path.match(/week(\d+)/)?.[1];
+          const weekFromPath = getWeekFromPath(path);
           const weekNum = data.week || weekFromPath;
 
           if (weekNum) {
@@ -42,8 +50,16 @@ const Schedule = () => {
         const rows = results.data;
 
         const matchupLine = rows.find(r => r[0]?.includes('vs.'))?.[0] || '';
+        const weekFromPath = getWeekFromPath(path);
+        
+        // Try to pull from CSV, fallback to path logic
         const weekLine = rows.find(r => r[0]?.toLowerCase().includes('week'))?.[0] || '';
-        const weekNum = weekLine.match(/\d+/)?.[0] || path.match(/week(\d+)/)?.[1];
+        let weekNum = weekLine.match(/\d+/)?.[0] || weekFromPath;
+
+        // Force string overwrite if the game is in a post-season folder
+        if (weekFromPath === 'Playoffs' || weekFromPath === 'Championships') {
+          weekNum = weekFromPath;
+        }
 
         if (weekNum && matchupLine) {
           const key = `${weekNum}-${slugifyMatchup(matchupLine)}`;
@@ -185,15 +201,6 @@ const Schedule = () => {
           color: #6c757d;
         }
 
-        .bye-bar {
-          padding: 0.75rem 1.5rem;
-          background: #fffbf0;
-          border-top: 1px solid #eeeeee;
-          font-size: 0.82rem;
-          color: #6c757d;
-        }
-
-        /* Add the mobile optimization right here before the closing tag */
         @media (max-width: 576px) {
           .week-card-header {
             flex-direction: column;
