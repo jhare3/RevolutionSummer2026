@@ -1,0 +1,61 @@
+{
+  "week": "Quarterfinals",
+  "date": "",
+  "title": "REVOLUTION SUMMER LEAGUE PLAYOFFS | QUARTERFINALS RECAP",
+  "content": "The Revolution Summer League quarterfinals didn't waste time delivering drama. Gray needed every possession to hold off Orange. Red stole one from Pink in the final minutes. Kevin Garrison turned in one of the best individual performances of the season to carry Purple past Black. And Blue pulled away from Green with a suffocating second half. Let's get into the action.",
+  "matchups": ["ORANGE vs GRAY", "PINK vs RED", "PURPLE vs BLACK", "GREEN vs BLUE"],
+  "games": [
+    {
+      "matchup": "Game 1: Orange vs. Gray",
+      "text": "Neither team blinked for a single possession of the opening half. Stefan Radan got going from deep for Orange, and Will Ewald matched him shot for shot. Meanwhile, Josh Carter did a little bit of everything to keep Orange's offense balanced. Gray answered behind Matt Spear's relentless downhill attacking and Tommy Brockmyre's efficient midrange work, while Kerry Lyons cleaned up the glass to keep possessions alive. The two sides traded baskets all half long, and Gray came out of it with the thinnest of edges. Halftime: Gray 47, Orange 46. The margin barely budged, and the second half turned into a street fight. Spear kept getting to his spots, and Brockmyre stayed steady from mid-range, pushing Gray's lead out a little further with Lyons chipping in a near double-double on the glass. Radan and Ewald refused to go away, knocking down triples to keep Orange within arm's reach, and Josh Carter's playmaking kept the Orange offense humming. But Gray's stars simply had one more answer than Orange could find. Gray held on, 82-78.",
+      "performers": {
+        "Orange": "Stefan Radan — 23 pts, 9 REB, 3 AST; Will Ewald — 19 pts, 7 REB, 2 AST; Josh Carter — 15 pts, 12 REB, 8 AST",
+        "Gray": "Matt Spear — 34 pts, 10 REB, 5 AST; Tommy Brockmyre — 25 pts, 4 REB, 2 AST; Kerry Lyons — 12 pts, 12 REB, 4 AST"
+      }
+    },
+    {
+      "matchup": "Game 2: Pink vs. Red",
+      "text": "This one came down to the wire, and it never let up. Matt Riordan set the tone early for Pink, getting to the rack and setting up teammates, while JJ provided a scoring punch of his own to keep the offense flowing. Red struggled to find any separation out of the gate, though Jaren Jeffcoat stayed dominant on the glass and Suave A kept probing for openings to keep Red within striking distance. Halftime: Pink 29, Red 28. The margin held tight, and the finish turned into a coin flip. Jeffcoat took over down the stretch, bullying his way to the rim and the offensive glass on his way to a monster night, while Suave A and Will Oboh kept finding enough offense to keep pace. Riordan and JJ answered blow for blow for Pink, but Red found one extra bucket in the final minutes that made all the difference. Red escaped, 63-62.",
+      "performers": {
+        "Pink": "Matt Riordan — 29 pts, 9 REB, 1 AST; JJ — 19 pts, 8 REB, 2 AST; Jeromy Anderson — 6 pts, 9 REB",
+        "Red": "Jaren Jeffcoat — 33 pts, 16 REB, 1 AST; Suave A — 8 pts, 2 REB, 4 AST; Will Oboh — 8 pts, 3 AST"
+      }
+    },
+    {
+      "matchup": "Game 3: Purple vs. Black",
+      "text": "Kevin Garrison made it clear early that Black would have to find an answer for him or lose. Garrison was nearly automatic from every level, splashing threes and getting to the rim with equal ease, while Dylan Pratico and Brody Snow chipped in timely buckets to round out Purple's attack. Black hung around behind Kaleb Swetty's outside shooting and Tavarius Vance's work on the boards, but they couldn't slow Garrison down. Halftime: Purple 39, Black 32. Black tried to climb back into it, but Garrison was just getting started. Garrison kept the pressure on all the way to a 41-point effort. Purple's lead grew as Snow and Pratico buried open looks. Swetty and Vance both stayed aggressive for Black, and Liam Walsh provided a scoring lift, but the deficit had grown too large to overcome by the time Black found its rhythm. Purple advanced, 84-72.",
+      "performers": {
+        "Purple": "Kevin Garrison — 41 pts, 15 REB, 3 AST; Dylan Pratico — 16 pts, 1 REB, 1 AST; Brody Snow — 15 pts, 2 REB, 2 AST",
+        "Black": "Kaleb Swetty — 19 pts, 6 REB; Tavarius Vance — 16 pts, 9 REB, 1 AST; Liam Walsh — 15 pts, 5 REB"
+      }
+    },
+    {
+      "matchup": "Game 4: Green vs. Blue",
+      "text": "Blue looked in control from the opening tip, even if the scoreboard didn't show it yet. Jibril Abdullahi carried Green's offense, attacking relentlessly for a team-high scoring night, while Nick Lynn and Asko Mostarlic battled on the glass to keep possessions alive. Blue answered with Drew Pelkey's efficient scoring from all levels and Brody Lathrop heating up from three. Both sides stayed within a possession of each other through the opening half. Halftime: Blue 32, Green 31. Blue flipped a switch coming out of the break, and Green couldn't counter. Lathrop kept raining threes, finishing with seven makes from deep, and Pelkey stayed nearly unstoppable inside on his way to a game-high 26 points. Logan Letourneau chipped in all over the stat sheet, setting up teammates and crashing the glass, and Blue's defense clamped down on Abdullahi to force tough looks. Green's offense went cold at the worst possible time, and Blue pulled away for good. Blue rolled, 69-57.",
+      "performers": {
+        "Green": "Jibril Abdullahi — 21 pts, 8 REB, 3 AST; Asko Mostarlic — 11 pts, 8 REB, 2 AST; Nick Lynn — 9 pts, 10 REB, 3 AST",
+        "Blue": "Drew Pelkey — 26 pts, 9 REB, 2 AST; Brody Lathrop — 22 pts, 3 REB, 1 AST; Logan Letourneau — 5 pts, 8 REB, 4 AST"
+      }
+    }
+  ],
+  "results": [
+    "Gray defeated Orange, 82-78",
+    "Red defeated Pink, 63-62",
+    "Purple defeated Black, 84-72",
+    "Blue defeated Green, 69-57"
+  ],
+  "sponsors": [
+    {
+      "name": "Alta Group, The Windjammer Restaurant & Upper Deck Pub",
+      "message": "A big thank you to our sponsors for making this season possible: The Alta Group, The Windjammer Restaurant, and Upper Deck Pub. Your support keeps the lights on and the games going."
+    },
+    {
+      "name": "Warden's Wisdom",
+      "message": "This recap is brought to you by Warden's Wisdom, a mindfulness-based coaching business helping individuals relieve anxiety through personalized mindfulness practices.",
+      "quote": "An elimination game doesn't raise the stakes — it just reveals how you were already carrying them. Breathe like it's Week 1.",
+      "url": "",
+      "urlLabel": ""
+    }
+  ],
+  "closing": "Four teams are punching in for the semifinals. Don't miss the next round."
+}

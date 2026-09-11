@@ -1,0 +1,53 @@
+{
+  "week": "Semifinals & Championship",
+  "date": "",
+  "title": "REVOLUTION SUMMER LEAGUE PLAYOFFS | SEMIFINALS & CHAMPIONSHIP RECAP",
+  "content": "The Revolution Summer League crowned a champion, but not before the semifinals had their say. Blue shook off a scare from Gray to punch its ticket to the title game, while Purple watched a double-digit lead nearly evaporate before holding off a furious Red rally. Then, Blue turned the championship into a rout, blowing the game open in the second half to close out the season. Let's get into the action.",
+  "matchups": ["BLUE vs GRAY", "RED vs PURPLE", "PURPLE vs BLUE"],
+  "games": [
+    {
+      "matchup": "Semifinal 1: Blue vs. Gray",
+      "text": "Gray came out ready to make Blue sweat for every point. Matt Spear got to the rim early and often for Gray, and Tommy Brockmyre matched him basket for basket, working the mid-range game again, while Kerry Lyons controlled the glass to keep extra possessions coming. Blue answered with Drew Pelkey's scoring around the rim and beyond the arc. Logan Letourneau did a little bit of everything, and the two sides went blow for blow to a razor-thin margin at the break. Halftime: Blue 41, Gray 40. The second half stayed just as tight until Blue's stars pulled away late. Brockmyre and Spear kept Gray within striking distance all the way down the stretch, with Brockmyre finishing just two points shy of 30. But Pelkey stayed locked in, and Letourneau capped a near double-double with a strong all-around floor game, while Brody Lathrop chipped in timely buckets to help Blue survive the push and advance to the championship. Final: Blue 71, Gray 66.",
+      "performers": {
+        "Gray": "Tommy Brockmyre — 28 pts, 7 REB, 1 AST; Matt Spear — 26 pts, 13 REB, 4 AST; Kerry Lyons — 1 pt, 12 REB, 2 AST",
+        "Blue": "Drew Pelkey — 22 pts, 5 REB, 1 AST; Logan Letourneau — 22 pts, 9 REB, 5 AST; Brody Lathrop — 15 pts, 6 REB, 1 AST"
+      }
+    },
+    {
+      "matchup": "Semifinal 2: Red vs. Purple",
+      "text": "Kevin Garrison made sure Purple never trailed, but Red refused to make it easy. Garrison was everywhere for Purple, scoring, rebounding, and setting up teammates in equal measure, while Brody Snow crashed the offensive glass for extra chances. Red couldn't find its footing early, though Jaren Jeffcoat stayed active on the boards and Will Oboh knocked down open looks to keep the deficit manageable. Purple carried a comfortable cushion into the locker room. Halftime: Purple 29, Red 16. Red came out of the break swinging, and the lead started to shrink fast. Jeffcoat took over for Red, muscling his way to a near double-double, and Chris Cayole heated up from outside to chip away at the margin. Purple leaned on Garrison to answer every Red run, and Dylan Pratico's playmaking kept the offense from stalling. Red outscored Purple by eight in the second half, but the hole was too deep to escape. Final: Purple 56, Red 51.",
+      "performers": {
+        "Red": "Jaren Jeffcoat — 16 pts, 13 REB, 4 AST; Will Oboh — 12 pts, 7 REB, 2 AST; Chris Cayole — 11 pts, 7 REB",
+        "Purple": "Kevin Garrison — 28 pts, 17 REB, 6 AST; Brody Snow — 11 pts, 9 REB, 1 AST; Dylan Pratico — 8 pts, 2 REB, 4 AST"
+      }
+    },
+    {
+      "matchup": "Championship: Purple vs. Blue",
+      "text": "Kevin Garrison had one more magic trick left in the tank, and he needed every bit of it. Garrison fired away from deep, hoisting shot after shot to keep Purple's offense afloat almost by himself. Blue countered with Brody Lathrop catching fire from three and Drew Pelkey got in the lane, while Logan Letourneau stayed active on both ends. Blue edged ahead by six at the break despite Garrison's best efforts to keep pace. Halftime: Blue 34, Purple 28. Whatever hope Purple had of a title run evaporated after the break. Lathrop kept the threes falling, finishing with five makes from deep, and Pelkey and Letourneau both turned in double-doubles to power a suffocating second half. Garrison stayed aggressive for Purple, but the rest of the roster couldn't find enough offense to keep up, and Blue outscored Purple 46-29 after the break, turning a close game into a rout. Final: Blue 80, Purple 57.",
+      "performers": {
+        "Purple": "Kevin Garrison — 35 pts, 16 REB, 1 AST; Dylan Pratico — 10 pts, 2 REB, 1 AST; Casey — 4 pts, 7 REB",
+        "Blue": "Brody Lathrop — 24 pts, 4 REB, 4 AST; Logan Letourneau — 17 pts, 11 REB, 2 AST; Drew Pelkey — 16 pts, 10 REB, 2 AST"
+      }
+    }
+  ],
+  "results": [
+    "Blue def. Gray 71-66 (semifinal)",
+    "Purple def. Red 56-51 (semifinal)",
+    "Blue def. Purple 80-57 (championship)"
+  ],
+  "champion": "Blue",
+  "sponsors": [
+    {
+      "name": "Alta Group, The Windjammer Restaurant & Upper Deck Pub",
+      "message": "Thanks to our sponsors — the Alta Group, The Windjammer Restaurant, and Upper Deck Pub — for making the season possible."
+    },
+    {
+      "name": "Warden's Wisdom",
+      "message": "This recap is brought to you by Warden's Wisdom, a mindfulness-based coaching business helping individuals relieve anxiety through personalized mindfulness practices.",
+      "quote": "A championship doesn't mean the pressure disappeared — it means you got comfortable performing inside it. Carry that same calm into whatever comes next.",
+      "url": "",
+      "urlLabel": ""
+    }
+  ],
+  "closing": "That's a wrap on the 2026 season. Thanks for tuning in all year long, and see you this fall for fall league!"
+}
